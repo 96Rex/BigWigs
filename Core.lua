@@ -1530,11 +1530,7 @@ function BigWigs:BigWigs_RecvSync(sync, moduleName, nick)
 	end
 	if nick then
 		if type(nick) == "string" then
-			if nick == playername then
-				n = "you"
-			else
-				n = nick
-			end
+			n = nick
 		else
 			n = type(nick)
 		end
