@@ -60,7 +60,6 @@ function BigWigsLoD:OnEnable()
 		self:ZONE_CHANGED_NEW_AREA()
 	else
 		self:RegisterEvent("AceEvent_FullyInitialized", "ZONE_CHANGED_NEW_AREA")
-		self:RegisterEvent("AceEvent_FullyInitialized", "MINIMAP_ZONE_CHANGED")
 	end
 end
 
@@ -88,40 +87,6 @@ end
 
 function BigWigsLoD:ZONE_CHANGED_NEW_AREA()
 	self:LoadZone(GetRealZoneText())
-
-	if GetZoneText() == "The Black Morass" or GetZoneText() == "Dire Maul" or GetZoneText() == "Stratholme" then
-		BigWigs:ToggleActive(true)
-	end
-
-	if GetZoneText() == "Alterac Valley" and not BigWigs:IsModuleActive("Alterac Valley", "Alterac Valley") then
-		BigWigs:EnableModule("Alterac Valley", "Alterac Valley")
-		bwAvReboot = true
-	end
-
-	if GetZoneText() == "Alterac Valley" and BigWigs:IsModuleActive("Alterac Valley", "Alterac Valley") and bwAvReboot == true then
-		self:TriggerEvent("BigWigs_RebootModule", "Alterac Valley", "Alterac Valley")
-		bwAvReboot = nil
-	end
-
-	if GetZoneText() == "Arathi Basin" and not BigWigs:IsModuleActive("Arathi Basin", "Arathi Basin") then
-		BigWigs:EnableModule("Arathi Basin", "Arathi Basin")
-		bwAbReboot = true
-	end
-
-	if GetZoneText() == "Arathi Basin" and BigWigs:IsModuleActive("Arathi Basin", "Arathi Basin") and bwAbReboot == true then
-		self:TriggerEvent("BigWigs_RebootModule", "Arathi Basin", "Arathi Basin")
-		bwAbReboot = nil
-	end
-end
-
-function BigWigsLoD:MINIMAP_ZONE_CHANGED()
-	if GetZoneText() == "Alterac Valley" then
-		BigWigsLoD:ZONE_CHANGED_NEW_AREA()
-	end
-
-	if GetZoneText() == "Arathi Basin" then
-		BigWigsLoD:ZONE_CHANGED_NEW_AREA()
-	end
 end
 
 function BigWigsLoD:CHAT_MSG_SYSTEM(msg)

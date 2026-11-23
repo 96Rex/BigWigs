@@ -161,9 +161,6 @@ Plugins\ResistCheck.lua
 ## Raids\MC\Surger.lua
 ## Raids\MC\CoreHound.lua
 
-## Raids\DireMaul\CaptainKromcrush.lua
-## Raids\DireMaul\Gordok.lua
-
 ## Raids\Other\Azuregos.lua
 ## Raids\Other\Emeriss.lua
 ## Raids\Other\Lethon.lua
@@ -203,20 +200,6 @@ Raids\Onyxia\Axelus.lua
 ## Raids\Naxxramas\ConstructTrash.lua
 ## Raids\Naxxramas\DeathknightCavalier.lua
 
-## Raids\UBRS\Beast.lua
-## Raids\UBRS\Drakkisath.lua
-## Raids\UBRS\Emberseer.lua
-## Raids\UBRS\Rend.lua
-## Raids\UBRS\Solakar.lua
-
-## Raids\BlackMorass\Chronar.lua
-## Raids\BlackMorass\Epidamu.lua
-## Raids\BlackMorass\DriftingAvatarOfSand.lua
-## Raids\BlackMorass\TimeLordEpochronos.lua
-## Raids\BlackMorass\Mossheart.lua
-## Raids\BlackMorass\Antnormi.lua
-## Raids\BlackMorass\Rotmaw.lua
-
 ## Raids\EmeraldSanctum\Erennius.lua
 ## Raids\EmeraldSanctum\Solnius.lua
 ## Raids\EmeraldSanctum\SanctumDragonkin.lua
@@ -254,6 +237,3 @@ Raids\Onyxia\Axelus.lua
 ## Raids\KarazhanUpper\Kruul.lua
 ## Raids\KarazhanUpper\Mephistroth.lua
 ## Raids\KarazhanUpper\KaraTrash.lua
-
-## Battlegrounds\AlteracValley.lua
-## Battlegrounds\ArathiBasin.lua
