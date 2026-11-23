@@ -29,79 +29,32 @@ L:RegisterTranslations("enUS", function()
 		["%s reset."] = true,
 		["%s disabled."] = true,
 		["%s icon is now %s."] = true,
-		["Show it again with /bw plugin minimap."] = true,
+		["Show it again with /bw hide plugin minimap."] = true,
 		["You need to be an assistant or raid leader to use this function."] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
-	return {
-		["|cff00ff00Module running|r"] = "|cff00ff00Módulo activado|r",
-		["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "|cffeda55fHaz Clic|r para reiniciar todos los módulos activos. |cffeda55fCtrl+Clic|r para reiniciar para todos (Requiere asistente o líder). |cffeda55fAlt+Clic|r para desactivarlos. |cffeda55fCtrl+Alt+Clic|r para desactivar Big Wigs.",
-		["|cffeda55fClick|r to enable."] = "|cffeda55fHaz Clic|r para activar.",
-		["Big Wigs is currently disabled."] = "Big Wigs está desactivo",
-		["Active boss modules"] = "Módulos de Jefe Activos",
-		--["hidden"] = "oculto",
-		--["shown"] = "mostrado",
-		--["minimap"] = "minimapa",
-		["Minimap"] = "Minimapa",
-		["Toggle the minimap button."] = "Alterna el botón del minimapa",
-		["All running modules have been reset."] = "Todos los módulos activos fueron reiniciados",
-		["All running modules have been rebooted for all raid members."] = "Todos los módulos activos fueros reiniciados para todos los miembros de la banda",
-		["All running modules have been disabled."] = "Todos los módulos activos fueron desactivados",
-		["%s reset."] = "%s Reiniciado",
-		["%s disabled."] = "%s Desactivado",
-		["%s icon is now %s."] = "el icono %s ahora es %s.",
-		["Show it again with /bw plugin minimap."] = "Mostrar con /bw plugin minimap",
-		["You need to be an assistant or raid leader to use this function."] = "Tienes que ser asistente o líder para usar la función",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["|cff00ff00Module running|r"] = "|cff00ff00Modul aktiviert|r",
-		["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "|cffeda55fKlicken|r, um alle laufenden Module zurückzusetzen. |cffeda55fStrg+Klick|r um Reset für jedermann zu erzwingen (Benötigt Assistent oder höher). |cffeda55fAlt+Klick|r um alle laufenden Module zu beenden. |cffeda55fStrg+Shift+Klick|r um BigWigs komplett zu beenden.",
-		["|cffeda55fClick|r to enable."] = "|cffeda55fKlicken|r um zu aktivieren.",
-		["Big Wigs is currently disabled."] = "Big Wigs ist momentan deaktiviert.",
-		["Active boss modules"] = "Aktive Boss Module",
-		["hidden"] = "versteckt",
-		["shown"] = "angezeigt",
-		-- ["minimap"] = true,
-		["Minimap"] = "Minimap",
-		["Toggle the minimap button."] = "Minimap Button anzeigen.",
-		["All running modules have been reset."] = "Alle laufenden Module wurden zurückgesetzt.",
-		["All running modules have been rebooted for all raid members."] = "Alle laufenden Module wurden für alle Schlachtzugsmitglieder neu gestartet.",
-		["All running modules have been disabled."] = "Alle laufenden Module wurden beendet.",
-		["%s reset."] = "%s zurückgesetzt.",
-		["%s disabled."] = "%s beendet.",
-		["%s icon is now %s."] = "%s Icon ist jetzt %s.",
-		["You need to be an assistant or raid leader to use this function."] = "Du musst Schlachtzugsleiter oder Assistent sein, um diese Funktion zu benutzen.",
-	}
-end)
-
 L:RegisterTranslations("zhCN", function()
 	return {
 		["|cff00ff00Module running|r"] = "|cff00ff00模块运行中|r",
-		["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "|cffeda55f点击|r重置所有运行中的模块。|cffeda55fCtrl+点击|r为全团强制重启（需要助理或更高权限）。|cffeda55fAlt+点击|r禁用这些模块。|cffeda55fCtrl+Alt+点击|r完全禁用 Big Wigs。",
-		["|cffeda55fClick|r to enable."] = "|cffeda55f点击|r启用。",
-		["Big Wigs is currently disabled."] = "Big Wigs 当前已禁用。",
-		["Active boss modules"] = "当前启用的 Boss 模块",
+		["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "\n重置自身所有模块|cffeda55f(点击)|r\n重置团队所有模块|cffeda55f(Ctrl+点击)|r\n暂停BigWigs|cffeda55f(Alt+点击)|r\n禁用BigWigs|cffeda55f(Ctrl+Alt+点击)|r",
+		["|cffeda55fClick|r to enable."] = "启用BigWigs|cffeda55f(点击)|r",
+		["Big Wigs is currently disabled."] = "BigWigs目前已禁用",
+		["Active boss modules"] = "激活的BOSS模块",
 		["hidden"] = "隐藏",
 		["shown"] = "显示",
-		["minimap"] = "minimap",
-		["Minimap"] = "小地图按钮",
-		["Toggle the minimap button."] = "切换小地图按钮显示。",
-		["All running modules have been reset."] = "所有运行中的模块已重置。",
-		["All running modules have been rebooted for all raid members."] = "已为所有团队成员重启所有运行中的模块。",
-		["All running modules have been disabled."] = "所有运行中的模块已禁用。",
-		["%s reset."] = "%s 已重置。",
-		["%s disabled."] = "%s 已禁用。",
-		["%s icon is now %s."] = "%s 图标现在为 %s。",
-		["Show it again with /bw plugin minimap."] = "使用 `/bw plugin minimap` 再次显示。",
-		["You need to be an assistant or raid leader to use this function."] = "你需要是助理或团长才能使用此功能。",
+		["minimap"] = "显示小地图按钮",
+		["Minimap"] = "显示小地图按钮",
+		["Toggle the minimap button."] = "切换小地图按钮",
+		["All running modules have been reset."] = "所有模块已重置",
+		["All running modules have been rebooted for all raid members."] = "团队成员的所有模块已重置",
+		["All running modules have been disabled."] = "所有运行模块已被禁用",
+		["%s reset."] = "%s 重置",
+		["%s disabled."] = "%s 禁用",
+		["%s icon is now %s."] = "%s 图标现在是 %s",
+		["Show it again with /bw hide plugin minimap."] = "输入/bw hide再次显示小地图按钮",
+		["You need to be an assistant or raid leader to use this function."] = "使用此功能需要助理或更高权限",
 	}
 end)
-
 ----------------------------------
 --      Module Declaration      --
 ----------------------------------
@@ -121,7 +74,7 @@ deuce.consoleOptions = not deuce.hasFuBar and {
 			BigWigsOptions:Show()
 		else
 			BigWigsOptions:Hide()
-			BigWigs:Print(L["Show it again with /bw plugin minimap."])
+			BigWigs:Print(L["Show it again with /bw hide plugin minimap."])
 		end
 	end,
 	map = { [false] = L["hidden"], [true] = L["shown"] },

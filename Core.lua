@@ -25,15 +25,15 @@ L:RegisterTranslations("enUS", function()
 		["Target monitoring enabled"] = true,
 		["Target monitoring disabled"] = true,
 		["%s engaged!"] = true,
-		["%s has been defeated"] = true, -- "<boss> has been defeated"
-		["%s have been defeated"] = true, -- "<bosses> have been defeated"
+		["%s has been defeated"] = true,
+		["%s have been defeated"] = true,
 
 		-- AceConsole strings
-		["boss"] = true,
-		["Bosses"] = true,
+		["module"] = true,
+		["Modules"] = true,
 		["Options for boss modules."] = true,
-		["Options for bosses in %s."] = true, -- "Options for bosses in <zone>"
-		["Options for %s (r%s)."] = true, -- "Options for <boss> (<revision>)"
+		["Raid for %s."] = true,
+		["Version for (%s)."] = true,
 		["plugin"] = true,
 		["Plugins"] = true,
 		["Options for plugins."] = true,
@@ -68,21 +68,14 @@ L:RegisterTranslations("enUS", function()
 		["Blackwing Lair"] = "BWL",
 		["Ahn'Qiraj"] = "AQ40",
 		["Ruins of Ahn'Qiraj"] = "AQ20",
-		["Onyxia's Lair"] = "Onyxia",
-		["Naxxramas"] = "Naxxramas",
-		["Emerald Sanctum"] = "EmeraldSanctum",
-		["Tower of Karazhan"] = "Karazhan",
-		["Dire Maul"] = "DireMaul",
-		["Blackrock Spire"] = "BlackrockSpire",
-		["The Black Morass"] = "BlackMorass",
+		["Onyxia's Lair"] = "ONY",
+		["Naxxramas"] = "NAXX",
+		["Emerald Sanctum"] = "ES",
+		["Tower of Karazhan"] = "K40",
 		["Timbermaw Hold"] = "TMH",
 		["Silithus"] = true,
 		["Outdoor Raid Bosses"] = "Outdoor",
-		["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses", -- DO NOT EVER TRANSLATE untill I find a more elegant option
-
-		["Battlegrounds"] = true,
-		["Alterac Valley"] = true,
-		["Arathi Basin"] = true,
+		["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses",
 
 		--Name for exception bosses (neutrals that enable modules)
 		["Vaelastrasz the Corrupt"] = true,
@@ -91,198 +84,91 @@ L:RegisterTranslations("enUS", function()
 		["Lieutenant General Andorov"] = true,
 
 		["You have slain %s!"] = true,
+
+		["layout"] = true,
+		["Layout"] = true,
+		["Edit frame layout and alert sizes"] = true,
+		["preview"] = true,
+		["Preview"] = true,
+		["Start or stop a preview of BigWigs timer bars, messages, and warning icons."] = true,
+		["Close"] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
-	return {
-		["%s mod enabled"] = "Módulo de %s activado",
-		["Target monitoring enabled"] = "Monitorización del objetivo activado",
-		["Target monitoring disabled"] = "Monitorización del objetivo desactivado",
-		["%s engaged!"] = "¡Entrando en combate con %s!",
-		["%s has been defeated"] = "%s fue derrotado", -- "<boss> has been defeated"
-		["%s have been defeated"] = "%s fueron derrotados", -- "<bosses> have been defeated"
-
-		-- AceConsole strings
-		--["boss"] = "jefe",
-		["Bosses"] = "Jefes",
-		["Options for boss modules."] = "Opciones para módulos del jefe",
-		["Options for bosses in %s."] = "Opciones para jefes en %s", -- "Options for bosses in <zone>"
-		["Options for %s (r%s)."] = "Opciones para %s (r%s).", -- "Options for <boss> (<revision>)"
-		--["plugin"] = "plugin",
-		["Plugins"] = "Plugins",
-		["Options for plugins."] = "Opciones para plugins",
-		--["extra"] = "extra",
-		["Extras"] = "Extras",
-		["Options for extras."] = "Opciones para extras",
-		--["toggle"] = "alternar",
-		["Active"] = "Activo",
-		["Activate or deactivate this module."] = "Activa o desactiva este módulo",
-		--["reboot"] = "reiniciar",
-		--["rebootall"] = "reiniciartodos",
-		["Reboot"] = "Reiniciar",
-		["Reboot All"] = "Reiniciar Todos",
-		["Reboot this module."] = "Reinicia este módulo",
-		--["debug"] = "depurar",
-		["Debugging"] = "Depurando",
-		["Show debug messages."] = "Muestra mensajes de depura",
-		["Forces the module to reset for everyone in the raid.\n\n(Requires assistant or higher)"] = "Obliga al módulo que se reinicia para todos en la banda.\n\n(Requiere que seas asistente o líder)",
-		["%s has requested forced reboot for the %s module."] = "%s solicita un reinicio para el módulo %s",
-		--bosskill_cmd = "kill",
-		bosskill_name = "Muerte del Jefe",
-		bosskill_desc = "Anuncia cuando sea derrotado el jefe",
-
-		["Other"] = "Otro",
-		["Load"] = "Cargar",
-		["Load All"] = "Cargar todos",
-		["Load all %s modules."] = "Carga todos los módulos %s",
-
-		-- AceConsole zone commands
-		["Zul'Gurub"] = "ZG",
-		["Molten Core"] = "NM",
-		["Blackwing Lair"] = "GAN",
-		["Ahn'Qiraj"] = "AQ40",
-		["Ruins of Ahn'Qiraj"] = "AQ20",
-		["Onyxia's Lair"] = "Onyxia",
-		["Naxxramas"] = "Naxxramas",
-		["Emerald Sanctum"] = "EmeraldSanctum",
-		["Silithus"] = "Silithus",
-		["Outdoor Raid Bosses"] = "Afuera",
-		-- ["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses", -- DO NOT EVER TRANSLATE untill I find a more elegant option
-
-		--Name for exception bosses (neutrals that enable modules)
-		["Vaelastrasz the Corrupt"] = "Vaelastrasz el Corrupto",
-		["Lord Victor Nefarius"] = "Lord Victor Nefarius",
-
-		["You have slain %s!"] = "¡Has matado %s!",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["%s mod enabled"] = "%s Modul aktiviert",
-		["Target monitoring enabled"] = "Zielüberwachung aktiviert",
-		["Target monitoring disabled"] = "Zielüberwachung deaktiviert",
-		["%s engaged!"] = "%s angegriffen!",
-		["%s has been defeated"] = "%s wurde besiegt", -- "<boss> has been defeated"
-		["%s have been defeated"] = "%s wurden besiegt", -- "<bosses> have been defeated"
-
-		-- AceConsole strings
-		-- ["boss"] = true,
-		["Bosses"] = "Bosse",
-		["Options for boss modules."] = "Optionen für Boss Module.",
-		["Options for bosses in %s."] = "Optionen für Bosse in %s.", -- "Options for bosses in <zone>"
-		["Options for %s (r%s)."] = "Optionen für %s (r%s).", -- "Options for <boss> (<revision>)"
-		-- ["plugin"] = true,
-		["Plugins"] = "Plugins",
-		["Options for plugins."] = "Optionen für Plugins.",
-		-- ["extra"] = true,
-		["Extras"] = "Extras",
-		["Options for extras."] = "Optionen für Extras.",
-		-- ["toggle"] = true,
-		["Active"] = "Aktivieren",
-		["Activate or deactivate this module."] = "Aktiviert oder deaktiviert dieses Modul.",
-		-- ["reboot"] = true,
-		["Reboot"] = "Neustarten",
-		["Reboot All"] = "Alles Neustarten",
-		["Reboot this module."] = "Startet dieses Modul neu.",
-		-- ["debug"] = true,
-		["Debugging"] = "Debugging",
-		["Show debug messages."] = "Zeige Debug Nachrichten.",
-		["Forces the module to reset for everyone in the raid.\n\n(Requires assistant or higher)"] = "Erzwingt dass das Modul für jeden im Raid zurückgesetzt wird.\n\n(Benötigt Schlachtzugleiter oder Assistent)",
-		["%s has requested forced reboot for the %s module."] = "%s hat einen Zwangsneustart für das %s-Modul beantragt.",
-		-- bosskill_cmd = "kill",
-		bosskill_name = "Boss besiegt",
-		bosskill_desc = "Melde, wenn ein Boss besiegt wurde.",
-
-		-- AceConsole zone commands
-		["Zul'Gurub"] = "ZG",
-		["Molten Core"] = "MC",
-		["Blackwing Lair"] = "BWL",
-		["Ahn'Qiraj"] = "AQ40",
-		["Ruins of Ahn'Qiraj"] = "AQ20",
-		["Onyxia's Lair"] = "Onyxia",
-		["Naxxramas"] = "Naxxramas",
-		["Emerald Sanctum"] = "EmeraldSanctum",
-		-- ["Silithus"] = true,
-		["Outdoor Raid Bosses"] = "Outdoor",
-		-- ["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses", -- DO NOT EVER TRANSLATE untill I find a more elegant option
-
-		["You have slain %s!"] = "Ihr habt %s getötet!",
-	}
-end)
-
 L:RegisterTranslations("zhCN", function()
 	return {
-		["%s mod enabled"] = "%s 模块已启用",
-		["Target monitoring enabled"] = "目标监视已启用",
-		["Target monitoring disabled"] = "目标监视已禁用",
-		["%s engaged!"] = "%s 开战！",
+		["%s mod enabled"] = "%s 模块启用",
+		["Target monitoring enabled"] = "目标监测启用",
+		["Target monitoring disabled"] = "目标监测禁用",
+		["%s engaged!"] = "%s 触发战斗",
 		["%s has been defeated"] = "%s 已被击败",
 		["%s have been defeated"] = "%s 已被击败",
 
-		["boss"] = "boss",
-		["Bosses"] = "Boss 模块",
-		["Options for boss modules."] = "Boss 模块设置。",
-		["Options for bosses in %s."] = "%s 的 Boss 模块设置。",
-		["Options for %s (r%s)."] = "%s (r%s) 的设置。",
-		["plugin"] = "插件",
-		["Plugins"] = "插件模块",
-		["Options for plugins."] = "插件模块设置。",
-		["extra"] = "额外",
-		["Extras"] = "额外功能",
-		["Options for extras."] = "额外功能设置。",
-		["toggle"] = "切换",
-		["Active"] = "启用",
-		["Activate or deactivate this module."] = "启用或停用此模块。",
+		-- AceConsole strings
+		["module"] = "模块",
+		["Modules"] = "模块",
+		["Options for boss modules."] = "团本领主的功能选项",
+		["Raid for %s."] = "团本:(%s).",
+		["Version for (%s)."] = "版本:(%s).",
+		["plugin"] = "组件",
+		["Plugins"] = "组件",
+		["Options for plugins."] = "插件内置的功能选项",
+		["extra"] = "功能",
+		["Extras"] = "功能",
+		["Options for extras."] = "插件额外的功能选项",
+		["toggle"] = "启用/禁用",
+		["Active"] = "激活",
+		["Activate or deactivate this module."] = "激活/停用模块",
 		["reboot"] = "重启",
-		["rebootall"] = "重启全部",
+		["rebootall"] = "重启全部模块",
 		["Reboot"] = "重启",
-		["Reboot All"] = "重启全部",
-		["Reboot this module."] = "重启此模块。",
+		["Reboot All"] = "重启全部模块",
+		["Reboot this module."] = "重启模块",
 		["debug"] = "调试",
 		["Debugging"] = "调试",
-		["Show debug messages."] = "显示调试信息。",
-		["Forces the module to reset for everyone in the raid.\n\n(Requires assistant or higher)"] = "强制重置团队中所有人的模块。\n\n(需要助理或更高权限)",
-		["%s has requested forced reboot for the %s module."] = "%s 请求强制重启 %s 模块。",
+		["Show debug messages."] = "显示调试消息",
+		["Forces the module to reset for everyone in the raid.\n\n(Requires assistant or higher)"] = "强制对团队中所有人的模块进行重置\n\n(需要权限)",
+		["%s has requested forced reboot for the %s module."] = "%s 已请求强制重新启动 %s 模块",
 		bosskill_cmd = "kill",
-		bosskill_name = "Boss 死亡",
-		bosskill_desc = "当 Boss 被击败时通告",
+		bosskill_name = "BOSS死亡提醒",
+		bosskill_desc = "当BOSS被击败时进行通告",
 
 		["Other"] = "其他",
 		["Load"] = "加载",
-		["Load All"] = "加载全部",
-		["Load all %s modules."] = "加载所有 %s 模块。",
+		["Load All"] = "加载所有",
+		["Load all %s modules."] = "加载所有 %s 模块.",
 
-		["Zul'Gurub"] = "ZG",
-		["Molten Core"] = "MC",
-		["Blackwing Lair"] = "BWL",
-		["Ahn'Qiraj"] = "AQ40",
-		["Ruins of Ahn'Qiraj"] = "AQ20",
-		["Onyxia's Lair"] = "Onyxia",
-		["Naxxramas"] = "Naxxramas",
-		["Emerald Sanctum"] = "EmeraldSanctum",
-		["Tower of Karazhan"] = "Karazhan",
-		["Dire Maul"] = "DireMaul",
-		["Blackrock Spire"] = "BlackrockSpire",
-		["The Black Morass"] = "BlackMorass",
-		["Silithus"] = "Silithus",
-		["Outdoor Raid Bosses"] = "Outdoor",
-		["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses",
+		-- Ace控制台 区域命令行
+		["Zul'Gurub"] = "祖尔格拉布",
+		["Molten Core"] = "熔火之心",
+		["Blackwing Lair"] = "黑翼之巢",
+		["Ahn'Qiraj"] = "安其拉神殿",
+		["Ruins of Ahn'Qiraj"] = "安其拉废墟",
+		["Onyxia's Lair"] = "奥妮克希亚的巢穴",
+		["Naxxramas"] = "纳克萨玛斯",
+		["Emerald Sanctum"] = "翡翠圣殿",
+		["Tower of Karazhan"] = "卡拉赞之塔",
+		["Timbermaw Hold"] = "木喉要塞",
+		["Silithus"] = "希利苏斯",
+		["Outdoor Raid Bosses"] = "世界BOSS",
+		["Outdoor Raid Bosses Zone"] = "世界BOSS",
 
-		["Battlegrounds"] = "战场",
-		["Alterac Valley"] = "Alterac Valley",
-		["Arathi Basin"] = "Arathi Basin",
-
+		--特殊BOSS名称 (使中立单位也能激活模块)
 		["Vaelastrasz the Corrupt"] = "堕落的瓦拉斯塔兹",
 		["Lord Victor Nefarius"] = "维克多·奈法里奥斯领主",
 		["Solnius"] = "索尔纽斯",
 		["Lieutenant General Andorov"] = "安多洛夫中将",
 
-		["You have slain %s!"] = "你击杀了 %s！",
+		["You have slain %s!"] = "你已击败%s!",
+
+		["layout"] = "布局",
+		["Layout"] = "布局",
+		["Edit frame layout and alert sizes"] = "编辑计时条/消息/图标的显示位置",
+		["preview"] = "预览",
+		["Preview"] = "预览",
+		["Start or stop a preview of BigWigs timer bars, messages, and warning icons."] = "测试并预览计时条/消息/图标",
+		["Close"] = "关闭",
 	}
 end)
-
 
 ---------------------------------
 --      Addon Declaration      --
@@ -295,9 +181,9 @@ BigWigs.cmdtable = {
 	type = "group",
 	handler = BigWigs,
 	args = {
-		[L["boss"]] = {
+		[L["module"]] = {
 			type = "group",
-			name = L["Bosses"],
+			name = L["Modules"],
 			desc = L["Options for boss modules."],
 			order = 1,
 			args = {},
@@ -325,11 +211,11 @@ BigWigs.cmdtable = {
 				return not BigWigs:IsActive()
 			end,
 		},
-		["editlayout"] = {
+		[L["layout"]] = {
 			type = "execute",
-			name = "Edit Layout",
+			name = L["Layout"],
 			order = 4,
-			desc = "Edit frame layout and alert sizes",
+			desc = L["Edit frame layout and alert sizes"],
 			func = function()
 				BigWigs:EditLayout()
 			end,
@@ -337,36 +223,11 @@ BigWigs.cmdtable = {
 				return not BigWigs:IsActive()
 			end,
 		},
-		["priest"] = {
+		[L["preview"]] = {
 			type = "execute",
-			name = "Priest Healer Profile",
-			order = 5,
-			desc = "Optimize BigWigs for Priest Healers (compact bars, no screen flash, clutter disabled).",
-			func = function()
-				BigWigs:OptimizeHealerProfile()
-			end,
-		},
-		["test"] = {
-			type = "execute",
-			name = "Test / Preview",
+			name = L["Preview"],
 			order = 6,
-			desc = "Start or stop a test of BigWigs timer bars, messages, and warning icons.",
-			func = function()
-				if not BigWigs:IsModuleActive("Test") and BigWigs:HasModule("Test") then
-					BigWigs:ToggleModuleActive("Test", true)
-				end
-				if BigWigsTest and BigWigsTest.BigWigs_Test then
-					BigWigsTest:BigWigs_Test()
-				else
-					BigWigs:TriggerEvent("BigWigs_Test")
-				end
-			end,
-		},
-		["preview"] = {
-			type = "execute",
-			name = "Preview Bars & Layout",
-			order = 7,
-			desc = "Preview timer bars, messages, and layout.",
+			desc = L["Start or stop a preview of BigWigs timer bars, messages, and warning icons."],
 			func = function()
 				if not BigWigs:IsModuleActive("Test") and BigWigs:HasModule("Test") then
 					BigWigs:ToggleModuleActive("Test", true)
@@ -1322,7 +1183,7 @@ end
 function BigWigs:ShowFirstTimePopup()
 	StaticPopupDialogs["BigWigsFirstTimeDialog"] = {
 		text = "Pepo's Bigwigs is now enabled!  \n\n I recommend editing your alert positions and sizes to your liking by clicking 'Edit Layout'. If you don't want to do it now, you can always do it later right clicking the BigWigs minimap icon and choosing 'Edit Layout'.",
-		button1 = "Edit Layout",
+		button1 = "Layout",
 		button2 = "Close",
 		OnAccept = function()
 			StaticPopup_Hide("BigWigsFirstTimeDialog")
@@ -1437,7 +1298,7 @@ function BigWigs:RegisterModule(name, module)
 			cons = {
 				type = "group",
 				name = name,
-				desc = string.format(L["Options for %s (r%s)."], name, revision),
+				desc = string.format(L["Version for (%s)."], revision),
 				args = {
 					[L["toggle"]] = {
 						type = "toggle",
@@ -1551,18 +1412,18 @@ function BigWigs:RegisterModule(name, module)
 			elseif L:HasTranslation(zonename) then
 				zone = L[zonename]
 			end
-			if not self.cmdtable.args[L["boss"]].args[zone] then
-				self.cmdtable.args[L["boss"]].args[zone] = {
+			if not self.cmdtable.args[L["module"]].args[zone] then
+				self.cmdtable.args[L["module"]].args[zone] = {
 					type = "group",
 					name = zonename,
-					desc = string.format(L["Options for bosses in %s."], zonename),
+					desc = string.format(L["Raid for %s."], zonename),
 					args = {},
 				}
 			end
 			if module.external then
 				self.cmdtable.args[L["extra"]].args[L2["cmd"]] = cons or module.consoleOptions
 			else
-				self.cmdtable.args[L["boss"]].args[zone].args[L2["cmd"]] = cons or module.consoleOptions
+				self.cmdtable.args[L["module"]].args[zone].args[L2["cmd"]] = cons or module.consoleOptions
 			end
 		end
 	elseif module.consoleOptions then
@@ -1798,11 +1659,11 @@ function BigWigs:AddLoDMenu(zonename)
 			zone = L[zonename]
 		end
 
-		if not self.cmdtable.args[L["boss"]].args[zone] then
-			self.cmdtable.args[L["boss"]].args[zone] = {
+		if not self.cmdtable.args[L["module"]].args[zone] then
+			self.cmdtable.args[L["module"]].args[zone] = {
 				type = "group",
 				name = zonename,
-				desc = string.format(L["Options for bosses in %s."], zonename),
+				desc = string.format(L["Raid for %s."], zonename),
 				args = {}
 			}
 		end
