@@ -61,7 +61,8 @@ L:RegisterTranslations("enUS", function()
 		["Scale is set to %2$s"] = true,
 		["Up"] = true,
 		["Down"] = true,
-		["Test"] = "Start/Stop Test",
+		["Test"] = true,
+		["Edit"] = true,
 		["Close"] = true,
 		["Texture"] = true,
 		["Set the texture for the timerbars."] = true,
@@ -86,92 +87,51 @@ L:RegisterTranslations("enUS", function()
 		["dead"] = true,
 	}
 end)
-
-L:RegisterTranslations("deDE", function()
+L:RegisterTranslations("zhCN", function()
 	return {
-		["Bars"] = "Anzeigebalken",
-		["bars"] = "balken",
-		["Options for the timer bars."] = "Optionen für die Timer Anzeigebalken.",
-		["Show the bar anchor frame."] = "Verankerung der Anzeigebalken anzeigen.",
-		["Set the bar scale."] = "Skalierung der Anzeigebalken wählen.",
-		["Group upwards"] = "Nach oben fortsetzen",
-		["Toggle bars grow upwards/downwards from anchor."] = "Anzeigebalken von der Verankerung aus nach oben/unten fortsetzen.",
-		["Timer bars"] = "Timer Anzeigebalken",
-		["Show anchor"] = "Verankerung anzeigen",
-		["Grow bars upwards"] = "Anzeigebalken nach oben fortsetzen",
-		["Scale"] = "Skalierung",
-		["Bar scale"] = "Anzeigebalken Skalierung",
-		["Bars now grow %2$s"] = "Anzeigebalken werden nun fortgesetzt nach: %2$s",
-		["Scale is set to %2$s"] = "Skalierung jetzt: %2$s",
-		["Up"] = "oben",
-		["Down"] = "unten",
-		["Test"] = "Start/Stop Test",
-		["Close"] = "Schlie\195\159en",
-		["Texture"] = "Textur",
-		["Set the texture for the timerbars."] = "Textur der Anzeigebalken wählen.",
-		["Reset position"] = "Position zurücksetzen",
-		["Reset the anchor position, moving it to the center of your screen."] = "Die Verankerungsposition zurücksetzen (bewegt die Balken zur Mitte deines Interfaces).",
-		["Reverse"] = "Umkehren",
-		["Toggles if bars are reversed (fill up instead of emptying)."] = "Legt fest, ob sich die Anzeigebalken füllen oder leeren sollen.",
-		["Emphasize"] = "Hervorheben",
-		["Emphasize bars that are close to completion (<10sec). Also note that bars started at less than 15 seconds initially will be emphasized right away."] = "Anzeigebalken hervorheben die kurz vor Abschluss sind (<10sek). Anzeigebalken die mit einem Timer von weniger als 15 Sekunden starten werden von Beginn weg als hervorgehobene Balken dargestellt.",
-		["Enable"] = "Aktivieren",
-		["Enables emphasizing bars."] = "Aktiviert hervorgehobene Anzeigebalken.",
-		["Flash"] = "Blinken",
-		["Flashes the background red for bars that are emphasized."] = "Lässt den Hintergrund von hervorgehobenen Anzeigebalken rot blinken.",
-		["Move"] = "Bewegen",
-		["Move bars that are emphasized to a second anchor."] = "Hervorgehobene Anzeigebalken zu einem zweiten Ankerpunkt bewegen.",
-		["Set the scale for emphasized bars."] = "Die Skalierung für hervorgehobene Anzeigebalken festlegen.",
-		["Emphasize Bars"] = "Hervorgehobene Balken",
-		["HP"] = "HP",
-		["Mana"] = "Mana",
-		["dead"] = "tot",
+		["Bars"] = "计时条",
+		["bars"] = "计时条",
+		["Options for the timer bars."] = "计时条选项",
+		["Show the bar anchor frame."] = "显示计时条定位框架",
+		["Set the bar scale."] = "调整计时条缩放比例",
+		["Group upwards"] = "向上排序",
+		["Toggle bars grow upwards/downwards from anchor."] = "切换计时条从锚点框架向上/向下排列",
+		["Timer bars"] = "计时条",
+		["Show anchor"] = "显示计时条定位框体",
+		["Grow bars upwards"] = "切换排列方向",
+		["Scale"] = "显示比例",
+		["Bar scale"] = "计时条缩放",
+		["Bars now grow %2$s"] = "计时条设置为向%2$s排序",
+		["Scale is set to %2$s"] = "计时条设置比例为%2$s",
+		["Up"] = "向上",
+		["Down"] = "向下",
+		["Test"] = "测试",
+		["Edit"] = "编辑",
+		["Close"] = "关闭",
+		["Texture"] = "材质",
+		["Set the texture for the timerbars."] = "为计时条设置材质.",
+		["Reset position"] = "重置定位",
+		["Reset the anchor position, moving it to the center of your screen."] = "重置锚点定位，将其移动到屏幕中央.",
+		["Reverse"] = "反转进度显示",
+		["Toggles if bars are reversed (fill up instead of emptying)."] = "反转计时条显示方式(填充/衰减)",
+		["Emphasize"] = "高亮计时条",
+		["Emphasize bars that are close to completion (<10sec). Also note that bars started at less than 15 seconds initially will be emphasized right away."] = "高亮计时条(初始时间小于5秒的会直接显示在高亮计时).",
+		["Enable"] = "启用",
+		["Enables emphasizing bars."] = "启用高亮计时条.",
+		["Flash"] = "高亮闪光",
+		["Flashes the background red for bars that are emphasized."] = "对于高亮计时条,闪烁背景为红色.",
+		["Move"] = "独立定位",
+		["Move bars that are emphasized to a second anchor."] = "高亮计时条使用独立锚点定位.",
+		["Set the scale for emphasized bars."] = "设置高亮计时条比例.",
+		["Emphasize Bars"] = "高亮计时条",
+		["Enable IntervalBars"] = "启用",
+		["Keep timers visible untill the timed event happens"] = "保持计时器可见,直到计时事件发生.",
+		["HP"] = "生命",
+		["Mana"] = "法力",
+		["dead"] = "死亡",
 	}
 end)
 
-L:RegisterTranslations("esES", function()
-	return {
-		["Bars"] = "Barras",
-		["bars"] = "bars",
-		["Options for the timer bars."] = "Opciones para las barras temporizadoras",
-		["Show the bar anchor frame."] = "Muestra el marco de ancla de la barra",
-		["Set the bar scale."] = "Define la escala de la barra",
-		["Group upwards"] = "Grupo hacia arriba",
-		["Toggle bars grow upwards/downwards from anchor."] = "Alterna que las barras crecen hacia arriba/abajo de la ancla",
-		["Timer bars"] = "Barras Temporizadoras",
-		["Show anchor"] = "Mostrar Ancla",
-		["Grow bars upwards"] = "Crecer las barras hacia arriba",
-		["Scale"] = "Escala",
-		["Bar scale"] = "Escala de la barra",
-		["Bars now grow %2$s"] = "Barras crecen %2$s",
-		["Scale is set to %2$s"] = "Escala define a %2$s",
-		["Up"] = "Arriba",
-		["Down"] = "Abajo",
-		["Test"] = "Start/Stop Test",
-		["Close"] = "Cerrar",
-		["Texture"] = "Textura",
-		["Set the texture for the timerbars."] = "Define la textura para las barras temporizadoras",
-		["Reset position"] = "Restablecer posición",
-		["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla al centro de la pantalla",
-		["Reverse"] = "Revertir",
-		["Toggles if bars are reversed (fill up instead of emptying)."] = "Alterna si las barras están revertidas",
-		["Emphasize"] = "Alerta",
-		["Emphasize bars that are close to completion (<10sec). Also note that bars started at less than 15 seconds initially will be emphasized right away."] = "Barras de alerta que casi están completas (<10seg). También nota que las barras que empiezan a menos que 15 segundos estarán enfatizadas primera",
-		["Enable"] = "Activar",
-		["Enables emphasizing bars."] = "Activa las barras de alerta",
-		["Flash"] = "Brillo",
-		["Flashes the background red for bars that are emphasized."] = "Brilla al fondo el color rojo para las barras que están enfatizadas",
-		["Move"] = "Mover",
-		["Move bars that are emphasized to a second anchor."] = "Mueve las barras que están enfatizadas a la ancla segunda",
-		["Set the scale for emphasized bars."] = "Define la escala para las barras de alerta",
-		["Emphasize Bars"] = "Barras de Alerta",
-		["Enable IntervalBars"] = "Activar las Barras de Intervalo",
-		["Keep timers visible untill the timed event happens"] = "Se queda visibles los temporizadores hasta que un evento medido occura",
-		["HP"] = "HP",
-		["Mana"] = "Mana",
-		["dead"] = "muerto",
-	}
-end)
 ----------------------------------
 -- Module Declaration      --
 ----------------------------------
@@ -1283,7 +1243,7 @@ function BigWigsBars:SetupFrames(emphasize)
 	local cheader = frame:CreateFontString(nil, "OVERLAY")
 	cheader:SetFont(f, 14)
 	cheader:SetWidth(150)
-	cheader:SetText("Plugins -> Bars")
+	cheader:SetText(L["Bars"])
 	cheader:SetTextColor(1, .8, 0)
 	cheader:ClearAllPoints()
 	cheader:SetPoint("TOP", frame, "TOP", 0, -10)
@@ -1356,7 +1316,7 @@ function BigWigsBars:SetupFrames(emphasize)
 	middlebutton:SetHighlightTexture(t)
 	middlebuttontext = middlebutton:CreateFontString(nil, "OVERLAY")
 	middlebuttontext:SetFontObject(GameFontHighlight)
-	middlebuttontext:SetText("Edit")
+	middlebuttontext:SetText(L["Edit"])
 	middlebuttontext:SetAllPoints(middlebutton)
 	frame.middlebutton = middlebutton
 
@@ -1398,7 +1358,7 @@ function BigWigsBars:SetupFrames(emphasize)
 
 	if emphasize then
 		self.frames.emphasizeAnchor = frame
-		self.frames.emphasizeAnchor.cheader:SetText("Plugins -> Bars -> Emphasize")
+		self.frames.emphasizeAnchor.cheader:SetText(L["Emphasize Bars"])
 
 		local x = self.db.profile.emphasizePosX
 		local y = self.db.profile.emphasizePosY
