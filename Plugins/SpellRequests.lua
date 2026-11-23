@@ -1,6 +1,6 @@
 local name = "Spell Requests"
 local L = AceLibrary("AceLocale-2.2"):new("BigWigs" .. name)
-local BS = AceLibrary("Babble-Spell-2.3")
+local BS = AceLibrary("Babble-Spell-2.2")
 
 local hasSuperWow = nil;
 if CombatLogAdd then
