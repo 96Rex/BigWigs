@@ -1,12 +1,12 @@
-# BigWigs
-BigWigs is a World of Warcraft AddOn to predict certain AI behaviour to improve the players performance.<br>
-This Modification is built for Patch 1.12.1
+# BigWigs是什么
+BigWigs是魔兽世界的一款插件,用于预测某些AI行为以帮助提高玩家在团队副本中的表现.<br>
+注意:此修改可能只适用于水豚服(1.18.1)
 
-## How to install
-Either clone the repository to your WoW/Interface/Addons folder, or download manually via github (click on Clone or Download -> Download ZIP. Do not forget to rename the directory to "BigWigs" afterwards.
+## 如何安装
+克隆该项目到你的WoW/Interface/Addons文件夹中,或者通过github手动下载(点击clone或download -> download ZIP).记得保持项目文件夹名称为"BigWigs"否则客户端无法识别.
 
-## Contributing
-If you would like to contribute, just open a pull request.
+## 贡献
+目前项目处于fork初期阶段,暂时不接受代码贡献.
 
-## Language support
-Currently, only english clients are supported. In general, the Addon can work with other languages, but this support is only provided on a best-effort basis. It is much effort to support those languages. Feel free to contribute if you would like to have support for other languages.
+## 语言支持
+目前只支持英文客户端.中文客户端将在接下来的几周内完善兼容.
