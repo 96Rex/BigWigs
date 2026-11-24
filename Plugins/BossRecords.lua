@@ -38,16 +38,17 @@ L:RegisterTranslations("enUS", function()
 	}
 end)
 
-L:RegisterTranslations("esES", function()
+L:RegisterTranslations("zhCN", function()
 	return {
-		BossRecords = "Boss Records",
-		Enable = "Enable",
-		BOSS_ENGAGED = "Entrando en combate con %s. ¡Buena suerte!",
-		BOSS_DOWN = "¡%s matado después de %s!",
-		BOSS_DOWN_L = "¡%s matado después de %s! La última vez estuvo %s y tu muerte más rápida estuvo %s. Lo has matado %d veces.",
-		BOSS_DOWN_NR = "%s matado después de %s! Es un nuevo récord! (El récord pasado estuvo %s). Lo has matado %d veces.",
+		BossRecords = "击杀记录",
+		Enable = "启用",
+		BOSS_ENGAGED = "%s 触发战斗",
+		BOSS_DOWN = "%s 已被击杀 %s!",
+		BOSS_DOWN_L = "%s 已被击杀 %s! 最近一次击杀耗时 %s ,最快一次击杀耗时 %s. 共计击杀 %d 次.",
+		BOSS_DOWN_NR = "%s 已被击杀 %s! 产生新记录! (旧记录为 %s). 共计击杀 %d 次.",
 	}
 end)
+
 ----------------------------------
 --      Module Declaration      --
 ----------------------------------
