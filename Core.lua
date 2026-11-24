@@ -510,8 +510,6 @@ function BigWigs.modulePrototype:Disengage()
 
 		self:CancelAllScheduledEvents()
 
-		BigWigsAutoReply:EndBossfight()
-
 		self:RemoveIcon()
 		self:RemoveWarningSign("", true)
 		BigWigsBars:Disable(self)
