@@ -1,5 +1,5 @@
-
 local module, L = BigWigs:ModuleDeclaration("Brood Queen Araxxna", "Karazhan")
+local _,class = UnitClass("Player")
 
 module.revision = 30037
 module.enabletrigger = module.translatedName
@@ -23,9 +23,9 @@ L:RegisterTranslations("enUS", function() return {
 	egg_cmd = "egg",
 	egg_name = "Egg Spawn Alert",
 	egg_desc = "Warns for Egg Spawn",
-	
-	
-	
+
+	trigger_engage = "What goes there, new prey to be entangled?",--CHAT_MSG_MONSTER_YELL
+
 	trigger_volley = "Brood Queen Araxxna's Brood Venom Volley hits",--CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE
 	bar_volley = "Brood Venom Volley",
 	
@@ -37,44 +37,41 @@ L:RegisterTranslations("enUS", function() return {
 	trigger_eggSpawn = "My minions shall consume you!",--CHAT_MSG_MONSTER_YELL
 	bar_eggHatch = "Skitterweb Egg Hatch",
 	msg_eggSpawn = "2 Eggs Spawned!",
-	
-	trigger_engage = "What goes there, new prey to be entangled?",--CHAT_MSG_MONSTER_YELL
+
+	name_skitterwebegg = "Skitterweb Egg",
+	you = "you",
 } end )
-
-
 L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
 	cmd = "BroodQueenAraxxna",
 
-	volley_cmd = "volley",
-	volley_name = "巢毒齐射警报",
-	volley_desc = "巢毒齐射出现时进行警告",
+	volley_cmd = "巢毒齐射",
+	volley_name = "巢毒齐射",
+	volley_desc = "向敌人喷出毒液,造成300点自然伤害,然后每3秒额外造成150点伤害.持续12秒.",
 
-	leechingbite_cmd = "leechingbite",
-	leechingbite_name = "水蛭叮咬警报",
-	leechingbite_desc = "水蛭叮咬出现时进行警告",
+	leechingbite_cmd = "水蛭叮咬",
+	leechingbite_name = "水蛭叮咬",
+	leechingbite_desc = "对敌人造成125点自然伤害,并减少25%的治疗效果.持续10秒.",
 	
 	egg_cmd = "egg",
-	egg_name = "产卵警报",
-	egg_desc = "产卵时进行警告",
-	
-	
-	
-	trigger_volley = "Brood Queen Araxxna's Brood Venom Volley hits",--CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE
+	egg_name = "产卵",
+	egg_desc = "生成2个掠网蜘蛛卵,蜘蛛卵20秒后孵化,召唤掠网蜘蛛帮助作战.",
+
+	trigger_engage = "What goes there, new prey to be entangled?",--CHAT_MSG_MONSTER_YELL
+
+	trigger_volley = "巢穴女王阿拉克萨娜的巢毒齐射",--CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE // CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE
 	bar_volley = "巢毒齐射",
 	
-	trigger_leechingBiteYou = "You are afflicted by Leeching Bite.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-	trigger_leechingBiteOther = "(.+) is afflicted by Leeching Bite.",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
-	trigger_leechingBiteFade = "Leeching Bite fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-	bar_leechingBite = " 水蛭叮咬",
+	trigger_leechingBiteYou = "你受到了水蛭叮咬效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+	trigger_leechingBiteOther = "(.+)受到了水蛭叮咬效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
+	trigger_leechingBiteFade = "水蛭叮咬效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
+	bar_leechingBite = "(水蛭叮咬)",
 
 	trigger_eggSpawn = "My minions shall consume you!",--CHAT_MSG_MONSTER_YELL
-	bar_eggHatch = "掠网蛛卵孵化",
-	msg_eggSpawn = "2个卵即将孵化！",
-	
-	trigger_engage = "What goes there, new prey to be entangled?",--CHAT_MSG_MONSTER_YELL
-	you = "you",
+	bar_eggHatch = "蛛卵孵化",
+	msg_eggSpawn = "蛛卵卵即将孵化",
+
+	name_skitterwebegg = "掠网蜘蛛卵",
+	you = "你",
 } end )
 local timer = {
 	volley = 8,
@@ -155,7 +152,7 @@ function module:Event(msg)
 		
 	elseif string.find(msg, L["trigger_leechingBiteFade"]) then
 		local _,_, leechingBiteFadeTarget, _ = string.find(msg, L["trigger_leechingBiteFade"])
-		if leechingBiteFadeTarget == "you" then leechingBiteFadeTarget = UnitName("Player") end
+		if leechingBiteFadeTarget == L["you"] then leechingBiteFadeTarget = UnitName("Player") end
 		self:Sync(syncName.leechingBiteFade .. " " .. leechingBiteFadeTarget)
 		
 	end
@@ -178,7 +175,7 @@ end
 function module:Volley()
 	self:Bar(L["bar_volley"], timer.volley, icon.volley, true, color.volley)
 	
-	if UnitClass("Player") == "Shaman" then
+	if class == "SHAMAN" then
 		self:WarningSign(icon.volley, 0.7)
 	end
 end
@@ -194,12 +191,12 @@ end
 function module:EggSpawn()
 	bwPlayerIsAttacking = nil
 	if IsRaidLeader() or IsRaidOfficer() then
-		if UnitClass("Player") ~= "Rogue" and UnitClass("Player") ~= "Druid" then
+		if class ~= "ROGUE" and class ~= "DRUID" then
 			if PlayerFrame.inCombat then
 				bwPlayerIsAttacking = true
 			end
 			
-			TargetByName("Skitterweb Egg",true)
+			TargetByName(L["name_skitterwebegg"],true)
 			SetRaidTarget("target",8)
 			TargetLastTarget()
 			if bwPlayerIsAttacking then
@@ -211,3 +208,41 @@ function module:EggSpawn()
 	self:Bar(L["bar_eggHatch"], timer.eggHatch, icon.eggHatch, true, color.eggHatch)
 	self:Message(L["msg_eggSpawn"], "Urgent", false, nil, false)
 end
+
+function module:Test()
+	BigWigs:ToggleActive(true)
+	self:Engage()
+	local events = {
+		{ time = 1, func = function()
+			print("Test: 战斗开始")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL", "What goes there, new prey to be entangled?")
+		end },
+		{ time = 9, func = function()
+			print("Test: 巢毒齐射")
+			self:TriggerEvent("CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE", "巢穴女王阿拉克萨娜的巢毒齐射")
+		end },
+		{ time = 5, func = function()
+			print("Test: 水蛭叮咬")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了水蛭叮咬效果的影响")
+		end },
+		{ time = 10, func = function()
+			print("Test: 产卵")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL", "My minions shall consume you!")
+		end },
+		{ time = 15, func = function()
+			print("Test: 水蛭叮咬(消失)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_SELF", "水蛭叮咬效果从你身上消失")
+		end },
+		{ time = 30, func = function()
+			print("Test: 战斗结束")
+			module:Disengage()
+		end },
+	}
+	for i, event in ipairs(events) do
+		self:ScheduleEvent("RexTest" .. i, event.func, event.time)
+	end
+
+	self:Message(module.translatedName .. " 模拟测试开始", "Positive")
+end
+-- /run BigWigs:GetModule("Brood Queen Araxxna"):Test()
+-- /run BigWigs:GetModule("巢穴女王阿拉克萨娜"):Test()

@@ -1,5 +1,5 @@
-
 local module, L = BigWigs:ModuleDeclaration("Moroes", "Karazhan")
+local _,class = UnitClass("Player")
 
 module.revision = 30027
 module.enabletrigger = module.translatedName
@@ -31,9 +31,7 @@ L:RegisterTranslations("enUS", function() return {
 	dust_cmd = "dust",
 	dust_name = "Glittering Dust Alert",
 	dust_desc = "Warns for Glittering Dust",
-	
-	
-	
+
 	trigger_p1 = "New guests? It has been a while since we have had those. I assume your arrival has taken -some- effort even if you were uninvited!",--CHAT_MSG_MONSTER_YELL
 	bar_p1 = "Moroes Phase 1",
 	
@@ -66,69 +64,68 @@ L:RegisterTranslations("enUS", function() return {
 	bar_dust_cd = "Tank Stun (use fap soon)",
 	
 	trigger_yellSmt = "Most impressive, it would appear your skills do match your bravery.",-- CHAT_MSG_MONSTER_YELL
+    you = "you",
 } end )
 
 
 L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
     cmd = "Moroes",
 
-    smokebomb_cmd = "smokebomb",
-    smokebomb_name = "烟雾弹警报",
-    smokebomb_desc = "烟雾弹出现时进行警告",
+    smokebomb_cmd = "烟雾弹",
+    smokebomb_name = "烟雾弹",
+    smokebomb_desc = "沉默附近的敌人,防止他们施展法术,持续10秒.",
 
-    reflect_cmd = "reflect",
-    reflect_name = "法术反射警报",
-    reflect_desc = "法术反射出现时进行警告",
+    reflect_cmd = "反射",
+    reflect_name = "反射",
+    reflect_desc = "使施法者有100%的几率反射有害法术,持续5秒.",
     
-    shufflekick_cmd = "shufflekick",
-    shufflekick_name = "乱踢警报",
-    shufflekick_desc = "乱踢出现时进行警告",
+    shufflekick_cmd = "随机踢",
+    shufflekick_name = "随机踢",
+    shufflekick_desc = "踢一名敌人,造成伤害并将其击退,使其晕眩,持续4秒.",
     
-    curse_cmd = "curse",
-    curse_name = "诅咒警报",
-    curse_desc = "诅咒出现时进行警告",
+    curse_cmd = "莫罗斯诅咒",
+    curse_name = "莫罗斯诅咒",
+    curse_desc = "使附近敌人的施法速度降低60%,持续15秒.",
     
-    dust_cmd = "dust",
-    dust_name = "闪光尘警报",
-    dust_desc = "闪光尘出现时进行警告",
-    
-
+    dust_cmd = "闪光尘",
+    dust_name = "闪光尘",
+    dust_desc = "投掷烟雾弹,击晕附近的敌人,持续10秒.",
 
     trigger_p1 = "New guests? It has been a while since we have had those. I assume your arrival has taken -some- effort even if you were uninvited!",--CHAT_MSG_MONSTER_YELL
-    bar_p1 = "莫罗斯阶段1",
-    
+    bar_p1 = "阶段一",
+
     trigger_p1End = "Now now, why don't we save such pleasantries for a more, entertaining show. Meet me at the stage, and we shall truly decide the outcome of our engagement.",--CHAT_MSG_MONSTER_YELL
     trigger_p2 = "It is my duty to protect and watch over this tower, as approved by my master. I shall make sure to endulge in your little spectacle. Why don't we put on a show for those in attendance, hmm? Legalbrow, if you would please, play my theme.",--CHAT_MSG_MONSTER_YELL
-    bar_p2 = "莫罗斯阶段2",
+    bar_p2 = "阶段二",
+
+    trigger_smokeBombYou = "你受到了烟雾弹效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_smokeBombOther = "(.+)受到了烟雾弹效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
+    trigger_smokeBombFade = "烟雾弹效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
+    bar_smokeBomb = "烟雾弹",
+
+    trigger_reflect = "莫罗斯获得了反射的效果",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
+    trigger_reflectFade = "反射效果从莫罗斯身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_reflect = "法术反射",
+    msg_reflect = "法术反射",
+
+    trigger_shuffleKickYou = "你受到了随机踢效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_shuffleKick = "(.+)受到了随机踢效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
+    trigger_shuffleKickFade = "随机踢效果从(.+)身上消失了",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
+    bar_shuffleKick = "(随机踢)",
+
+    trigger_curse = "受到了莫罗斯诅咒效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
+    msg_curse = "莫罗斯的诅咒",
     
-    trigger_smokeBombYou = "You are afflicted by Smoke Bomb.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-    trigger_smokeBombOther = "(.+) is afflicted by Smoke Bomb.",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
-    trigger_smokeBombFade = "Smoke Bomb fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_smokeBomb = "玩家中了烟雾弹",
-    
-    trigger_reflect = "Moroes gains Reflection.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
-    trigger_reflectFade = "Reflection fades from Moroes.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_reflect = "法术反射！",
-    msg_reflect = "法术反射！",
-    
-    trigger_shuffleKickYou = "You are afflicted by Shuffle Kick.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-    trigger_shuffleKick = "(.+) is afflicted by Shuffle Kick.",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
-    trigger_shuffleKickFade = "Shuffle Kick fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_shuffleKick = " 被踢",
-    
-    trigger_curse = "afflicted by Moroes Curse.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-    msg_curse = "莫罗斯的诅咒，快驱散！",
-    
-    trigger_dustYou = "You are afflicted by Glittering Dust.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-    trigger_dust = "(.+) is afflicted by Glittering Dust.",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
-    trigger_dustFade = "Glittering Dust fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_dust = " 中了闪光尘",
+    trigger_dustYou = "你受到了闪光尘效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_dust = "(.+)受到了闪光尘效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
+    trigger_dustFade = "闪光尘效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
+    bar_dust = "闪光尘",
+	bar_dust_cd = "小心昏迷(自由药水)",
     
     trigger_yellSmt = "Most impressive, it would appear your skills do match your bravery.",-- CHAT_MSG_MONSTER_YELL
-    you = "you",
+    you = "你",
 } end )
+
 local timer = {
 	p1 = 7,
 	p2 = 12,
@@ -248,7 +245,7 @@ function module:Event(msg)
 		
 	elseif string.find(msg, L["trigger_shuffleKickFade"]) then
 		local _,_, shuffleKickFadePlayer, _ = string.find(msg, L["trigger_shuffleKickFade"])
-		if shuffleKickFadePlayer == "you" then shuffleKickFadePlayer = UnitName("Player") end
+		if shuffleKickFadePlayer == L["you"] then shuffleKickFadePlayer = UnitName("Player") end
 		self:Sync(syncName.shuffleKickFade .. " " .. shuffleKickFadePlayer)
 		
 		
@@ -265,7 +262,7 @@ function module:Event(msg)
 		
 	elseif string.find(msg, L["trigger_dustFade"]) then
 		local _,_, dustFadePlayer, _ = string.find(msg, L["trigger_dustFade"])
-		if dustFadePlayer == "you" then dustFadePlayer = UnitName("Player") end
+		if dustFadePlayer == L["you"] then dustFadePlayer = UnitName("Player") end
 		self:Sync(syncName.dustFade .. " " .. dustFadePlayer)
 		
 	end
@@ -316,9 +313,9 @@ end
 function module:SmokeBomb()
 	self:Bar(L["bar_smokeBomb"], timer.smokeBomb, icon.smokeBomb, true, color.smokeBomb)
 	
-	if UnitClass("Player") == "Priest" then
+	if class == "PRIEST" then
 		self:WarningSign(icon.smokeBomb, 0.7)
-	elseif UnitClass("Player") == "Paladin" then
+	elseif class == "PALADIN" then
 		self:WarningSign(icon.smokeBomb, 0.7)
 	end
 end
@@ -326,13 +323,13 @@ end
 function module:Reflect()
 	self:Bar(L["bar_reflect"], timer.reflect, icon.reflect, true, color.reflect)
 	
-	if UnitClass("Player") == "Mage" then
+	if class == "MAGE" then
 		self:WarningSign(icon.reflect, timer.reflect)
-	elseif UnitClass("Player") == "Warlock" then
+	elseif class == "WARLOCK" then
 		self:WarningSign(icon.reflect, timer.reflect)
 	end
 	
-	if (UnitClass("Player") ~= "Warrior") and (UnitClass("Player") ~= "Rogue") then
+	if (class ~= "WARRIOR") and (class ~= "ROGUE") then
 		self:Message(L["msg_reflect"], "Important", false, nil, false)
 		self:Sound("Long")
 	end
@@ -352,10 +349,10 @@ end
 
 function module:Curse()
 	self:Message(L["msg_curse"], "Urgent", false, nil, false)
-	
-	if UnitClass("Player") == "Mage" then
+
+	if class == "MAGE" then
 		self:WarningSign(icon.curse, 0.7)
-	elseif UnitClass("Player") == "Druid" then
+	elseif class == "DRUID" then
 		self:WarningSign(icon.curse, 0.7)
 	end
 end
@@ -367,3 +364,62 @@ end
 function module:DustFade(rest)
 	self:RemoveBar(rest..L["bar_dust"])
 end
+
+function module:Test()
+	BigWigs:ToggleActive(true)
+	self:Engage()
+	local events = {
+		{ time = 1, func = function()
+			print("Test: 战斗开始")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL", "So it was you I smelled! Such a foul taint.")
+		end },
+		--恐怖之力需要检测目标和目标的目标 需要手动去注释发送端
+		{ time = 2, func = function()
+			print("Test: 烟雾弹")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了烟雾弹效果的影响")
+		end },
+		{ time = 7, func = function()
+			print("Test: 烟雾弹(消失)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "烟雾弹效果从你身上消失")
+		end },
+		{ time = 3, func = function()
+			print("Test: 随机踢")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了随机踢效果的影响")
+		end },
+		{ time = 8, func = function()
+			print("Test: 随机踢(消失)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_SELF", "你受到了随机踢效果的影响")
+		end },
+		{ time = 9, func = function()
+			print("Test: 闪光尘")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了闪光尘效果的影响")
+		end },
+		{ time = 10, func = function()
+			print("Test: 闪光尘(消失)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "闪光尘效果从你身上消失")
+		end },
+		{ time = 5, func = function()
+			print("Test: 受到了莫罗斯诅咒效果的影响")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了莫罗斯诅咒效果的影响")
+		end },
+		{ time = 6, func = function()
+			print("Test: 反射")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS", "莫罗斯获得了反射的效果")
+		end },
+		{ time = 10, func = function()
+			print("Test: 反射(消失)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "反射效果从莫罗斯身上消失")
+		end },
+		{ time = 12, func = function()
+			print("Test: 战斗结束")
+			module:Disengage()
+		end },
+	}
+	for i, event in ipairs(events) do
+		self:ScheduleEvent("RexTest" .. i, event.func, event.time)
+	end
+
+	self:Message(module.translatedName .. " 模拟测试开始", "Positive")
+end
+-- /run BigWigs:GetModule("Moroes"):Test()
+-- /run BigWigs:GetModule("莫罗斯"):Test()

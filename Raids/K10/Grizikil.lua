@@ -1,4 +1,3 @@
-
 local module, L = BigWigs:ModuleDeclaration("Grizikil", "Karazhan")
 
 module.revision = 30024
@@ -11,7 +10,7 @@ module.zonename = {
 
 L:RegisterTranslations("enUS", function() return {
 	cmd = "Grizikil",
-	
+
 	rainoffire_cmd = "rainoffire",
 	rainoffire_name = "Rain of Fire Alert",
 	rainoffire_desc = "Warn for Rain of Fire",
@@ -19,54 +18,47 @@ L:RegisterTranslations("enUS", function() return {
 	flamewave_cmd = "flamewave",
 	flamewave_name = "Flamewave Alert",
 	flamewave_desc = "Warn for Flamewave",
-	
-	
-	
+
 	trigger_rainOfFireYou = "You suffer (.+) Fire damage from Grizikil's Grellkin Rain of Fire.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
 	msg_rainOfFireYou = "Get out of Rain of Fire!",
-	
+
 	trigger_flamewave = "Grizikil is afflicted by Flamewave.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE
 	trigger_flamewaveFade = "Flamewave fades from Grizikil.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
 	bar_flamewave = "Flamewave",
 	msg_flamewave = "Flamewave, melee run out!",
-	
+
 	trigger_yellSmt = "You-you-you no defeat me, I am strong!",--CHAT_MSG_MONSTER_YELL
-	
+
 	trigger_engage = "Whats this? You're here for the orb?! ITS MINE, Grellkin, get them!",--CHAT_MSG_MONSTER_YELL
-	
+
 	msg_pullAll = "Pull --ALL-- imp packs before engaging Grizikil!",
 } end )
-
-
 L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
-    cmd = "Grizikil",
+    cmd = "格里齐基尔",
 
-    rainoffire_cmd = "rainoffire",
-    rainoffire_name = "火焰之雨警报",
+    rainoffire_cmd = "火焰之雨",
+    rainoffire_name = "火焰之雨",
     rainoffire_desc = "火焰之雨出现时进行警告",
 
-    flamewave_cmd = "flamewave",
-    flamewave_name = "烈焰波警报",
+    flamewave_cmd = "烈焰波",
+    flamewave_name = "烈焰波",
     flamewave_desc = "烈焰波出现时进行警告",
-    
 
-    
-    trigger_rainOfFireYou = "You suffer (.+) Fire damage from Grizikil's Grellkin Rain of Fire.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_rainOfFireYou = "你受到(%d+)点火焰伤害（格里齐基尔的劣魔火雨）",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     msg_rainOfFireYou = "离开火焰之雨区域！",
-    
-    trigger_flamewave = "Grizikil is afflicted by Flamewave.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE
-    trigger_flamewaveFade = "Flamewave fades from Grizikil.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
+
+    trigger_flamewave = "格里齐基尔受到了烈焰波效果的影响",--CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE
+    trigger_flamewaveFade = "烈焰波效果从格里齐基尔身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER
     bar_flamewave = "烈焰波",
-    msg_flamewave = "烈焰波，近战快躲开！",
-    
+    msg_flamewave = "近战远离",
+
     trigger_yellSmt = "You-you-you no defeat me, I am strong!",--CHAT_MSG_MONSTER_YELL
-    
+
     trigger_engage = "Whats this? You're here for the orb?! ITS MINE, Grellkin, get them!",--CHAT_MSG_MONSTER_YELL
-    
-    msg_pullAll = "在与格里兹基尔交战前，拉清--所有--小鬼群！",
+
+    msg_pullAll = "与格里兹基尔战斗前需要消灭所有小鬼",
 } end )
+
 local timer = {
 	flamewave = 9,
 }
@@ -81,8 +73,6 @@ local syncName = {
 	flamewave = "GrizikilFlamewave"..module.revision,
 	flamewaveFade = "GrizikilFlamewaveFade"..module.revision,
 }
-
---module:RegisterYellEngage(L["trigger_engage"])
 
 function module:OnEnable()
 	self:Message(L["msg_pullAll"], "Urgent", false, nil, false)
@@ -129,7 +119,6 @@ function module:Event(msg)
 	end
 end
 
-
 function module:BigWigs_RecvSync(sync, rest, nick)
 	if sync == syncName.flamewave and self.db.profile.flamewave then
 		self:Flamewave()
@@ -148,3 +137,37 @@ end
 function module:FlamewaveFade()
 	self:RemoveBar(L["bar_flamewave"])
 end
+
+function module:Test()
+	BigWigs:ToggleActive(true)
+	self:Engage()
+	local events = {
+		{ time = 1, func = function()
+			print("Test: 战斗开始")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL", "Whats this? You're here for the orb?! ITS MINE, Grellkin, get them!")
+		end },
+		{ time = 1, func = function()
+			print("Test: 火焰之雨")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到500点火焰伤害（格里齐基尔的劣魔火雨）")
+		end },
+		{ time = 5, func = function()
+			print("Test: 烈焰波")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE", "格里齐基尔受到了烈焰波效果的影响")
+		end },
+		{ time = 8, func = function()
+			print("Test: 烈焰波(结束)")
+			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "烈焰波效果从格里齐基尔身上消失")
+		end },
+		{ time = 10, func = function()
+			print("Test: 战斗结束")
+			module:Disengage()
+		end },
+	}
+	for i, event in ipairs(events) do
+		self:ScheduleEvent("RexTest" .. i, event.func, event.time)
+	end
+
+	self:Message(module.translatedName .. " 模拟测试开始", "Positive")
+end
+-- /run BigWigs:GetModule("Grizikil"):Test()
+-- /run BigWigs:GetModule("格里齐基尔"):Test()
