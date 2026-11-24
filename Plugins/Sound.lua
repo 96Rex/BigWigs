@@ -9,24 +9,24 @@ local L = AceLibrary("AceLocale-2.2"):new("BigWigsSound")
 
 local sounds = {
 	Long = "Interface\\AddOns\\BigWigs\\Sounds\\Long.mp3",
-	Info = "Interface\\AddOns\\BigWigs\\Sounds\\Info.ogg",
+	Info = "Interface\\AddOns\\BigWigs\\Sounds\\Info.mp3",
 	Alert = "Interface\\AddOns\\BigWigs\\Sounds\\Alert.mp3",
 	Alarm = "Interface\\AddOns\\BigWigs\\Sounds\\Alarm.mp3",
 	Victory = "Interface\\AddOns\\BigWigs\\Sounds\\Victory.mp3",
 
-	Beware = "Interface\\AddOns\\BigWigs\\Sounds\\Beware.wav",
-	RunAway = "Interface\\AddOns\\BigWigs\\Sounds\\RunAway.wav",
+	Beware = "Interface\\AddOns\\BigWigs\\Sounds\\Beware.mp3",
+	RunAway = "Interface\\AddOns\\BigWigs\\Sounds\\RunAway.mp3",
 
-	One = "Interface\\AddOns\\BigWigs\\Sounds\\1.ogg",
-	Two = "Interface\\AddOns\\BigWigs\\Sounds\\2.ogg",
-	Three = "Interface\\AddOns\\BigWigs\\Sounds\\3.ogg",
-	Four = "Interface\\AddOns\\BigWigs\\Sounds\\4.ogg",
-	Five = "Interface\\AddOns\\BigWigs\\Sounds\\5.ogg",
-	Six = "Interface\\AddOns\\BigWigs\\Sounds\\6.ogg",
-	Seven = "Interface\\AddOns\\BigWigs\\Sounds\\7.ogg",
-	Eight = "Interface\\AddOns\\BigWigs\\Sounds\\8.ogg",
-	Nine = "Interface\\AddOns\\BigWigs\\Sounds\\9.ogg",
-	Ten = "Interface\\AddOns\\BigWigs\\Sounds\\10.ogg",
+	One = "Interface\\AddOns\\BigWigs\\Sounds\\1.mp3",
+	Two = "Interface\\AddOns\\BigWigs\\Sounds\\2.mp3",
+	Three = "Interface\\AddOns\\BigWigs\\Sounds\\3.mp3",
+	Four = "Interface\\AddOns\\BigWigs\\Sounds\\4.mp3",
+	Five = "Interface\\AddOns\\BigWigs\\Sounds\\5.mp3",
+	Six = "Interface\\AddOns\\BigWigs\\Sounds\\6.mp3",
+	Seven = "Interface\\AddOns\\BigWigs\\Sounds\\7.mp3",
+	Eight = "Interface\\AddOns\\BigWigs\\Sounds\\8.mp3",
+	Nine = "Interface\\AddOns\\BigWigs\\Sounds\\9.mp3",
+	Ten = "Interface\\AddOns\\BigWigs\\Sounds\\10.mp3",
 
 	Murloc = "Sound\\Creature\\Murloc\\mMurlocAggroOld.wav",
 	Pain = "Sound\\Creature\\Thaddius\\THAD_NAXX_ELECT.wav",
@@ -67,16 +67,10 @@ local sounds = {
 	DispelPoison = "Interface\\AddOns\\BigWigs\\Sounds\\DispelPoison.mp3",
 
 	GoBow = "Interface\\AddOns\\BigWigs\\Sounds\\GoBow.mp3",
+	Hide = "Interface\\AddOns\\BigWigs\\Sounds\\hide.mp3",
 
 	Dance = "Interface\\AddOns\\BigWigs\\Sounds\\Dance.mp3",
 	FunDance = "Interface\\AddOns\\BigWigs\\Sounds\\FunDance.mp3",
-
-	Scorch = "Interface\\AddOns\\BigWigs\\Sounds\\Scorch.mp3",
-	ScorchResist = "Interface\\AddOns\\BigWigs\\Sounds\\ScorchResist.mp3",
-	stopcasting = "Interface\\AddOns\\BigWigs\\Sounds\\stopcasting.mp3",
-	IgniteDanger = "Interface\\AddOns\\BigWigs\\Sounds\\IgniteDanger.mp3",
-	Pyro = "Interface\\AddOns\\BigWigs\\Sounds\\Pyro.mp3",
-	DropIgnite = "Interface\\AddOns\\BigWigs\\Sounds\\DropIgnite.mp3",
 }
 
 
@@ -99,55 +93,18 @@ L:RegisterTranslations("enUS", function()
 	}
 end)
 
-L:RegisterTranslations("esES", function()
-	return {
-		["Sounds"] = "Sonidos",
-		--["sounds"] = true,
-		["Options for sounds."] = "Opciones para sonidos",
-
-		--["toggle"] = "Alternar",
-		["Use sounds"] = "Usar sonidos",
-		["Toggle sounds on or off."] = "Alterna los sonidos activos o desactivos",
-		--["default"] = "defecto",
-		["Default only"] = "Solamente defecto",
-		["Use only the default sound."] = "Solamente usa el sonido por defecto",
-	}
-end)
-
-L:RegisterTranslations("koKR", function()
-	return {
-		["Sounds"] = "효과음",
-		["Options for sounds."] = "효과음 옵션.",
-
-		["Use sounds"] = "효과음 사용",
-		["Toggle sounds on or off."] = "효과음을 켜거나 끔.",
-		["Default only"] = "기본음",
-		["Use only the default sound."] = "기본음만 사용.",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["Sounds"] = "Sound",
-		["Options for sounds."] = "Optionen f\195\188r Sound.",
-		["Use sounds"] = "Sound nutzen",
-		["Toggle sounds on or off."] = "Sound aktivieren/deaktivieren.",
-		["Default only"] = "Nur Standard",
-		["Use only the default sound."] = "Nur Standard Sound.",
-	}
-end)
-
 L:RegisterTranslations("zhCN", function()
 	return {
 		["Sounds"] = "声音",
 		["sounds"] = "声音",
-		["Options for sounds."] = "声音相关设置。",
-		["toggle"] = "切换",
-		["Use sounds"] = "启用声音",
-		["Toggle sounds on or off."] = "打开或关闭声音提醒。",
+		["Options for sounds."] = "声音设置.",
+
+		["toggle"] = "开启/关闭",
+		["Use sounds"] = "使用声音",
+		["Toggle sounds on or off."] = "切换声音开和关.",
 		["default"] = "默认",
-		["Default only"] = "仅默认音效",
-		["Use only the default sound."] = "仅使用默认报警音。",
+		["Default only"] = "默认",
+		["Use only the default sound."] = "只使用系统声音.",
 	}
 end)
 

@@ -65,23 +65,17 @@ Plugins\BossBlock.lua
 Plugins\RaidIcon.lua
 Plugins\Range.lua
 Plugins\CommonAuras.lua
-Plugins\Version.lua
 Plugins\Test.lua
-Plugins\Threat.lua
 Plugins\CustomBar.lua
 Plugins\Tranq.lua
-Plugins\ZombieFood.lua
 Plugins\RespawnTimers.lua
 Plugins\WarningSign.lua
 Plugins\BossRecords.lua
 Plugins\RaidOfficer.lua
-
 Plugins\Proximity.lua
-
 Plugins\FrostBlast.lua
 Plugins\Pulltimer.lua
 Plugins\CombatAnnouncement.lua
-Plugins\SpellRequests.lua
 Plugins\ResistCheck.lua
 
 ## Raids\ZG\Arlokk.lua

@@ -105,58 +105,32 @@ L:RegisterTranslations("enUS", function()
 		["Reset the anchor position, moving it to the center of your screen."] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
+L:RegisterTranslations("zhCN", function()
 	return {
-		["Proximity"] = "Proximidad",
-		["Close Players"] = "Jugadores cerca",
-		["Options for the Proximity Display."] = "Opciones para la Muestra de Proximidad",
-		["|cff777777Nobody|r"] = "|cff777777Nadie|r",
-		["Lock frame"] = "Bloquear marco",
-		["Lock the proximity frame."] = "Bloquea el marco de proximidad",
-		["Sound"] = "Sonido",
-		["Play sound on proximity."] = "Reproduce sonido en proximidad",
-		["Disabled"] = "Desactivado",
-		["Disable the proximity display for all modules that use it."] = "Desactiva la muestra de proximidad para todos los módulos que lo usan",
-		["The proximity display has been disabled for %s, please use the boss modules options to enable it again."] = "La muestra de proximidad se ha desactivado para %s, por favor usa las opciones de módulos de jefes para activarlo de nuevo",
+		["Proximity"] = "附近玩家",
+		["Close Players"] = "附近玩家",
+		["Options for the Proximity Display."] = "显示附近玩家显示",
+		["|cff777777Nobody|r"] = "|cff777777附近无人|r",
+		["Lock frame"] = "锁定框架",
+		["Lock the proximity frame."] = "锁定附近玩家框架",
+		["Sound"] = "声音",
+		["Play sound on proximity."] = "接近时播放声音",
+		["Disabled"] = "禁用",
+		["Disable the proximity display for all modules that use it."] = "禁用使用它的所有模块的接近显示。",
+		["The proximity display has been disabled for %s, please use the boss modules options to enable it again."] = "近距离显示已停用 %s，请使用BOSS模块选项再次启用.",
 
-		["Has Debuff"] = "Tiene Debuff",
+		["Has Debuff"] = "有Debuff",
 
-		proximity = "Proximity display",
-		proximity_desc = "Muestra la ventana de proximidad cuando sea apropriado para la pelea y enumera los jugadores que están demasiado cerano a ti.",
+		proximity = "附近的显示",
+		proximity_desc = "显示附近窗口时，列出玩家谁站得离你太近.",
 
-		font = "Fonts\\FRIZQT__.TTF",
+			font = "Fonts\\FRIZQT__.TTF",
 
-		["Test"] = "Probar",
-		["Perform a Proximity test."] = "Haz una prueba de Proximidad",
+		["Test"] = "测试",
+		["Perform a Proximity test."] = "进行附近测试.",
 
-		["Reset position"] = "Restablecer posición",
-		["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla y muévela al centro de la pantalla",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["Proximity"] = "Nähe",
-		["Close Players"] = "Zu nahe Spieler",
-		["Options for the Proximity Display."] = "Optionen für die Nähe Anzeige.",
-		["|cff777777Nobody|r"] = "|cff777777Niemand|r",
-		["Sound"] = "Sound",
-		["Play sound on proximity."] = "Spielt einen Sound bei Nähe ab.",
-		["Disabled"] = "Deaktivieren",
-		["Disable the proximity display for all modules that use it."] = "Deaktiviert die Nähe Anzeige für alle Module die sie benutzen.",
-		["The proximity display has been disabled for %s, please use the boss modules options to enable it again."] = "Die Nähe Anzeige wurde deaktiviert für %s, bitte benutze die Boss Modul Optionen um sie wieder zu aktivieren.",
-
-		proximity = "Nähe Anzeige",
-		proximity_desc = "Zeigt das Nähe Fenster wenn benötigt passsend zu diesem Encounter an, auflistend die Spieler die dir zu Nahe stehn.",
-
-		font = "Fonts\\FRIZQT__.TTF",
-
-		["Test"] = "Test",
-		["Perform a Proximity test."] = "Führe einen Nähe Test durch.",
-
-		["Reset position"] = "Position zurücksetzen",
-		["Reset the anchor position, moving it to the center of your screen."] = "Die Verankerungsposition zurücksetzen (bewegt das Fenster zur Ursprungsposition).",
+		["Reset position"] = "重置位置",
+		["Reset the anchor position, moving it to the center of your screen."] = "重置显示位置,将其移动到屏幕中央.",
 	}
 end)
 

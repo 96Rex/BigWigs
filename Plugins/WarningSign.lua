@@ -36,7 +36,8 @@ L:RegisterTranslations("enUS", function()
 		["Show the anchor frame."] = true,
 		["Reset"] = true,
 		["Reset the frame."] = true,
-		["Test"] = "Start/Stop Test",
+		["Test"] = true,
+		["Edit"] = true,
 		["Close"] = true,
 
 		["Disabled"] = true,
@@ -47,46 +48,25 @@ L:RegisterTranslations("enUS", function()
 		["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
+L:RegisterTranslations("zhCN", function()
 	return {
-		--["WarningSign"] = true, -- console cmd
-		["Warning Sign"] = "Señal de Advertencia", -- module name
-		["Options for the Warning Sign."] = "Opciones para el Señal de Advertencia",
-		["Show anchor"] = "Mostrar ancla",
-		["Show the anchor frame."] = "Muestra el marco de la ancla",
-		["Reset"] = "Restablecer",
-		["Reset the frame."] = "Restablece el marco",
-		["Test"] = "Probar",
-		["Close"] = "Cerrar",
+		["WarningSign"] = "图标", -- console cmd
+		["Warning Sign"] = "图标", -- module name
+		["Options for the Warning Sign."] = "警告图标的选项.", 
+		["Show anchor"] = "显示锚点",
+		["Show the anchor frame."] = "显示锚点框架.",
+		["Reset"] = "重置",
+		["Reset the frame."] = "重置框架位置.",
+		["Test"] = "测试",
+		["Edit"] = "编辑",
+		["Close"] = "关闭",
 
-		["Disabled"] = "Desactivado",
-		["Disable the warning signs for all modules that use it."] = "Desactiva los señales de advertencia para todos los módulos que lo usan",
-		["Scale"] = "Escala",
-		["Set the warning sign scale."] = "Define la escala del señal de advertencia",
-		["Transparency"] = "Transparencia",
-		["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = "Define el valor alfa del señal de advertencia (0.1 a 1.0: transparente a opaco",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["WarningSign"] = "warnzeichen", -- console cmd
-		["Warning Sign"] = "Warnzeichen", -- module name
-		["Options for the Warning Sign."] = "Optionen für das Warnzeichen.",
-		["Show anchor"] = "Verankerung anzeigen",
-		["Show the anchor frame."] = "Zeige das Verankerungsfenster des Warnzeichens um dessen Position zu verändern.",
-		["Reset"] = "Zurücksetzen",
-		["Reset the frame."] = "Die Einstellungen des Warnzeichens zurücksetzen.",
-		["Test"] = "Test",
-		["Close"] = "Schlie\195\159en",
-
-		["Disabled"] = "Deaktivieren",
-		["Disable the warning signs for all modules that use it."] = "Deaktiviert die Anzeige der Warnzeichen für alle Module die sie benutzen.",
-		["Scale"] = "Skalierung",
-		["Set the warning sign scale."] = "Skalierung des Warnzeichen",
-		["Transparency"] = "Transparenz",
-		["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = "Den Alphawert des Warnzeichen definieren (0.1 bis 1.0: transparent bis deckend).",
+		["Disabled"] = "禁用",
+		["Disable the warning signs for all modules that use it."] = "禁用使用它的所有模块的警告图标.",
+		["Scale"] = "大小",
+		["Set the warning sign scale."] = "设置警告图标大小.",
+		["Transparency"] = "透明度",
+		["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = "设置警告图标透明度.",
 	}
 end)
 
@@ -343,7 +323,7 @@ function BigWigsWarningSign:CreateAnchor()
 	self.frames.cheader = self.frames.anchor:CreateFontString(nil, "OVERLAY")
 	self.frames.cheader:SetFont(f, 14)
 	self.frames.cheader:SetWidth(150)
-	self.frames.cheader:SetText("Plugins -> Warning Sign")
+	self.frames.cheader:SetText(L["Warning Sign"])
 	self.frames.cheader:SetTextColor(1, .8, 0)
 	self.frames.cheader:ClearAllPoints()
 	self.frames.cheader:SetPoint("TOP", self.frames.anchor, "TOP", 0, -10)
@@ -413,7 +393,7 @@ function BigWigsWarningSign:CreateAnchor()
 	self.frames.middlebutton:SetHighlightTexture(t)
 	self.frames.middlebuttontext = self.frames.middlebutton:CreateFontString(nil, "OVERLAY")
 	self.frames.middlebuttontext:SetFontObject(GameFontHighlight)
-	self.frames.middlebuttontext:SetText("Edit")
+	self.frames.middlebuttontext:SetText(L["Edit"])
 	self.frames.middlebuttontext:SetAllPoints(self.frames.middlebutton)
 
 	self.frames.rightbutton = CreateFrame("Button", nil, self.frames.anchor)

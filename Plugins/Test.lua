@@ -30,50 +30,26 @@ L:RegisterTranslations("enUS", function()
 		["Testing Sync"] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
+L:RegisterTranslations("zhCN", function()
 	return {
-		--["test"] = true,
-		["Test"] = "Probar",
-		["Test Bar"] = "Barra de Prueba",
-		["Test Bar 2"] = "Barra de Prueba 2",
-		["Test Bar 3"] = "Barra de Prueba 3",
-		["Test Bar 4"] = "Barra de Prueba 4",
-		["Testing"] = "Probando",
-		["OMG Bear!"] = "¡Dios mío OSO!",
-		["*RAWR*"] = "*RAWR*",
-		["Victory!"] = "¡Victoria!",
-		["Options for testing."] = "Opciones para probar",
-		["local"] = "local",
-		["Local test"] = "Prueba local",
-		["Perform a local test of BigWigs."] = "Hace una prueba local de BigWigs",
-		["sync"] = "sincronización",
-		["Sync test"] = "Prueba de sincronización",
-		["Perform a sync test of BigWigs."] = "Hace una prueba de sincronización de BigWigs",
-		["Testing Sync"] = "Probando la sincronización",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		-- ["test"] = true,
-		--["Test"] = "Test",
-		["Test Bar"] = "Test Balken",
-		["Test Bar 2"] = "Test Balken 2",
-		["Test Bar 3"] = "Test Balken 3",
-		["Test Bar 4"] = "Test Balken 4",
-		["Testing"] = "Teste",
-		["OMG Bear!"] = "OMG Bär!",
-		["*RAWR*"] = "RAWR",
-		["Victory!"] = "Sieg!",
-		["Options for testing."] = "Optionen für den Test von BigWigs.",
-		["local"] = "Lokal",
-		["Local test"] = "Lokaler Test",
-		["Perform a local test of BigWigs."] = "Lokalen Test durchführen.",
-		--["sync"] = "sync",
-		["Sync test"] = "Synchronisations-Test",
-		["Perform a sync test of BigWigs."] = "Sychronisations-Test durchführen.",
-		["Testing Sync"] = "Synchronisation testen",
+		["test"] = "测试",
+		["Test"] = "测试",
+		["Test Bar"] = "测试计时条1",
+		["Test Bar 2"] = "测试计时条2",
+		["Test Bar 3"] = "测试计时条3",
+		["Test Bar 4"] = "测试计时条4",
+		["Testing"] = "测试中",
+		["OMG Bear!"] = "*警告消息*",
+		["*RAWR*"] = "*团队消息*",
+		["Victory!"] = "胜利了!",
+		["Options for testing."] = "测试设置.",
+		["local"] = "本地测试",
+		["Local test"] = "本地测试",
+		["Perform a local test of BigWigs."] = "进行本地测试",
+		["sync"] = "同步测试",
+		["Sync test"] = "同步测试",
+		["Perform a sync test of BigWigs."] = "进行同步测试",
+		["Testing Sync"] = "同步测试中",
 	}
 end)
 
@@ -151,15 +127,15 @@ function BigWigsTest:BigWigs_StartTest()
 	BigWigs:ToggleActive(true) -- make sure bigwigs active
 
 	self.testRunning = true
-	self:Message("Attention", "Attention", true, "Long")
-	self:Message("Important", "Important", false, nil, false)
-	self:Message("Urgent", "Urgent", true, nil, false)
+	self:Message("注意文本", "Attention", true, "Long")
+	self:Message("重要文本", "Important", false, nil, false)
+	self:Message("紧急文本", "Urgent", true, nil, false)
 
 	self:Bar(L["Test Bar 4"], 12, "Spell_Nature_ResistNature", true, "black")
 	self:Bar(L["Test Bar 3"], 15, "Spell_Nature_ResistNature", true, "red")
 	self:Bar(L["Test Bar 2"], 45, "Inv_Hammer_Unique_Sulfuras")
 	self:Bar(L["Test Bar"], 55, "Spell_Nature_ResistNature")
-	self:WarningSign("Inv_Hammer_Unique_Sulfuras", 20, true, "Test text")
+	self:WarningSign("Inv_Hammer_Unique_Sulfuras", 20, true, L["Test"])
 
 	self:DelayedMessage(10, L["OMG Bear!"], "Important", true, "Alert")
 	self:DelayedMessage(15, L["*RAWR*"], "Urgent", true, "Alarm")
@@ -171,6 +147,9 @@ end
 
 function BigWigsTest:BigWigs_StopTest()
 	BigWigs:RemoveProximity()
+    if BigWigsMessages and BigWigsMessages.msgframe then
+        BigWigsMessages.msgframe:Clear()
+    end					
 	self:Disengage()
 	self.testRunning = false
 end

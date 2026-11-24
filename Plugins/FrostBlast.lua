@@ -62,33 +62,33 @@ L:RegisterTranslations("enUS", function() return {
 	["Offline"] = true,
 	["Dead"] = true,
 } end)
+L:RegisterTranslations("zhCN", function() return {
+	["FrostBlast"] = "冰霜冲击",
+	["Frost Blast"] = "冰霜冲击",
+	["Options for the Frost Blast frame."] = "冰霜冲击-设置",
+	["Lock frame"] = "锁定窗口",
+	["Lock the frost blast frame."] = "锁定窗口显示的位置",
 
-L:RegisterTranslations("esES", function() return {
-	["FrostBlast"] = "FrostBlast",
-	["Frost Blast"] = "Explosión de Escarcha",
-	["Options for the Frost Blast frame."] = "Opciones para el marco para Explosión de Escarcha.",
-	["Lock frame"] = "Bloquear el marco",
-	["Lock the frost blast frame."] = "Bloquea el marco de Explosión de Escarcha",
-
-	["Disabled"] = "Desactivado",
-	["Disable the frost blast display."] = "Desactivar la muestra de Explosión de Escarcha",
+	["Disabled"] = "禁用",
+	["Disable the frost blast display."] = "禁用模块",
 
 	font = "Fonts\\FRIZQT__.TTF",
 
-	["Color Names"] = "Nombres de Colores",
-	["Class colored names."] = "Nombres de clases coloreadas",
-	["Color Bars"] = "Barras de Color",
-	["Class colored bars."] = "Barras de clases coloreadas",
+	["Color Names"] = "名字着色",
+	["Class colored names."] = "将角色名字按照职业颜色来显示",
+	["Color Bars"] = "数据条着色",
+	["Class colored bars."] ="将数据条按照职业颜色来显示",
 
-	["Test"] = "Probar",
-	["Perform a Frost Blast test."] = "Prueba de Explosión de Escarcha",
+	["Test"] = "测试",
+	["Perform a Frost Blast test."] = "测试",
 
-	["Reset position"] = "Restablecer posición",
-	["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla al centro de la pantalla.",
+	["Reset position"] = "重置位置",
+	["Reset the anchor position, moving it to the center of your screen."] = "重置定位锚点,移动到屏幕的中心",
 
-	["Offline"] = "Desconectado",
-	["Dead"] = "Muerto",
+	["Offline"] = "离线",
+	["Dead"] = "死亡",
 } end)
+
 -----------------------------------------------------------------------
 --      Module Declaration
 -----------------------------------------------------------------------
@@ -393,7 +393,7 @@ function BigWigsFrostBlast:SetupFrames()
 	cheader:SetPoint("TOP", frame, "TOP", 0, -14)
 	cheader:SetFont(L["font"], 12)
 	cheader:SetJustifyH("LEFT")
-	cheader:SetText("Frost Blast")
+	cheader:SetText(L["Frost Blast"])
 	cheader:SetShadowOffset(.8, -.8)
 	cheader:SetShadowColor(0, 0, 0, 1)
 	frame.cheader = cheader

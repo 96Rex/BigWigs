@@ -62,175 +62,64 @@ L:RegisterTranslations("enUS", function()
 		["Scrolling Combat Text"] = true,
 		["Floating Combat Text"] = true,
 
-		["Test"] = "Start/Stop Test",
+		["Test"] = true,
+		["Edit"] = true,
 		["Close"] = true,
 	}
 end)
-
-L:RegisterTranslations("esES", function()
-	return {
-		["Messages"] = "Mensajes",
-
-		["msg"] = "msg",
-		["enable"] = "activar",
-		["Enable"] = "Activar",
-		["Enable message display."] = "Activar la pantalla de mensajes.",
-		["anchor"] = "ancla",
-		["reset"] = true,
-		["rw"] = "rw",
-		["color"] = "color",
-		["scale"] = "escala",
-
-		["Options for the message frame."] = "Opciones para el marco del mensajes",
-		["Anchor"] = "Ancla",
-		["Show the message anchor frame."] = "Muestra la ancla del marco del mensaje",
-		["Use RaidWarning"] = "Usar Advertencia de la Banda",
-		["Toggle sending messages to the RaidWarnings frame."] = "Alterna de enviar mensajes al marco Advertencia de la Banda",
-		["Use colors"] = "Usar colores",
-		["Toggles white only messages ignoring coloring."] = "Alterna solamente los mensajes blancos y ignora los coloreados.",
-		["Message frame scale"] = "Escala del marco del mensaje",
-
-		["Message frame"] = "Marco del mensaje",
-		["Show anchor"] = "Mostrar Ancla",
-		["Send messages to RaidWarning frame"] = "Envia mensajes al marco de Advertencia de la Banda",
-		["Set the message frame scale."] = "Define la escala del marco del mensaje",
-		["Colorize messages"] = "Colorea los mensajes",
-		["Scale"] = "Escala",
-
-		["Reset position"] = true,
-		["Reset the anchor position, moving it to the default location"] = true,
-
-		["|cffff0000Co|cffff00fflo|cff00ff00r|r"] = "|cffff0000Co|cffff00fflo|cff00ff00r|r",
-		["White"] = "Blanco",
-		["BigWigs frame"] = "Marco de BigWigs",
-		["RaidWarning frame"] = "Marco de Advertencia de la Banda",
-		["Scale is set to %s"] = "Escala se define a %s",
-		["Messages are now sent to the %2$s"] = "Mensajes están enviados al %2$s",
-		["Messages are currently sent to the %2$s"] = "Mensajes actuales están enviados al %2$s",
-
-		["display"] = "display",
-		["Display"] = "Muestra",
-		["Set where messages are displayed."] = "Define donde los mensajes están mostrados",
-		["Display is now set to %2$s"] = "Muestra",
-		["Display is currently set to %2$s"] = "Muestra actual define a %2$s",
-
-		["Mik's Scrolling Battle Text"] = "Flotación de texto de combate de Mik",
-		["Scrolling Combat Text"] = "Flotación de texto de combate",
-		["Floating Combat Text"] = "Flotación de texto de combate",
-
-		["Test"] = "Probar",
-		["Close"] = "Cerrar",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["Messages"] = "Nachrichten",
-
-		["msg"] = "msg",
-		["enable"] = "aktivieren",
-		["Enable"] = "Aktivieren",
-		["Enable message display."] = "Nachrichtenanzeige aktivieren.",
-		["anchor"] = "verankerung",
-		["reset"] = true,
-		["rw"] = "rw",
-		["color"] = "farbe",
-		["scale"] = "skalierung",
-
-		["Options for the message frame."] = "Optionen f\195\188r das Nachrichtenfenster.",
-		["Anchor"] = "Verankerung",
-		["Show the message anchor frame."] = "Verankerung des Nachrichtenfensters anzeigen.",
-		["Use RaidWarning"] = "RaidWarning benutzen",
-		["Toggle sending messages to the RaidWarnings frame."] = "Nachrichten \195\188ber RaidWarning senden.",
-		["Use colors"] = "Farben benutzen",
-		["Toggles white only messages ignoring coloring."] = "Nachrichten farbig/wei\195\159 anzeigen.",
-		["Message frame scale"] = "Nachrichtenfenster Skalierung",
-
-		["Reset position"] = true,
-		["Reset the anchor position, moving it to the default location"] = true,
-
-		["Message frame"] = "Nachrichtenfenster",
-		["Show anchor"] = "Verankerung anzeigen",
-		["Send messages to RaidWarning frame"] = "Nachrichten \195\188ber RaidWarning senden.",
-		["Set the message frame scale."] = "Skalierung des Nachrichtenfensters w\195\164hlen.",
-		["Colorize messages"] = "Farbige Nachrichten",
-		["Scale"] = "Skalierung",
-
-		["|cffff0000Co|cffff00fflo|cff00ff00r|r"] = "|cffff0000Fa|cffff00ffr|cff00ff00be|r",
-		["White"] = "Wei\195\159",
-		["BigWigs frame"] = "BigWigs",
-		["RaidWarning frame"] = "RaidWarning",
-		["Scale is set to %s"] = "Skalierung jetzt: %s",
-		["Messages are now sent to the %2$s"] = "Nachrichten werden nun gesendet an: %2$s",
-		["Messages are currently sent to the %2$s"] = "Nachrichten werden zur Zeit gesendet an: %2$s",
-
-		["display"] = "anzeige",
-		["Display"] = "Anzeige",
-		["Set where messages are displayed."] = "W\195\164hle, wo Nachrichten angezeigt werden sollen.",
-		["Display is now set to %2$s"] = "Anzeige nun \195\188ber: %2$s",
-		["Display is currently set to %2$s"] = "Anzeige zur Zeit \195\188ber: %2$s",
-
-		["Mik's Scrolling Battle Text"] = "MSBT",
-		["Scrolling Combat Text"] = "SCT",
-		["Floating Combat Text"] = "FCT",
-
-		["Test"] = "Start/Stop Test",
-		["Close"] = "Schlie\195\159en",
-	}
-end)
-
 L:RegisterTranslations("zhCN", function()
 	return {
-		["Messages"] = "信息提示",
+		["Messages"] = "消息",
 
 		["msg"] = "消息",
 		["enable"] = "启用",
 		["Enable"] = "启用",
-		["Enable message display."] = "启用信息提示。",
+		["Enable message display."] = "启用消息显示",
 		["anchor"] = "框体锚点",
 		["reset"] = "重置",
-		["rw"] = "团队警报",
+		["rw"] = "团队警报频道",
 		["color"] = "颜色",
 		["scale"] = "大小",
 
-		["Options for the message frame."] = "消息显示模式及相关设置。",
+		["Options for the message frame."] = "消息显示模式及相关设置.",
 		["Anchor"] = "信息框锚点",
-		["Show the message anchor frame."] = "显示信息框锚点。",
-		["Use RaidWarning"] = "使用团队通告",
-		["Toggle sending messages to the RaidWarnings frame."] = "切换是否发送到团队通告框。",
-		["Use colors"] = "使用彩色消息",
-		["Toggles white only messages ignoring coloring."] = "切换为仅显示白色消息。",
-		["Message frame scale"] = "信息框缩放",
+		["Show the message anchor frame."] = "显示信息框锚点.",
+		["Use RaidWarning"] = "使用团队通知",
+		["Toggle sending messages to the RaidWarnings frame."] = "选择是否通过团队通知发送消息.",
+		["Use colors"] = "发送彩色消息",
+		["Toggles white only messages ignoring coloring."] = "选择是否只发送单色消息.",
+		["Message frame scale"] = "信息框架缩放",
 
 		["Reset position"] = "重置位置",
-		["Reset the anchor position, moving it to the default location"] = "将锚点重置到默认位置。",
+		["Reset the anchor position, moving it to the default location"] = "重置锚点位置，移到默认位置",
 
 		["Message frame"] = "信息框",
-		["Show anchor"] = "显示锚点",
-		["Send messages to RaidWarning frame"] = "发送到团队通告框",
-		["Set the message frame scale."] = "设置消息框缩放。",
+		["Show anchor"] = "显示信息框锚点",
+		["Send messages to RaidWarning frame"] = "发送消息到团队通知频道",
+		["Set the message frame scale."] = "调整消息框架缩放",
 		["Colorize messages"] = "彩色消息",
-		["Scale"] = "缩放",
+		["Scale"] = "大小",
 
-		["|cffff0000Co|cffff00fflo|cff00ff00r|r"] = "|cffff0000颜|cffff00ff色|cff00ff00色|r",
+		["|cffff0000Co|cffff00fflo|cff00ff00r|r"] = "|cffff0000颜色|cffff00ff颜色|cff00ff00颜色|r",
 		["White"] = "白色",
-		["BigWigs frame"] = "BigWigs 窗口",
-		["RaidWarning frame"] = "团队通告框",
-		["Scale is set to %s"] = "缩放已设置为 %s",
-		["Messages are now sent to the %2$s"] = "消息现在发送到 %2$s",
-		["Messages are currently sent to the %2$s"] = "消息当前发送到 %2$s",
+		["BigWigs frame"] = "BigWigs窗口模式",
+		["RaidWarning frame"] = "团队通告模式",
+		["Scale is set to %s"] = "缩放比例设置为 %s",
+		["Messages are now sent to the %2$s"] = "将当前消息设置发送到 %2$s",
+		["Messages are currently sent to the %2$s"] = "将当前消息设置发送到 %2$s",
 
 		["display"] = "显示",
 		["Display"] = "显示",
-		["Set where messages are displayed."] = "设置消息显示位置。",
-		["Display is now set to %2$s"] = "显示位置已设置为 %2$s",
-		["Display is currently set to %2$s"] = "当前显示位置为 %2$s",
+		["Set where messages are displayed."] = "设置显示消息的位置.",
+		["Display is now set to %2$s"] = "显示现在设置为 %2$s",
+		["Display is currently set to %2$s"] = "显示当前设置为 %2$s",
 
-		["Mik's Scrolling Battle Text"] = "MSBT",
-		["Scrolling Combat Text"] = "SCT",
+		["Mik's Scrolling Battle Text"] = "MSBT式战斗信息",
+		["Scrolling Combat Text"] = "SCT式战斗信息",
 		["Floating Combat Text"] = "浮动战斗信息",
 
 		["Test"] = "测试",
+		["Edit"] = "编辑",
 		["Close"] = "关闭",
 	}
 end)
@@ -477,7 +366,7 @@ function BigWigsMessages:SetupFrames()
 	self.frames.anchor:Hide()
 
 	self.frames.anchor:SetWidth(170)
-	self.frames.anchor:SetHeight(110)
+	self.frames.anchor:SetHeight(75)
 	self.frames.anchor:SetBackdrop({
 		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background", tile = true, tileSize = 16,
 		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 16,
@@ -501,19 +390,10 @@ function BigWigsMessages:SetupFrames()
 	self.frames.cheader = self.frames.anchor:CreateFontString(nil, "OVERLAY")
 	self.frames.cheader:SetFont(f, 14)
 	self.frames.cheader:SetWidth(150)
-	self.frames.cheader:SetText("Plugins -> Messages")
+	self.frames.cheader:SetText(L["Messages"])
 	self.frames.cheader:SetTextColor(1, .8, 0)
 	self.frames.cheader:ClearAllPoints()
 	self.frames.cheader:SetPoint("TOP", self.frames.anchor, "TOP", 0, -10)
-
-	self.frames.miks = self.frames.anchor:CreateFontString(nil, "OVERLAY")
-	self.frames.miks:SetJustifyH("LEFT")
-	self.frames.miks:SetFont(f, 9)
-	self.frames.miks:SetWidth(150)
-	self.frames.miks:SetText("If using Mik's Scrolling Battle Text to display, messages will display there instead")
-	self.frames.miks:SetTextColor(1, .8, 0)
-	self.frames.miks:ClearAllPoints()
-	self.frames.miks:SetPoint("TOP", self.frames.anchor, "TOP", 0, -30)
 
 	self.frames.leftbutton = CreateFrame("Button", nil, self.frames.anchor)
 	self.frames.leftbutton.owner = self
@@ -580,7 +460,7 @@ function BigWigsMessages:SetupFrames()
 	self.frames.middlebutton:SetHighlightTexture(t)
 	self.frames.middlebuttontext = self.frames.middlebutton:CreateFontString(nil, "OVERLAY")
 	self.frames.middlebuttontext:SetFontObject(GameFontHighlight)
-	self.frames.middlebuttontext:SetText("Edit")
+	self.frames.middlebuttontext:SetText(L["Edit"])
 	self.frames.middlebuttontext:SetAllPoints(self.frames.middlebutton)
 
 	self.frames.rightbutton = CreateFrame("Button", nil, self.frames.anchor)

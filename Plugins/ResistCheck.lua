@@ -60,6 +60,43 @@ L:RegisterTranslations("enUS", function()
   ["No Response"] = true,
  }
 end)
+L:RegisterTranslations("zhCN", function()
+	return {
+		["resistcheck"] = "抗性检查",
+		["Resist Check"] = "抗性检查",
+		["Commands for checking the raid's resistances."] = "检查团队成员抗性是否达标的命令.",
+		["Query already running, please wait 5 seconds before trying again."] = "查询已在运行，请等待5秒后重试。",
+		["Querying resistances for "] = "正在查询",
+		["BigWigs Resist Check"] = "检查抗性",
+		["Close window"] = "关闭窗口",
+		["Showing resistance for "] = "显示抗性:",
+		["Player"] = "玩家",
+		["Resistance"] = "抗性",
+		["Query done."] = "查询完毕.",
+		["Closes the resistance query window."] = "关闭检查窗口",
+		["Physical"] = "物理",
+		["Holy"] = "神圣",
+		["Fire"] = "火焰",
+		["Nature"] = "自然",
+		["Frost"] = "冰霜",
+		["Shadow"] = "暗影",
+		["Arcane"] = "奥术",
+		["Resistance Type"] = "抗性类型",
+		["Check"] = "检查",
+		["Runs a resistance check on the raid."] = "对团队进行抗性检查",
+		["Average"] = "平均",
+		["Minimum"] = "最低",
+		["Maximum"] = "最高",
+		["Players below"] = "低于阈值",
+		["Notify low resistance"] = "通知低抗性玩家",
+		["List people with resistance below threshold to raid chat."] = "发送抗性低于阈值的人员名单到团队频道",
+		["Threshold"] = "阈值",
+		["Set the threshold value for low resistance warnings."] = "设置低于抗性的阈值",
+		["<threshold>"] = "<阈值>",
+		["People with low %s resistance (%d):"] = "People with low %s resistance (%d):",
+		["No Response"] = "无响应",
+ }
+end)
 
 ---------------------------------
 --      Addon Declaration      --
@@ -469,3 +506,9 @@ function BigWigsResistCheck:ParseReply(reply)
 
  return tonumber(resistance) or 0, nick
 end
+
+SlashCmdList["BWRESISTCHECK"] = function(msg)
+	BigWigsResistCheck:UpdateTablet()
+end
+SLASH_BWRESISTCHECK1 = "/抗性检查"
+SLASH_BWRESISTCHECK2 = "/rc"

@@ -64,96 +64,50 @@ L:RegisterTranslations("enUS", function() return {
 	["Taskmaster"] = true,
 
 } end )
+L:RegisterTranslations("zhCN", function() return {
+	["respawntimers"] = "刷怪计时",
+	["Respawn Timers"] = "刷怪计时",
+	["Respawn timer bars and warnings for trash mobs."] = "小怪复活计时条和消息",
+	["bars"] = "计时条",
+	["Bars"] = "计时条",
+	["Toggles showing bars for respawn times."] = "显示小怪复活时间的计时条",
+	["messages"] = "信息",
+	["Messages"] = "信息",
+	["Toggles showing messages for respawn times."] = "显示小怪复活时间的信息。",
 
-L:RegisterTranslations("esES", function() return {
-	--["respawntimers"] = "respawntimers",
-	["Respawn Timers"] = "Temporizador de Respawn",
-	["Respawn timer bars and warnings for trash mobs."] = "Temporizador de Respawn y advertencias para mobs de porquería",
-	--["bars"] = "bars",
-	["Bars"] = "Barras",
-	["Toggles showing bars for respawn times."] = "Alterna de mostrar las barras para tiempo de respawn",
-	--["messages"] = true,
-	["Messages"] = "Mensajes",
-	["Toggles showing messages for respawn times."] = "Alterna de mostrar los mensajes para tiempo de respawn",
-
-	["%s %d respawns in %d sec"] = "%s %d respawns en %d seg",
-	["%s %d respawned!"] = "%s %d respawned!",
-	["Respawn: %s %d"] = "Respawn: %s %d",
-
-	-- Molten Core Triggers
-	["Ancient Core Hound"] = "Can del Núcleo anciano",
-	["Lava Annihilator"] = "Aniquilador de lava",
-	["Lava Surger"] = "Marea de lava",
-	["Firelord"] = "Señor del Fuego",
-	["Firewalker"] = "Caminafuego", -- Lava Pack
-	["%s collapses and begins to smolder."] = "%s colapsa y comienza a arder", -- Hound Pack, emote.
-	-- Molten Core Messages
-	["Corehound"] = "Can del Núcleo",
-	["Annihilator"] = "Aniquilador",
-	["Surger"] = "Marea",
-	-- Firelord == Firelord.
-	["Lavapack"] = "Lavapack",
-	["Houndpack"] = "Pack de Sabueso",
-
-	-- AQ Triggers
-	["Obsidian Eradicator"] = "Erradicador obsidiana",
-	["Anubisath Sentinel"] = "Centinela Anubisath",
-	-- AQ Messages
-	["Eradicator"] = "Erradicador",
-	["Sentinel"] = "Centinela",
-
-	-- BWL Triggers
-	["Death Talon Hatcher"] = "Capitán Garramortal",
-	["Blackwing Taskmaster"] = "Capataz Alanegra",
-	-- BWL Messages
-	["Death Talon"] = "Garramortal",
-	["Taskmaster"] = "Capataz",
-
-} end )
-
-L:RegisterTranslations("deDE", function() return {
-	["respawntimers"] = "respawntimers",
-	["Respawn Timers"] = "Respawn Timer",
-	["Respawn timer bars and warnings for trash mobs."] = "Respawn Timerbalken und Warnungen für Trashmobs",
-	["bars"] = "bars",
-	["Bars"] = "Balken",
-	["Toggles showing bars for respawn times."] = "Zeige Balken",
-	["messages"] = "messages",
-	["Messages"] = "Warnungen",
-	["Toggles showing messages for respawn times."] = "Sende Warnungen",
-
-	["%s %d respawns in %d sec"] = "%s %d respawnt in %d Sekunden",
-	["%s %d respawned!"] = "%s %s respawnt",
-	["Respawn: %s %d"] = "Respawn: %s %d",
+	["%s %d respawns in %d sec"] = "%s %d将在%d秒后复活",
+	["%s %d respawned!"] = "%s %d已复活！",
+	["Respawn: %s %d"] = "复活：%s %d",
 
 	-- Molten Core Triggers
-	["Ancient Core Hound"] = "Uralter Kernhund",
-	["Lava Annihilator"] = "Lavavernichter",
-	["Lava Surger"] = "Lavawoger",
-	["Firelord"] = "Feuerlord",
-	["Firewalker"] = "Feuergänger", -- Lava Pack
-	["%s collapses and begins to smolder."] = "%s bricht zusammen und beginnt zu glimmen.", -- Hound Pack, emote.
+	["Ancient Core Hound"] = "上古熔火恶犬",
+	["Lava Annihilator"] = "熔岩歼灭者",
+	["Lava Surger"] = "熔岩奔腾者",
+	["Firelord"] = "火焰之王",
+	["Firewalker"] = "火焰行者", -- Lava Pack
+	["%s collapses and begins to smolder."] = "%s倒下并开始闪烁。", -- Hound Pack, emote.
 	-- Molten Core Messages
-	["Corehound"] =  "Kernhund",
-	["Annihilator"] = "Vernichter",
-	["Surger"] = "Woger",
+	["Corehound"] = "熔火恶犬",
+	["Annihilator"] = "歼灭者",
+	["Surger"] = "奔腾者",
 	-- Firelord == Firelord.
 	["Lavapack"] = "Lavapack",
-	["Houndpack"] = "Kernhundpack",
+	["Houndpack"] = "熔火恶犬群",
 
 	-- AQ Triggers
-	["Obsidian Eradicator"] = "Obsidianzerstörer",
-	["Anubisath Sentinel"] = "Wächter des Anubisath",
+	["Obsidian Eradicator"] = "黑曜石清除者",
+	["Anubisath Sentinel"] = "阿努比萨斯哨兵",
 	-- AQ Messages
-	["Eradicator"] = "Zerstörer",
-	["Sentinel"] = "Wächter",
+	["Eradicator"] = "清除者",
+	["Sentinel"] = "哨兵",
 
 	-- BWL Triggers
-	["Death Talon Hatcher"] = "Brutwächter der Todeskrallen",
-	["Blackwing Taskmaster"] = "Zuchtmeister der Pechschwingen",
+	["Death Talon Hatcher"] = "死爪地卜师",
+	["Blackwing Taskmaster"] = "黑翼工头",
 	-- BWL Messages
-	["Death Talon"] = "Brutwächter",
-	["Taskmaster"] = "Zuchtmeister",
+	["Death Talon"] = "地卜师",
+	["Taskmaster"] = "工头",
+
 } end )
 
 -- The death table and emote table are basically the meat of this addon. The

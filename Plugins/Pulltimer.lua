@@ -59,27 +59,26 @@ L:RegisterTranslations("enUS", function() return {
 	["Enable"] = true,
 	["Enable pulltimer."] = true,
 } end )
+L:RegisterTranslations("zhCN", function() return {
+	["Pull Timer"] = "开怪计时",
+	
+	["pulltimer"] = "开怪计时",
+	["Options for Pull Timer"] = "开怪计时设置",
+	pullstart_message = "即将开怪(%s)",
+	pullstop_message = "开怪停止(%s)",
+	pull1_message = "准备开怪 1",
+	pull2_message = "准备开怪 2",
+	pull3_message = "准备开怪 3",
+	pull4_message = "准备开怪 4",
+	pull5_message = "准备开怪 5",
+	pull0_message = "开怪!",
 
-L:RegisterTranslations("esES", function() return {
-	["Pull Timer"] = "Temporizador de Tirar",
+	["Pull"] = "开怪",
+	["pull"] = "开怪",
+	["You have to be the raid leader or an assistant"] = "需要助理或更高权限",
 
-	--["pulltimer"] = true,
-	["Options for Pull Timer"] = "Opciones para Temporizador de Tirar",
-	pullstart_message = "Tira en %d seg. (Enviado por %s)",
-	pullstop_message = "Tira abortado (Enviado por %s)",
-	pull1_message = "Tira en 1",
-	pull2_message = "Tira en 2",
-	pull3_message = "Tira en 3",
-	pull4_message = "Tira en 4",
-	pull5_message = "Tira en 5",
-	pull0_message = "¡Tira!",
-
-	--["Pull"] = true,
-	--["pull"] = true,
-	["You have to be the raid leader or an assistant"] = "Tienes que ser líder o asistente para hacerlo",
-
-	["Enable"] = "Activar",
-	["Enable pulltimer."] = "Activar Temporizador de Tirar",
+	["Enable"] = "启用",
+	["Enable pulltimer."] = "启用开怪计时",
 } end )
 
 -----------------------------------------------------------------------
