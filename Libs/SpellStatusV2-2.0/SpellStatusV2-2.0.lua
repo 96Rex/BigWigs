@@ -56,14 +56,14 @@ AceLibrary("AceHook-2.1"):embed(SpellStatusV2)
 --
 
 SpellstatusV2IndexToIcon = {
-	[1] = "|cFFF7EF52[Star]|r", --u+2726
-	[2] = "|cFFE76100[Circle]|r", --u+25CF
-	[3] = "|cFFDE55E7[Diamond]|r", --u+2666
-	[4] = "|cFF2BD923[Triangle]|r", --u+25BC
-	[5] = "|cFF8FB9D0[Moon]|r", --u+263D
-	[6] = "|cFF00B9F3[Square]|r", --u+25A0
-	[7] = "|cFFB20A05[X]|r", --u+2716
-	[8] = "|cFFF1EFE4[Skull]|r", --u+263B
+	[1] = "|cFFF7EF52[" .. RAID_TARGET_1 .. "]|r", --u+2726
+	[2] = "|cFFE76100[" .. RAID_TARGET_2 .. "]|r", --u+25CF
+	[3] = "|cFFDE55E7[" .. RAID_TARGET_3 .. "]|r", --u+2666
+	[4] = "|cFF2BD923[" .. RAID_TARGET_4 .. "]|r", --u+25BC
+	[5] = "|cFF8FB9D0[" .. RAID_TARGET_5 .. "]|r", --u+263D
+	[6] = "|cFF00B9F3[" .. RAID_TARGET_6 .. "]|r", --u+25A0
+	[7] = "|cFFB20A05[" .. RAID_TARGET_7 .. "]|r", --u+2716
+	[8] = "|cFFF1EFE4[" .. RAID_TARGET_8 .. "]|r", --u+263B
 }
 
 local function InitializeHooks(self)
