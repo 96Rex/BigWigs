@@ -764,7 +764,7 @@ BabbleBoss:RegisterTranslations("zhCN", function()
 		["Phantom Servant"] = "幻影仆从",
 		["Brood Queen Araxxna"] = "巢穴女王阿拉克萨娜",
 		["Grizikil"] = "格里齐基尔",
-		["Clawlord Howlfang"] = "狼王嚎牙",
+		["Clawlord Howlfang"] = "爪王嚎牙",
 		["Moroes"] = "莫罗斯",
 
 		--安其拉废墟
