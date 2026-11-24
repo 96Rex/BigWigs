@@ -642,7 +642,7 @@ elseif class == "SHAMAN" then
 		},
 		earthshakerslam = {
 			type = "toggle",
-			name = L["Earthshaker Slam"],
+			name = BS["Earthshaker Slam"],
 			order = 2,
 			desc = string.format(L["Toggle %s display."], BS["Earthshaker Slam"]),
 			get = function()
