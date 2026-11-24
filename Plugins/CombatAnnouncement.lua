@@ -28,12 +28,67 @@ L:RegisterTranslations("enUS", function()
 		["Announces in chat channel on important instant casts."] = true,
 		["Combat Announcement"] = true,
 		["combatannouncement"] = true,
-		["Hand of Reckoning"] = true,
-		["Earthshaker Slam"] = true,
-		["Innervate"] = true, -- Add Innervate to localization
+		
+		["Say"] = true,
+		["Toggle broadcasting the messages to the Say channel."] = true,
+		["Party"] = true,
+		["Toggle broadcasting the messages to the Party channel."] = true,
+		["Raid"] = true,
+		["Toggle broadcasting the messages to the Raid channel."] = true,
+		["BG"] = true,
+		["Toggle broadcasting the messages to the Battleground channel (Bloodring)."] = true,
+	
+		["Interrupting"] = true,
+		["Taunting"] = true,
+		["AOE Taunting"] = true,
+		["Fearing"] = true,
+		["AOE Fearing"] = true,
+		["Stunning"] = true,
+		["Blinding"] = true,
+		["Disarming"] = true,
+		["Innervating"] = true,
+		["Sleeping"] = true,
+		["Rooting"] = true,
+
+		["Casted %s on you"] = true,
+		["Broadcast Whisper"] = true,
+		["Toggle broadcasting the messages to the Whisper channel."] = true,
 	}
 end)
 
+L:RegisterTranslations("zhCN", function()
+	return {
+		["Toggle %s display."] = "启用/禁用 %s",
+		["Announces in chat channel on important instant casts."] = "在聊天窗口通报法术施放的相关信息,例如打断,控制,增益等.",
+		["Combat Announcement"] = "法术通报",
+		["combatannouncement"] = "法术通报",
+		
+		["Say"] = "说",
+		["Toggle broadcasting the messages to the Say channel."] = "在说频道通报消息",
+		["Party"] = "队伍",
+		["Toggle broadcasting the messages to the Party channel."] = "在队伍频道通报消息",
+		["Raid"] = "团队",
+		["Toggle broadcasting the messages to the Raid channel."] = "在团队频道通报消息",
+		["BG"] = "战场",
+		["Toggle broadcasting the messages to the Battleground channel (Bloodring)."] = "在战场频道通报消息",
+
+		["Interrupting"] = "打断",
+		["Taunting"] = "嘲讽",
+		["AOE Taunting"] = "群嘲",
+		["Fearing"] = "恐惧",
+		["AOE Fearing"] = "群恐",
+		["Stunning"] = "昏迷",
+		["Blinding"] = "致盲",
+		["Disarming"] = "缴械",
+		["Innervating"] = "激活",
+		["Sleeping"] = "催眠",
+		["Rooting"] = "束缚",
+
+		["Casted %s on you"] = "已对你使用:%s",
+		["Broadcast Whisper"] = "增益私聊",
+		["Toggle broadcasting the messages to the Whisper channel."] = "施放增益型法术时,向目标发送私聊信息."
+	}
+end)
 
 ------------------------------
 --      Module              --
@@ -58,9 +113,9 @@ local SpellTranslation = {
 	["shieldbash"] = BS["Shield Bash"],
 	["taunt"] = BS["Taunt"],
 	["mockingblow"] = BS["Mocking Blow"],
-	["handofreckoning"] = L["Hand of Reckoning"],
-	["earthshakerslam"] = L["Earthshaker Slam"],
-	["innervate"] = BS["Innervate"], -- Added Innervate to the spell translations
+	["handofreckoning"] = BS["Hand of Reckoning"],
+	["earthshakerslam"] = BS["Earthshaker Slam"],
+	["innervate"] = BS["Innervate"],
 	["disarm"] = BS["Disarm"],
 	["challengingshout"] = BS["Challenging Shout"],
 	["intimidatingshout"] = BS["Intimidating Shout"],
@@ -85,34 +140,34 @@ local SpellTranslation = {
 }
 
 local SpellVerbMapping = {
-	["pummel"] = "Interrupting",
-	["shieldbash"] = "Interrupting",
-	["kick"] = "Interrupting",
-	["counterspell"] = "Interrupting",
-	["earthshock"] = "Interrupting",
-	["taunt"] = "Taunting",
-	["mockingblow"] = "Taunting",
-	["growl"] = "Taunting",
-	["handofreckoning"] = "Taunting",
-	["challengingshout"] = "AOE Taunting",
-	["intimidatingshout"] = "AOE Fearing",
-	["concussionblow"] = "Stunning",
-	["kidneyshot"] = "Stunning",
-	["cheapshot"] = "Stunning",
-	["hammerofjustice"] = "Stunning",
-	["pounce"] = "Stunning",
-	["bash"] = "Stunning",
-	["blind"] = "Blinding",
-	["gouge"] = "Stunning",
-	["disarm"] = "Disarming",
-	["innervate"] = "Innervating",
-	["hibernate"] = "Sleeping",
-	["entanglingroots"] = "Rooting",
-	["scattershot"] = "Blinding",
-	["tranquilshot"] = "Taunting",
-	["deathcoil"] = "Fearing",
-	["psychicscream"] = "AOE Fearing",
-	["earthshakerslam"] = "Taunting"
+	["pummel"] = L["Interrupting"],
+	["shieldbash"] = L["Interrupting"],
+	["kick"] = L["Interrupting"],
+	["counterspell"] = L["Interrupting"],
+	["earthshock"] = L["Interrupting"],
+	["taunt"] = L["Taunting"],
+	["mockingblow"] = L["Taunting"],
+	["growl"] = L["Taunting"],
+	["handofreckoning"] = L["Taunting"],
+	["challengingshout"] = L["AOE Taunting"],
+	["intimidatingshout"] = L["AOE Fearing"],
+	["concussionblow"] = L["Stunning"],
+	["kidneyshot"] = L["Stunning"],
+	["cheapshot"] = L["Stunning"],
+	["hammerofjustice"] = L["Stunning"],
+	["pounce"] = L["Stunning"],
+	["bash"] = L["Stunning"],
+	["blind"] = L["Blinding"],
+	["gouge"] = L["Stunning"],
+	["disarm"] = L["Disarming"],
+	["innervate"] = L["Innervating"],
+	["hibernate"] = L["Sleeping"],
+	["entanglingroots"] = L["Rooting"],
+	["scattershot"] = L["Blinding"],
+	["tranquilshot"] = L["Taunting"],
+	["deathcoil"] = L["Fearing"],
+	["psychicscream"] = L["AOE Fearing"],
+	["earthshakerslam"] = L["Taunting"],
 }
 
 local SharedBroadcastOptions = {
@@ -123,9 +178,9 @@ local SharedBroadcastOptions = {
     },
     broadcastsay = {
         type = "toggle",
-        name = "Broadcast Say",
+        name = L["Say"],
         order = 97,
-        desc = "Toggle broadcasting the messages to the Say channel.",
+        desc = L["Toggle broadcasting the messages to the Say channel."],
         get = function()
             return BigWigsCombatAnnouncement.db.profile.broadcastsay
         end,
@@ -135,9 +190,9 @@ local SharedBroadcastOptions = {
     },
     broadcastparty = {
         type = "toggle",
-        name = "Broadcast Party",
+        name = L["Party"],
         order = 98,
-        desc = "Toggle broadcasting the messages to the Party channel.",
+        desc = L["Toggle broadcasting the messages to the Party channel."],
         get = function()
             return BigWigsCombatAnnouncement.db.profile.broadcastparty
         end,
@@ -147,9 +202,9 @@ local SharedBroadcastOptions = {
     },
     broadcastraid = {
         type = "toggle",
-        name = "Broadcast Raid",
+        name = L["Raid"],
         order = 99,
-        desc = "Toggle broadcasting the messages to the Raid channel.",
+        desc = L["Toggle broadcasting the messages to the Raid channel."],
         get = function()
             return BigWigsCombatAnnouncement.db.profile.broadcastraid
         end,
@@ -159,9 +214,9 @@ local SharedBroadcastOptions = {
     },
     broadcastbg = {
         type = "toggle",
-        name = "Broadcast BG",
+        name = L["BG"],
         order = 100,
-        desc = "Toggle broadcasting the messages to the Battleground channel (Bloodring).",
+        desc = L["Toggle broadcasting the messages to the Battleground channel (Bloodring)."],
         get = function()
             return BigWigsCombatAnnouncement.db.profile.broadcastbg
         end,
@@ -397,7 +452,7 @@ elseif class == "DRUID" then
 			type = "toggle",
 			name = BS["Innervate"],
 			order = 1,
-			desc = string.format(L["Toggle %s display."], L["Innervate"]),
+			desc = string.format(L["Toggle %s display."], BS["Innervate"]),
 			get = function()
 				return BigWigsCombatAnnouncement.db.profile.innervate
 			end,
@@ -472,9 +527,9 @@ elseif class == "DRUID" then
 		},
 		broadcastwhisper = {
 			type = "toggle",
-			name = "Broadcast Whisper",
+			name = L["Broadcast Whisper"],
 			order = 7,
-			desc = "Toggle broadcasting the messages to the Whisper channel.",
+			desc = L["Toggle broadcasting the messages to the Whisper channel."],
 			get = function()
 				return BigWigsCombatAnnouncement.db.profile.broadcastwhisper
 			end,
@@ -543,9 +598,9 @@ elseif class == "PALADIN" then
 		},
 		handofreckoning = {
 			type = "toggle",
-			name = L["Hand of Reckoning"],
+			name = BS["Hand of Reckoning"],
 			order = 2,
-			desc = string.format(L["Toggle %s display."], L["Hand of Reckoning"]),
+			desc = string.format(L["Toggle %s display."], BS["Hand of Reckoning"]),
 			get = function()
 				return BigWigsCombatAnnouncement.db.profile.handofreckoning
 			end,
@@ -589,7 +644,7 @@ elseif class == "SHAMAN" then
 			type = "toggle",
 			name = L["Earthshaker Slam"],
 			order = 2,
-			desc = string.format(L["Toggle %s display."], L["Earthshaker Slam"]),
+			desc = string.format(L["Toggle %s display."], BS["Earthshaker Slam"]),
 			get = function()
 				return BigWigsCombatAnnouncement.db.profile.earthshakerslam
 			end,
@@ -626,8 +681,8 @@ end
 
 BigWigsCombatAnnouncement.consoleOptions = {
 	type = "group",
-	name = "Combat Announcement",
-	desc = "Announces in chat channel on important instant casts.",
+	name = L["Combat Announcement"],
+	desc = L["Announces in chat channel on important instant casts."],
 	args = abilityOptions
 }
 
@@ -683,13 +738,13 @@ end
 ------------------------------
 
 function BigWigsCombatAnnouncement:AnnounceAbility(msg, target, spellName)
-	-- Check if the spell is Innervate and the target is hostile
-	if spellName == L["Innervate"] and target
+	-- 检查激活法术对象是否为自身或者敌对玩家,如果是则不发送信息
+	if spellName == BS["Innervate"] and target
 			and (not UnitIsFriend("player", "target") or UnitIsUnit("player", "target") or not UnitIsPlayer("target")) then
 		return -- Ignore announcements for Innervate on hostile targets, NPCs, or the player itself
 	end
 
-	-- Ignore announcement if the target is the player or ALT key is pressed
+	-- 法术目标是玩家自身则不发送信息
 	if UnitIsUnit("player", "target") or IsAltKeyDown() then
 		return
 	end
@@ -703,16 +758,13 @@ function BigWigsCombatAnnouncement:AnnounceAbility(msg, target, spellName)
 	if self.db.profile.broadcastraid and UnitInRaid("player") then
 		SendChatMessage(msg, "RAID")
 	end
-	if self.db.profile.broadcastbg and GetZoneText() == "Blood Ring" then
-		SendChatMessage(msg, "BATTLEGROUND")
-	end
-	-- Only send whisper if the spell name has a target that is a friendly player
+	-- 法术目标是友方单位时发送私聊信息
 	if self.db.profile.broadcastwhisper and
 			target and
 			UnitIsFriend("player", "target") and
 			not UnitIsUnit("player", "target") and
 			UnitIsPlayer("target") then
 		local targetName = UnitName("target") or target -- Get the target's name without worrying about the raid mark
-		SendChatMessage("Casted " .. spellName .. " on you", "WHISPER", nil, targetName)
+		SendChatMessage(string.format(L["Casted %s on you"], spellName), "WHISPER", nil, targetName)
 	end
 end

@@ -1474,6 +1474,9 @@ BabbleSpell:RegisterTranslations("enUS", function()
 		["Cauterizing Flames"] = true,
 		["Withering Heat"] = true,
 		["Ancient Hysteria"] = true,
+		
+		["Hand of Reckoning"] = true,
+		["Earthshaker Slam"] = true,
 	}
 end)
 
@@ -2925,6 +2928,9 @@ BabbleSpell:RegisterTranslations("zhCN", function()
 		["Cauterizing Flames"] = "灼烧之焰",
 		["Withering Heat"] = "枯萎热浪",
 		["Ancient Hysteria"] = "上古狂乱",
+		
+		["Hand of Reckoning"] = "清算之手",
+		["Earthshaker Slam"] = "震地猛击",
 	}
 end)
 
