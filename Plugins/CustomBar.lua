@@ -21,82 +21,18 @@ L:RegisterTranslations("enUS", function() return {
 	["%s: %s"] = true,
 	["%s: Timer [%s] finished."] = true,
 } end)
-
-L:RegisterTranslations("koKR", function() return {
-	["Custom Bars"] = "사용자 바",
-	["Start a custom bar, either local or global."] = "사용자 바 시작, 전체 혹은 지역",
-	["Local"] = "지역",
-	["Global"] = "전체",
-	["<seconds> <bar text>"] = "<초> <바 텍스트>",
-	["Starts a custom bar with the given parameters."] = "입력한 매개변수로 사용자 바 시작",
-	["%s: %s"] = "%s: %s",
-	["%s: Timer [%s] finished."] = "%s: 타이머 [%s] 종료되었습니다.",
-} end)
-
-L:RegisterTranslations("esES", function() return {
-	--["bwcb"] = "bwcb",
-	--["bwlcb"] = "bwlcb",
-	--["custombar"] = "custombar",
-	["Custom Bars"] = "Barras Personalizadas",
-	["Start a custom bar, either local or global."] = "Empieza una barra personalizada, local o global",
-	["Local"] = "Local",
-	["Global"] = "Global",
-	["<seconds> <bar text>"] = "<segundos> <texto de barra>",
-	["Starts a custom bar with the given parameters."] = "Empieza una barra personalizada con parámetros determinados",
-	["%s: %s"] = "%s: %s",
-	["%s: Timer [%s] finished."] = "%s: Temporizador [%s] terminado.",
-} end)
-
 L:RegisterTranslations("zhCN", function() return {
 	["bwcb"] = "bwcb",
 	["bwlcb"] = "bwlcb",
-	["custombar"] = "自制时间条",
-	["Custom Bars"] = "自制时间条",
-	["Start a custom bar, either local or global."] = "激活一条自制时间条，本地或者全局",
+	["custombar"] = "自定义时间条",
+	["Custom Bars"] = "自定义时间条",
+	["Start a custom bar, either local or global."] = "创建一个自定义时间条,本地或者全局",
 	["Local"] = "本地",
 	["Global"] = "全局",
 	["<seconds> <bar text>"] = "<seconds> <bar text>",
-	["Starts a custom bar with the given parameters."] = "激活一条带参数的自制时间条",
+	["Starts a custom bar with the given parameters."] = "创建一个带参数的自定义时间条",
 	["%s: %s"] = "%s: %s",
 	["%s: Timer [%s] finished."] = "%s: 计时器 [%s] 到时间",
-} end)
-
-L:RegisterTranslations("zhTW", function() return {
-	["bwcb"] = "bwcb",
-	["bwlcb"] = "bwlcb",
-	["custombar"] = "自定時間條",
-	["Custom Bars"] = "自定時間條",
-	["Start a custom bar, either local or global."] = "開始一個自定時間條，區域或者全域",
-	["Local"] = "區域",
-	["Global"] = "全域",
-	["<seconds> <bar text>"] = "<秒> <列文字>",
-	["Starts a custom bar with the given parameters."] = "開始一個包含參數的自定時間條",
-	["%s: %s"] = "%s: %s",
-	["%s: Timer [%s] finished."] = "%s: 計時器 [%s] 終了。",
-} end)
-
-L:RegisterTranslations("deDE", function() return {
-	-- ["bwcb"] = true,
-	-- ["bwlcb"] = true,
-	-- ["custombar"] = true,
-	["Custom Bars"] = "Individuelle Anzeigebalken",
-	["Start a custom bar, either local or global."] = "Einen individuellen Anzeigebalken starten (entweder lokal oder global).",
-	["Local"] = "Lokal",
-	["Global"] = "Global",
-	["<seconds> <bar text>"] = "<Sekunden> <Balkentext>",
-	["Starts a custom bar with the given parameters."] = "Einen individuellen Anzeigebalken mit den gegebenen Parametern starten. \n<Sekunden> <Balkentext>",
-	-- ["%s: %s"] = true,
-	["%s: Timer [%s] finished."] = "%s: Timer [%s] beendet.",
-} end)
-
-L:RegisterTranslations("frFR", function() return {
-	["Custom Bars"] = "Barres personnalis\195\169es",
-	["Start a custom bar, either local or global."] = "D\195\169marre une barre personnalis\195\169e, soit personnelle, soit globale.",
-	["Local"] = "Personnelle",
-	["Global"] = "Globale",
-	["<seconds> <bar text>"] = "<secondes> <texte de la barre>",
-	["Starts a custom bar with the given parameters."] = "D\195\169marre une barre personnalis\195\169e avec les param\195\168tres indiqu\195\169s",
-	["%s: Timer [%s] finished."] = "%s: Compteur [%s] termin\195\169.",
 } end)
 
 ----------------------------------
