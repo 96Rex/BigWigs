@@ -36,195 +36,34 @@ L:RegisterTranslations("enUS", function() return {
 	["Suppressed"] = true,
 	["Shown"] = true,
 } end)
-
-L:RegisterTranslations("esES", function() return {
-	["BossBlock"] = "Bloque de Jefe",
-	["Suppress bossmod chat from other players."] = "Bloquea el chat de los módulos de jefes de otro jugadores",
-
-	["Suppress Raid Chat"] = "Bloquear Chat de la Banda",
-	["Suppress messages in the raid channel."] = "Bloquea los mensajes en el chat de la banda",
-
-	["Suppress RaidWarn Chat"] = "Bloquear Chat de Advertencia de la Banda",
-	["Suppress RaidWarn messages in the chat frames."] = "Bloquea mensajes de Advertencia de la Banda en el chat",
-
-	["Suppress RaidWarn"] = "Bloquear Advertencia de la Banda",
-	["Suppress RaidWarn popup messages."] = "Bloquea mensajes de Adventencia de la Banda",
-
-	["Suppress RaidSay"] = "Bloquear RaidSay",
-	["Suppress CTRA RaidSay popup messages."] = "Bloquea mensajes de CTRA RaidSay",
-	["Suppress oRA RaidSay popup messages."] = "Bloquea mensajes de oRA RaidSay",
-	["Suppress oRA2 RaidSay popup messages."] = "Bloquea mensajes de oTRA2",
-
-	["Suppress Tells"] = "Bloquear mensajes personales",
-	["Suppress Tell messages."] = "Bloquea mensajes personales",
-
-	["Debugging"] = "Depurar",
-	["Show debug messages."] = "Mostrar mensajes de depura",
-
-	["Suppressing Chatframe"] = "Bloquea el marco de chat",
-	["Suppressing RaidWarningFrame"] = "Bloquea el marco de Advertencia de la Banda",
-	["Suppressing CT_RAMessageFrame"] = "Bloquea CT_RAMessageFrame",
-
-	["Suppressed"] = "Bloqueado",
-	["Shown"] = "Mostrado",
-} end)
-
-L:RegisterTranslations("koKR", function() return {
-	["BossBlock"] = "보스차단",
-	["Suppress bossmod chat from other players."] = "타인의 보스모드 대화 차단.",
-
-	["Suppress Raid Chat"] = "공격대 대화 차단",
-	["Suppress messages in the raid channel."] = "공격대 채널에 메세지 차단.",
-
-	["Suppress RaidWarn Chat"] = "공격대경고 대화 차단",
-	["Suppress RaidWarn messages in the chat frames."] = "대화창에 공격대경고 메세지 차단",
-
-	["Suppress RaidWarn"] = "공격대경고 차단",
-	["Suppress RaidWarn popup messages."] = "공격대경고 알림 메세지 차단",
-
-	["Suppress RaidSay"] = "RaidSay 차단",
-	["Suppress CTRA RaidSay popup messages."] = "CTRA RaidSay 알림 메세지 차단",
-	["Suppress oRA RaidSay popup messages."] = "oRA RaidSay 알림 메세지 차단",
-	["Suppress oRA2 RaidSay popup messages."] = "oRA2 RaidSay 알림 메세지 차단",
-
-	["Suppress Tells"] = "일반대화 차단",
-	["Suppress Tell messages."] = "일반대화 메세지 차단",
-
-	["Debugging"] = "디버깅",
-	["Show debug messages."] = "디버그 메세지 표시",
-
-	["Suppressing Chatframe"] = "대화창 차단됨",
-	["Suppressing RaidWarningFrame"] = "공격대경고창 차단됨",
-	["Suppressing CT_RAMessageFrame"] = "CR_RA메세지창 차단됨",
-
-	["Suppressed"] = "차단됨",
-	["Shown"] = "표시함",
-
-} end)
-
 L:RegisterTranslations("zhCN", function() return {
-	["BossBlock"] = "信息阻挡",
-	["Suppress bossmod chat from other players."] = "阻挡其他玩家的首领插件发送的信息。",
+	["BossBlock"] = "信息过滤",
+	["Suppress bossmod chat from other players."] = "过滤来自其他玩家的Bigwigs插件发送的信息。",
 
-	["Suppress Raid Chat"] = "阻挡团队频道",
-	["Suppress messages in the raid channel."] = "阻挡团队频道中的信息",
+	["Suppress Raid Chat"] = "过滤团队信息",
+	["Suppress messages in the raid channel."] = "过滤来自于团队频道的信息",
 
-	["Suppress RaidWarn Chat"] = "阻挡团队警告聊天",
-	["Suppress RaidWarn messages in the chat frames."] = "阻挡聊天窗体中的团队警告信息",
+	["Suppress RaidWarn Chat"] = "过滤团队警告信息",
+	["Suppress RaidWarn messages in the chat frames."] = "过滤来自于团队警告频道的信息",
 
-	["Suppress RaidWarn"] = "阻挡团队警告",
-	["Suppress RaidWarn popup messages."] = "阻挡团队警告中的信息",
+	["Suppress RaidWarn"] = "过滤团队通知信息",
+	["Suppress RaidWarn popup messages."] = "过滤来自于团队警告频道的弹出信息",
 
-	["Suppress RaidSay"] = "阻挡RS",
-	["Suppress CTRA RaidSay popup messages."] = "阻挡团队助手(CTRA)的RS信息",
+	["Suppress RaidSay"] = "过滤CTRA_RS信息",
+	["Suppress CTRA RaidSay popup messages."] = "过滤来自于CT_RaidAssist的弹出信息",
 
-	["Suppress Tells"] = "阻挡密语",
-	["Suppress Tell messages."] = "阻挡密语中的信息",
+	["Suppress Tells"] = "过滤私聊信息",
+	["Suppress Tell messages."] = "过滤来自于私聊的信息",
 
-	["Debugging"] = "除错",
-	["Show debug messages."] = "显示除错信息",
+	["Debugging"] = "调试",
+	["Show debug messages."] = "显示调试信息",
 
-	["Suppressing Chatframe"] = "正在阻挡Chatframe",
-	["Suppressing RaidWarningFrame"] = "正在阻挡RaidWarningFrame",
-	["Suppressing CT_RAMessageFrame"] = "正在阻挡CT_RAMessageFrame",
+	["Suppressing Chatframe"] = "正在过滤聊天信息",
+	["Suppressing RaidWarningFrame"] = "正在过滤团队警告信息",
+	["Suppressing CT_RAMessageFrame"] = "正在过滤CT_RaidAssist信息",
 
-	["Suppressed"] = "阻挡",
+	["Suppressed"] = "过滤",
 	["Shown"] = "显示",
-} end)
-
-
-L:RegisterTranslations("zhTW", function() return {
-	["BossBlock"] = "訊息阻擋",
-	["Suppress bossmod chat from other players."] = "阻擋其他玩家的首領插件發送的訊息。",
-
-	["Suppress Raid Chat"] = "阻擋團隊頻道",
-	["Suppress messages in the raid channel."] = "阻擋團隊頻道中的訊息",
-
-	["Suppress RaidWarn Chat"] = "阻擋團隊警告聊天",
-	["Suppress RaidWarn messages in the chat frames."] = "阻擋聊天窗體中的團隊警告訊息",
-
-	["Suppress RaidWarn"] = "阻擋團隊警告",
-	["Suppress RaidWarn popup messages."] = "阻擋團隊警告中的訊息",
-
-	["Suppress RaidSay"] = "阻擋RS",
-	["Suppress CTRA RaidSay popup messages."] = "阻擋團隊助手(CTRA)的RS訊息",
-
-	["Suppress Tells"] = "阻擋密語",
-	["Suppress Tell messages."] = "阻擋密語中的訊息",
-
-	["Debugging"] = "除錯",
-	["Show debug messages."] = "顯示除錯訊息",
-
-	["Suppressing Chatframe"] = "正在阻擋Chatframe",
-	["Suppressing RaidWarningFrame"] = "正在阻擋RaidWarningFrame",
-	["Suppressing CT_RAMessageFrame"] = "正在阻擋CT_RAMessageFrame",
-
-	["Suppressed"] = "阻擋",
-	["Shown"] = "顯示",
-} end)
-
-L:RegisterTranslations("deDE", function() return {
-	["BossBlock"] = "BossBlock",
-	["Suppress bossmod chat from other players."] = "Bossmod Meldungen von anderen Spielern unterdrücken.",
-
-	["Suppress Raid Chat"] = "Raid Chat unterdrücken",
-	["Suppress messages in the raid channel."] = "Nachrichten im Raid Channel unterdrücken",
-
-	["Suppress RaidWarn Chat"] = "RaidWarn Chat unterdrücken",
-	["Suppress RaidWarn messages in the chat frames."] = "RaidWarn Nachrichten im Chat Fenster unterdrücken.",
-
-	["Suppress RaidWarn"] = "RaidWarn unterdrücken",
-	["Suppress RaidWarn popup messages."] = "RaidWarn Popup-Nachrichten unterdrücken.",
-
-	["Suppress RaidSay"] = "RaidSay unterdrücken",
-	["Suppress CTRA RaidSay popup messages."] = "CTRA RaidSay Popup Nachrichten unterdrücken.",
-	["Suppress oRA RaidSay popup messages."] = "oRA RaidSay Popup Nachrichten unterdrücken.",
-	["Suppress oRA2 RaidSay popup messages."] = "oRA2 RaidSay Popup Nachrichten unterdrücken.",
-
-	["Suppress Tells"] = "Flüstern unterdrücken",
-	["Suppress Tell messages."] = "Flüstern Nachrichten unterdrücken.",
-
-	["Debugging"] = "Debugging",
-	["Show debug messages."] = "Debug Nachrichten anzeigen.",
-
-	["Suppressing Chatframe"] = "Chatframe unterdrückt",
-	["Suppressing RaidWarningFrame"] = "RaidWarningFrame unterdrücket",
-	["Suppressing CT_RAMessageFrame"] = "CT_RAMessageFrame unterdrückt",
-
-	["Suppressed"] = "Unterdrückt",
-	["Shown"] = "Angezeigt",
-} end)
-
-L:RegisterTranslations("frFR", function() return {
-	["BossBlock"] = "BossBlock",
-	["Suppress bossmod chat from other players."] = "Supprime les messages des BossMods des autres joueurs.",
-
-	["Suppress Raid Chat"] = "Supprimer les messages du canal Raid",
-	["Suppress messages in the raid channel."] = "Supprime les messages du canal Raid.",
-
-	["Suppress RaidWarn Chat"] = "Supprimer les Avertissements Raid du chat",
-	["Suppress RaidWarn messages in the chat frames."] = "Supprime les messages de l'Avertissement Raid de la fenêtre de discussion.",
-
-	["Suppress RaidWarn"] = "Supprimer les Avertissements Raid",
-	["Suppress RaidWarn popup messages."] = "Supprime les messages à l'écran de l'Avertissement Raid.",
-
-	["Suppress RaidSay"] = "Supprimer les RaidSay",
-	["Suppress CTRA RaidSay popup messages."] = "Supprime les messages à l'écran du RaidSay de CTRA.",
-	["Suppress oRA RaidSay popup messages."] = "Supprime les messages à l'écran du RaidSay de oRA.",
-	["Suppress oRA2 RaidSay popup messages."] = "Supprime les messages à l'écran du RaidSay de oRA2.",
-
-	["Suppress Tells"] = "Supprimer les chuchotements",
-	["Suppress Tell messages."] = "Supprime les messages chuchotés.",
-
-	["Debugging"] = "Débogage",
-	["Show debug messages."] = "Affiche les messages de débogage.",
-
-	["Suppressing Chatframe"] = "Suppression de la fenêtre de discussion",
-	["Suppressing RaidWarningFrame"] = "Suppression du cadre de l'Avertissement Raid",
-	["Suppressing CT_RAMessageFrame"] = "Suppression du cadre du RaidSay de CTRA",
-
-	["Suppressed"] = "Supprimé",
-	["Shown"] = "Affiché",
 } end)
 
 ------------------------------
@@ -259,25 +98,6 @@ local blockstrings = {
 	["你正在燃烧！"] = true,
 	["你中了快速传染！"] = true,
 	["你被标记了！"] = true,
-
-	-- deDE
-	["DU HAST DIE SEUCHE!"] = true,
-	["DU BIST DIE BOMBE!"] = true,
-	["DU WIRST BEOBACHTET!"] = true,
-	["DU BIST VERFLUCHT!"] = true,
-	["DU BRENNST!"] = true,
-	-- ["YOU ARE AFFLICTED BY VOLATILE INFECTION!"] = true,
-	["DU BIST MARKIERT!"] = true,
-
-	-- frFR
-	["TU AS LA PESTE !"] = true,
-	["TU ES LA BOMBE !"] = true,
-	["TU ES SURVEILLE !"] = true,
-	["TU ES MAUDIT !"] = true,
-	["TU BRULES !"] = true,
-	["TU ES AFFLIGE PAR INFECTION VOLATILE !"] = true,
-	["TU ES MARQUE !"] = true,
-
 }
 
 
