@@ -57,7 +57,7 @@ end)
 --      Module Declaration      --
 ----------------------------------
 
-BigWigsTest = BigWigs:NewModule(L["Test"])
+BigWigsTest = BigWigs:NewModule("Test")
 BigWigsTest.revision = 20003
 
 BigWigsTest.consoleCmd = L["test"]
