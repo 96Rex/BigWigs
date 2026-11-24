@@ -2,24 +2,14 @@ local name = "Common Auras"
 local L = AceLibrary("AceLocale-2.2"):new("BigWigs" .. name)
 local BS = AceLibrary("Babble-Spell-2.2")
 
-local spellStatus = nil
 local has_superwow = SUPERWOW_STRING or SetAutoloot
-
-local whZone = nil
-local whColor = nil
-local whText = nil
-
-local portalColor = nil
-local portalText = nil
-
-local timeToShutdown = nil
-local shutdownBigWarning = nil
+local _, class = UnitClass("player")
 
 L:RegisterTranslations("enUS", function()
 	return {
 		iconPrefix = "Interface\\Icons\\",
 
-		msg_fearward = " FearWard on ",
+		msg_fearward = " Gain FearWard",
 		bar_fearward = " FearWard CD",
 
 		msg_shieldwall = " Shield Wall",
@@ -43,81 +33,72 @@ L:RegisterTranslations("enUS", function()
 		msg_divineIntervention = "Divine Intervention on ",
 		bar_divineIntervention = " Divine Intervention",
 
-		portal_regexp = ".*: (.*)",
-
-		trigger_wormhole = "just opened a wormhole.", --CHAT_MSG_MONSTER_EMOTE
-		bar_wormhole = " Wormhole",
-		msg_wormhole = " Wormhole",
-
-		trigger_orange = "begins to conjure a refreshment table.", --CHAT_MSG_MONSTER_EMOTE
+		trigger_orange = "begins to conjure a refreshment table.",
 		bar_orange = "Oranges!",
 		msg_orange = "Oranges! Get your Vitamin C",
 
-		trigger_soulwell = "begins a Soulwell ritual.", --CHAT_MSG_MONSTER_EMOTE
+		trigger_soulwell = "begins a Soulwell ritual.",
 		bar_soulwell = "Soulwell!",
 		msg_soulwell = "Soulwell! Get your Cookie",
 
-		trigger_shutdown = "Shutdown in (%d+) (%a+)", --CHAT_MSG_SYSTEM
-		trigger_restart = "Restart in (%d+) (%a+)", --CHAT_MSG_SYSTEM
-		trigger_restartMinSec = "Shutdown in (.+) Minutes (.+) Seconds.", --CHAT_MSG_SYSTEM
-		trigger_shutdownMinSec = "Restart in (.+) Minutes (.+) Seconds.", --CHAT_MSG_SYSTEM
-		bar_shutDown = "Server Shutdown/Restart",
-
-		bar_aq40insignia = "Loot Insignia",
-		bar_aq40artifact = "Loot Artifact",
-
-		aq40insignia = "Qiraji Lord\'s Insignia",
-		aq40artifact = "Ancient Qiraji Artifact",
-
-		cenarionFactionName = "Cenarion Circle",
-		broodFactionName = "Brood of Nozdormu",
-
 		["Toggle %s display."] = true,
-		["Wormhole"] = true,
 		["Spells"] = "Important spells",
 		["SpellsDesc"] = "Notification bars during important spells",
 		["Orange"] = true,
 		["Soulwell"] = true,
-		["Portal"] = true,
-		["Shutdown"] = true,
-		["broadcast"] = true,
-		["Broadcast"] = true,
-		["Toggle broadcasting the messages to the raidwarning channel."] = true,
-
-		["AutoFocus"] = true,
-		["AutoFocusDesc"] = "Automatically sets focus target to skull marks",
 
 		["Gives timer bars and raid messages about common buffs and debuffs."] = true,
 		["Common Auras"] = true,
 		["commonauras"] = true,
 
-		["Invisibility"] = true,
-		["Deepwood Pipe"] = true,
-		["Lesser Invisibility"] = true,
-		["Limited Invulnerability Potion"] = true,
-		["Hand of Protection"] = true,
-		["Power Infusion"] = true,
+	}
+end)
+L:RegisterTranslations("zhCN", function()
+	return {
+		iconPrefix = "Interface\\Icons\\",
 
-		["AQ40 Insignia Reminder"] = true,
-		["AQ40 Artifact Reminder"] = true,
+		msg_fearward = " 获得 反恐结界",
+		bar_fearward = "反恐结界冷却",
 
-		["di_trigger"] = "You gain Divine Intervention",
-		["invis_trigger"] = "You gain Invisibility",
-		["lesser_invis_trigger"] = "You gain Lesser Invisibility",
-		["cloaking_invis_trigger"] = "You gain Cloaking",
-		["lip_trigger"] = "You gain Invulnerability",
-		["bop_trigger"] = "You gain Hand of Protection",
-		["powerinfusion_trigger"] = "You gain Power Infusion",
-		["deepwoodpipe_trigger"] = "You gain Smoke Cloud", -- use this as trigger instead of Stealth due to overlap with rogue ability
+		msg_shieldwall = " 开启 盾墙",
+		bar_shieldwall = "(盾墙)",
 
-		["di_fades"] = "Divine Intervention fades",
-		["invis_fades"] = "Invisibility fades",
-		["lesser_invis_fades"] = "Lesser Invisibility fades",
-		["cloaking_invis_fades"] = "Cloaking fades",
-		["lip_fades"] = "Invulnerability fades",
-		["bop_fades"] = "Hand of Protection fades",
-		["powerinfusion_fades"] = "Power Infusion fades",
-		["deepwoodpipe_fades"] = "Stealth fades"
+		msg_laststand = " 使用 破釜沉舟",
+		bar_laststand = "(破釜沉舟)",
+
+		msg_lifegivingGem = " 使用 生命宝石",
+		bar_lifegivingGem = "(生命宝石)",
+
+		msg_challengingShout = " 施放 群嘲",
+		bar_challengingShout = "(挑战怒吼)",
+
+		msg_challengingRoar = " 施放 群嘲",
+		bar_challengingRoar = "(挑战咆哮)",
+
+		msg_spiritLink = " 获得 灵魂链接",
+		bar_spiritLink = "(灵魂链接)",
+
+		msg_divineIntervention = " 获得 神圣干涉",
+		bar_divineIntervention = "(神圣干涉)",
+
+		trigger_orange = "begins to conjure a refreshment table.",
+		bar_orange = "餐桌",
+		msg_orange = "餐桌 已开放",
+
+		trigger_soulwell = "begins a Soulwell ritual.",
+		bar_soulwell = "灵魂之井",
+		msg_soulwell = "灵魂之井 已开放",
+
+		["Toggle %s display."] = "%s",
+		["Spells"] = "重要法术",
+		["SpellsDesc"] = "重要法术的计时条",
+		["Orange"] = "餐桌(法师橘子)",
+		["Soulwell"] = "灵魂之井(术士马桶)",
+
+		["Gives timer bars and raid messages about common buffs and debuffs."] = "为普通的增/减益提供团队消息和计时条.",
+		["Common Auras"] = "光环提醒",
+		["commonauras"] = "光环提醒",
+
 	}
 end)
 
@@ -132,20 +113,8 @@ BigWigsCommonAuras.defaultDB = {
 	challengingroar = true,
 	spiritlink = true,
 	di = true,
-	portal = true,
-	wormhole = true,
 	orange = true,
 	soulwell = true,
-	shutdown = true,
-	invis = true,
-	deepwood = true,
-	lip = true,
-	bop = true,
-	powerinfusion = true,
-	broadcast = false,
-	aq40artifact = true,
-	aq40insignia = true,
-	autofocus = false
 }
 BigWigsCommonAuras.consoleCmd = L["commonauras"]
 BigWigsCommonAuras.revision = 30066
@@ -155,61 +124,6 @@ BigWigsCommonAuras.consoleOptions = {
 	name = L["Common Auras"],
 	desc = L["Gives timer bars and raid messages about common buffs and debuffs."],
 	args = {
-		["aq40insignia"] = {
-			type = "toggle",
-			name = L["AQ40 Insignia Reminder"],
-			desc = string.format(L["Toggle %s display."], L["AQ40 Insignia Reminder"]),
-			get = function()
-				return BigWigsCommonAuras.db.profile.aq40insignia
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.aq40insignia = v
-			end,
-		},
-		["aq40artifact"] = {
-			type = "toggle",
-			name = L["AQ40 Artifact Reminder"],
-			desc = string.format(L["Toggle %s display."], L["AQ40 Artifact Reminder"]),
-			get = function()
-				return BigWigsCommonAuras.db.profile.aq40artifact
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.aq40artifact = v
-			end,
-		},
-		["broadcast"] = {
-			type = "toggle",
-			name = L["Broadcast"],
-			desc = L["Toggle broadcasting the messages to the raidwarning channel."],
-			get = function()
-				return BigWigsCommonAuras.db.profile.broadcast
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.broadcast = v
-			end,
-		},
-		["autofocus"] = {
-			type = "toggle",
-			name = L["AutoFocus"],
-			desc = L["AutoFocusDesc"],
-			get = function()
-				return BigWigsCommonAuras.db.profile.autofocus
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.autofocus = v
-			end,
-		},
-		["portal"] = {
-			type = "toggle",
-			name = L["Portal"],
-			desc = string.format(L["Toggle %s display."], L["Portal"]),
-			get = function()
-				return BigWigsCommonAuras.db.profile.portal
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.portal = v
-			end,
-		},
 		["orange"] = {
 			type = "toggle",
 			name = L["Orange"],
@@ -232,45 +146,12 @@ BigWigsCommonAuras.consoleOptions = {
 				BigWigsCommonAuras.db.profile.soulwell = v
 			end,
 		},
-		["shutdown"] = {
-			type = "toggle",
-			name = L["Shutdown"],
-			desc = string.format(L["Toggle %s display."], L["Shutdown"]),
-			get = function()
-				return BigWigsCommonAuras.db.profile.shutdown
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.shutdown = v
-			end,
-		},
-		["wormhole"] = {
-			type = "toggle",
-			name = L["Wormhole"],
-			desc = string.format(L["Toggle %s display."], L["Wormhole"]),
-			get = function()
-				return BigWigsCommonAuras.db.profile.wormhole
-			end,
-			set = function(v)
-				BigWigsCommonAuras.db.profile.wormhole = v
-			end,
-		},
 		["spells"] = {
 			type = "group",
 			name = L["Spells"],
 			desc = L["SpellsDesc"],
 			order = 6,
 			args = {
-				["bop"] = {
-					type = "toggle",
-					name = L["Hand of Protection"],
-					desc = string.format(L["Toggle %s display."], L["Hand of Protection"]),
-					get = function()
-						return BigWigsCommonAuras.db.profile.bop
-					end,
-					set = function(v)
-						BigWigsCommonAuras.db.profile.bop = v
-					end,
-				},
 				["challengingshout"] = {
 					type = "toggle",
 					name = BS["Challenging Shout"],
@@ -315,17 +196,6 @@ BigWigsCommonAuras.consoleOptions = {
 						BigWigsCommonAuras.db.profile.di = v
 					end,
 				},
-				["deepwood"] = {
-					type = "toggle",
-					name = L["Deepwood Pipe"],
-					desc = string.format(L["Toggle %s display."], L["Deepwood Pipe"]),
-					get = function()
-						return BigWigsCommonAuras.db.profile.deepwood
-					end,
-					set = function(v)
-						BigWigsCommonAuras.db.profile.deepwood = v
-					end,
-				},
 				["fearward"] = {
 					type = "toggle",
 					name = BS["Fear Ward"],
@@ -335,17 +205,6 @@ BigWigsCommonAuras.consoleOptions = {
 					end,
 					set = function(v)
 						BigWigsCommonAuras.db.profile.fearward = v
-					end,
-				},
-				["invisibility"] = {
-					type = "toggle",
-					name = L["Invisibility"],
-					desc = string.format(L["Toggle %s display."], L["Invisibility"]),
-					get = function()
-						return BigWigsCommonAuras.db.profile.invis
-					end,
-					set = function(v)
-						BigWigsCommonAuras.db.profile.invis = v
 					end,
 				},
 				["laststand"] = {
@@ -359,17 +218,6 @@ BigWigsCommonAuras.consoleOptions = {
 						BigWigsCommonAuras.db.profile.laststand = v
 					end,
 				},
-				["lip"] = {
-					type = "toggle",
-					name = L["Limited Invulnerability Potion"],
-					desc = string.format(L["Toggle %s display."], L["Limited Invulnerability Potion"]),
-					get = function()
-						return BigWigsCommonAuras.db.profile.lip
-					end,
-					set = function(v)
-						BigWigsCommonAuras.db.profile.lip = v
-					end,
-				},
 				["lifegivinggem"] = {
 					type = "toggle",
 					name = BS["Lifegiving Gem"],
@@ -379,17 +227,6 @@ BigWigsCommonAuras.consoleOptions = {
 					end,
 					set = function(v)
 						BigWigsCommonAuras.db.profile.lifegivinggem = v
-					end,
-				},
-				["powerinfusion"] = {
-					type = "toggle",
-					name = L["Power Infusion"],
-					desc = string.format(L["Toggle %s display."], L["Power Infusion"]),
-					get = function()
-						return BigWigsCommonAuras.db.profile.powerinfusion
-					end,
-					set = function(v)
-						BigWigsCommonAuras.db.profile.powerinfusion = v
 					end,
 				},
 				["shieldwall"] = {
@@ -414,13 +251,9 @@ local timer = {
 	lifegivingGem = 20,
 	challenging = 6,
 	spiritLink = 20,
-	di = 60,
-	portal = 60,
-	wormhole = 8,
+	di = 180,
 	orange = 60,
 	soulwell = 60,
-	aq40artifact = 5,
-	aq40insignia = 5,
 }
 local icon = {
 	fearward = L["iconPrefix"] .. "spell_holy_excorcism",
@@ -431,12 +264,8 @@ local icon = {
 	challengingRoar = L["iconPrefix"] .. "ability_druid_challangingroar",
 	spiritLink = L["iconPrefix"] .. "spell_shaman_spiritlink",
 	di = L["iconPrefix"] .. "spell_nature_timestop",
-	wormhole = L["iconPrefix"] .. "Inv_Misc_EngGizmos_12",
 	orange = L["iconPrefix"] .. "inv_misc_food_41",
 	soulwell = L["iconPrefix"] .. "inv_stone_04",
-	shutdown = L["iconPrefix"] .. "trade_engineering",
-	aq40insignia = L["iconPrefix"] .. "inv_zulgurubtrinket",
-	aq40artifact = L["iconPrefix"] .. "inv_misc_idol_03",
 }
 local color = {
 	fearward = "Cyan",
@@ -447,64 +276,39 @@ local color = {
 	challengingRoar = "Red",
 	spiritLink = "Cyan",
 	di = "Blue",
-	wormhole = "Cyan",
 	orange = "Green",
 	soulwell = "Green",
-	shutdown = "White",
-	aq40insignia = "Yellow",
-	aq40artifact = "Yellow",
 }
 
 function BigWigsCommonAuras:OnEnable()
-	--if UnitName("Player") == "Relar" then self:RegisterEvent("CHAT_MSG_SAY") end --Debug
-	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE")--trigger_wormhole, trigger_orange, trigger_soulwell
-	self:RegisterEvent("CHAT_MSG_SYSTEM")--trigger_shutdown, trigger_restart
+	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS")
-	self:RegisterEvent("CHAT_MSG_SPELL_AURA_GONE_SELF")
-	self:RegisterEvent("LOOT_OPENED")
 
-	if UnitClass("player") == "Warrior" or UnitClass("player") == "Druid" or UnitClass("player") == "Priest" or UnitClass("player") == "Shaman" then
+	if class == "WARRIOR" or class == "DRUID" or class == "PRIEST" or class == "SHAMAN" then
 		if has_superwow then
-			self:RegisterEvent("UNIT_CASTEVENT") -- more reliable target info, for instance if you cast without targeting
+			self:RegisterEvent("UNIT_CASTEVENT")
 		else
 			self:RegisterEvent("SpellStatusV2_SpellCastInstant")
 		end
-	elseif UnitClass("player") == "Mage" then
-		if not spellStatus then
-			spellStatus = AceLibrary("SpellStatusV2-2.0")
-		end
-		self:RegisterEvent("SpellStatusV2_SpellCastCastingFinish")
-		self:RegisterEvent("SpellStatusV2_SpellCastFailure")
 	end
 
 	local throttle_delta = 0.4
 	self:RegisterEvent("BigWigs_RecvSync")
-	-- XXX Lets have a low throttle because you'll get 2 syncs from yourself, so
-	-- it results in 2 messages.
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAFW", throttle_delta) -- Fear Ward
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCASW", throttle_delta) -- Shield Wall
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCALS", throttle_delta) -- Last Stand
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCALG", throttle_delta) -- Last Stand
+	self:TriggerEvent("BigWigs_ThrottleSync", "BWCALG", throttle_delta) -- Lifegiving Gem
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCACS", throttle_delta) -- Challenging Shout
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCACR", throttle_delta) -- Challenging Roar
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCASL", throttle_delta) -- Spirit Link
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAP", throttle_delta) -- Portal
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAWH", throttle_delta) -- Wormhole
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAOR", throttle_delta) -- Orange
 	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAWL", throttle_delta) -- Soulwell
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAAF", throttle_delta) -- AutoFocus
-
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAAQ40INSIGNIA", 60) -- AQ40 boss insignia
-	self:TriggerEvent("BigWigs_ThrottleSync", "BWCAAQ40ARTIFACT", 60) -- Artifact
 end
 
--- equip your spellcasts with their target
-function BigWigsCommonAuras:UNIT_CASTEVENT(caster,target,action,spell_id,cast_time)
-	if not (action == "CAST" and UnitIsUnit(caster,"player")) then return end
-
-	-- this technically false-postives on cast completions but it shouldn't matter for our purpose
-	local name,rank = SpellInfo(spell_id)
-	local fullname = rank == "" and name or format("%s(%s)",name,rank)
+function BigWigsCommonAuras:UNIT_CASTEVENT(caster, target, action, spell_id, cast_time)
+	if not (action == "CAST" and UnitIsUnit(caster, "player")) then return end
+	local name, rank = SpellInfo(spell_id)
+	local fullname = rank == "" and name or format("%s(%s)", name, rank)
 	self:SpellStatusV2_SpellCastInstant(spell_id, name, rank, fullname, cast_time, nil, nil, nil, target and UnitName(target))
 end
 
@@ -549,107 +353,16 @@ function BigWigsCommonAuras:SpellStatusV2_SpellCastInstant(sId, sName, sRank, sF
 end
 
 function BigWigsCommonAuras:CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS(msg)
-	if string.find(msg, BS["Gift of Life"]) and (UnitClass("Player") == "Warrior" or UnitClass("Player") == "Druid" or UnitClass("Player") == "Paladin") then
+	if string.find(msg, BS["Gift of Life"]) then
 		self:TriggerEvent("BigWigs_SendSync", "BWCALG")
-	elseif string.find(msg, L["di_trigger"]) then
+	elseif string.find(msg, BS["Divine Intervention"]) then
 		self:TriggerEvent("BigWigs_SendSync", "BWCADI")
-	elseif string.find(msg, L["invis_trigger"]) and self.db.profile.invis then
-		self:Bar(L["invis_trigger"], 18, "Spell_Magic_LesserInvisibilty", true)
-	elseif string.find(msg, L["lesser_invis_trigger"]) and self.db.profile.invis then
-		self:Bar(L["lesser_invis_trigger"], 15, "Spell_Magic_LesserInvisibilty", true)
-	elseif string.find(msg, L["cloaking_invis_trigger"]) and self.db.profile.invis then
-		self:Bar(L["cloaking_invis_trigger"], 10, "Spell_Magic_LesserInvisibilty", true)
-	elseif string.find(msg, L["deepwoodpipe_trigger"]) and self.db.profile.deepwood then
-		self:Bar(L["deepwoodpipe_trigger"], 30, "ability_stealth", true)
-	elseif string.find(msg, L["lip_trigger"]) and self.db.profile.lip then
-		self:Bar(L["lip_trigger"], 6, "inv_potion_62", true)
-	elseif string.find(msg, L["bop_trigger"]) and self.db.profile.bop then
-		self:Bar(L["bop_trigger"], 10, "Spell_Holy_SealOfProtection", true)
-	elseif string.find(msg, L["powerinfusion_trigger"]) and self.db.profile.powerinfusion then
-		self:Bar(L["powerinfusion_trigger"], 15, "Spell_Holy_PowerInfusion", true)
 	end
-end
-
-function BigWigsCommonAuras:CHAT_MSG_SPELL_AURA_GONE_SELF(msg)
-	if string.find(msg, L["di_fades"]) then
-		self:RemoveBar(L["di_trigger"])
-	elseif string.find(msg, L["invis_fades"]) then
-		self:RemoveBar(L["invis_trigger"])
-	elseif string.find(msg, L["lesser_invis_fades"]) then
-		self:RemoveBar(L["lesser_invis_trigger"])
-	elseif string.find(msg, L["cloaking_invis_fades"]) then
-		self:RemoveBar(L["cloaking_invis_trigger"])
-	elseif string.find(msg, L["deepwoodpipe_fades"]) then
-		self:RemoveBar(L["deepwoodpipe_trigger"])
-	elseif string.find(msg, L["lip_fades"]) then
-		self:RemoveBar(L["lip_trigger"])
-	elseif string.find(msg, L["bop_fades"]) then
-		self:RemoveBar(L["bop_trigger"])
-	elseif string.find(msg, L["powerinfusion_fades"]) then
-		self:RemoveBar(L["powerinfusion_trigger"])
-	end
-end
-
-function BigWigsCommonAuras:SpellStatusV2_SpellCastCastingFinish(sId, sName, sRank, sFullName, sCastTime)
-	if not string.find(sName, L["Portal"]) then
-		return
-	end
-	local spellCastName = BS:HasReverseTranslation(sName) and BS:GetReverseTranslation(sName) or sName
-	self:ScheduleEvent("bwcaspellcast", self.SpellCast, 0.3, self, spellCastName)
-end
-
-function BigWigsCommonAuras:SpellStatusV2_SpellCastFailure(sId, sName, sRank, sFullName, isActiveSpell, UIEM_Message, CMSFLP_SpellName, CMSFLP_Message)
-	-- do nothing if we are casting a spell but the error doesn't consern that spell, thanks Iceroth.
-	if spellStatus and spellStatus:IsCastingOrChanneling() and not spellStatus:IsActiveSpell(sId, sName) then
-		return
-	end
-	if self:IsEventScheduled("bwcaspellcast") then
-		self:CancelScheduledEvent("bwcaspellcast")
-	end
-end
-
-function BigWigsCommonAuras:SpellCast(sName)
-	self:TriggerEvent("BigWigs_SendSync", "BWCAP " .. sName)
 end
 
 function BigWigsCommonAuras:CHAT_MSG_MONSTER_EMOTE(msg, sender)
-	if string.find(msg, L["trigger_wormhole"]) then
-		whZone = nil
-		if GetNumRaidMembers() > 0 then
-			for i = 1, GetNumRaidMembers() do
-				if UnitName("raid" .. i) == sender then
-					if UnitFactionGroup("raid" .. i) == "Alliance" then
-						whZone = "Stormwind"
-					elseif UnitFactionGroup("raid" .. i) == "Horde" then
-						whZone = "Orgrimmar"
-					else
-						whZone = sender
-					end
-				end
-			end
-		elseif GetNumPartyMembers() > 0 then
-			for i = 1, GetNumPartyMembers() do
-				if UnitName("party" .. i) == sender then
-					if UnitFactionGroup("party" .. i) == "Alliance" then
-						whZone = "Stormwind"
-					elseif UnitFactionGroup("party" .. i) == "Horde" then
-						whZone = "Orgrimmar"
-					else
-						whZone = sender
-					end
-				end
-			end
-		else
-			whZone = sender
-		end
-
-		if whZone ~= nil then
-			self:TriggerEvent("BigWigs_SendSync", "BWCAWH " .. whZone)
-		end
-
-
-	elseif string.find(msg, L["trigger_orange"]) then
-		local zone = nil -- GetRealZoneText()
+	if string.find(msg, L["trigger_orange"]) then
+		local zone = nil
 		if GetNumRaidMembers() > 0 then
 			for i = 1, GetNumRaidMembers() do
 				if UnitName("raid" .. i) == sender then
@@ -677,119 +390,23 @@ function BigWigsCommonAuras:CHAT_MSG_MONSTER_EMOTE(msg, sender)
 	end
 end
 
-function BigWigsCommonAuras:CHAT_MSG_SYSTEM(msg)
-	if string.find(msg, L["trigger_restartMinSec"]) or string.find(msg, L["trigger_shutdownMinSec"]) then
-		local _, _, minutes, seconds = string.find(msg, " in (.+) Minutes (.+) Seconds.")
-		timeToShutdown = tonumber(minutes) * 60 + tonumber(seconds)
-
-		if self.db.profile.shutdown then
-			if timeToShutdown > 9 then
-				self:TriggerEvent("BigWigs_StopBar", self, L["bar_shutDown"])
-				self:TriggerEvent("BigWigs_StartBar", self, L["bar_shutDown"], timeToShutdown, icon.shutdown, true, color.shutdown)
-			end
-
-			if not shutdownBigWarning then
-				self:TriggerEvent("BigWigs_Sound", "Beware")
-				self:TriggerEvent("BigWigs_ShowWarningSign", icon.shutdown, 2)
-				shutdownBigWarning = true
-			end
-		end
-
-
-	elseif string.find(msg, L["trigger_restart"]) or string.find(msg, L["trigger_shutdown"]) then
-		local _, _, digits, minSec = string.find(msg, " in (%d+) (%a+)")
-		if string.find(minSec, "inute") then
-			timeToShutdown = tonumber(digits) * 60
-		else
-			timeToShutdown = tonumber(digits)
-		end
-
-		if self.db.profile.shutdown then
-			if timeToShutdown > 9 then
-				self:TriggerEvent("BigWigs_StopBar", self, L["bar_shutDown"])
-				self:TriggerEvent("BigWigs_StartBar", self, L["bar_shutDown"], timeToShutdown, icon.shutdown, true, color.shutdown)
-			end
-
-			if not shutdownBigWarning then
-				self:TriggerEvent("BigWigs_Sound", "Beware")
-				self:TriggerEvent("BigWigs_ShowWarningSign", icon.shutdown, 2)
-				shutdownBigWarning = true
-			end
-		end
-	end
-end
-
-function BigWigsCommonAuras:LOOT_OPENED()
-	for lootIndex = 1, GetNumLootItems() do
-		if (LootSlotIsItem(lootIndex)) then
-			local _, lootName = GetLootSlotInfo(lootIndex);
-			if lootName == L["aq40insignia"] then
-				local unitName = UnitName("target")
-				if unitName then
-					self:TriggerEvent("BigWigs_SendSync", "BWCAAQ40INSIGNIA " .. unitName)
-				else
-					self:TriggerEvent("BigWigs_SendSync", "BWCAAQ40INSIGNIA")
-				end
-			elseif lootName == L["aq40artifact"] then
-				local unitName = UnitName("target")
-				if unitName then
-					self:TriggerEvent("BigWigs_SendSync", "BWCAAQ40ARTIFACT " .. unitName)
-				else
-					self:TriggerEvent("BigWigs_SendSync", "BWCAAQ40ARTIFACT")
-				end
-			end
-		end
-	end
-end
-
---Debug
---function BigWigsCommonAuras:CHAT_MSG_SAY(msg)
---end
-
-function BigWigsCommonAuras:ExaltedForFaction(factionName)
-	for factionIndex = 1, GetNumFactions() do
-		local fname, description, standingId = GetFactionInfo(factionIndex);
-		if fname == factionName then
-			if standingId == 8 then
-				return true
-			end
-		end
-	end
-	return nil
-end
-
-function BigWigsCommonAuras:PFUIFocus(guid)
-	if not pfUI.uf or not pfUI.uf.focus then
-		return
-	end
-
-	pfUI.uf.focus.label = nil
-	pfUI.uf.focus.guid = guid
-	pfUI.uf.focus.unitname = strlower(UnitName(guid))
-end
-
 function BigWigsCommonAuras:BigWigs_RecvSync(sync, rest, nick)
 	if not nick then
 		nick = UnitName("player")
 	end
-	if self.db.profile.autofocus and sync == "BWCAAF" then
-		if pfUI and rest then
-			self:PFUIFocus(rest)
-		end
-	elseif self.db.profile.fearward and sync == "BWCAFW" and rest then
-		self:TriggerEvent("BigWigs_Message", nick .. L["msg_fearward"] .. rest, "Positive", false, nil, false)
-		self:TriggerEvent("BigWigs_StartBar", self, nick .. L["bar_fearward"], timer.fearward, icon.fearward, true, color.fearward)
-	elseif self.db.profile.shieldwall and sync == "BWCASW" then
+	if self.db.profile.fearward and sync == "BWCAFW" and rest then
+		self:TriggerEvent("BigWigs_Message", rest .. L["msg_fearward"] .. "(" .. nick .. ")", "Positive", false, nil, false)
+		self:TriggerEvent("BigWigs_StartBar", self, L["bar_fearward"].. "(" ..nick .. ")", timer.fearward, icon.fearward, true, color.fearward)
+elseif self.db.profile.shieldwall and sync == "BWCASW" then
 		local swTime = tonumber(rest)
 		if not swTime then
 			swTime = 10
-		end -- If the tank uses an old BWCA, just assume 10 seconds.
+		end
 		self:TriggerEvent("BigWigs_Message", nick .. L["msg_shieldwall"], "Urgent", false, nil, false)
 		self:TriggerEvent("BigWigs_StartBar", self, nick .. L["bar_shieldwall"], swTime, icon.shieldwall, true, color.shieldwall)
 		self:SetCandyBarOnClick("BigWigsBar " .. nick .. L["bar_shieldwall"], function(name, button, extra)
 			TargetByName(extra, true)
 		end, nick)
-
 
 	elseif self.db.profile.laststand and sync == "BWCALS" then
 		self:TriggerEvent("BigWigs_Message", nick .. L["msg_laststand"], "Urgent", false, nil, false)
@@ -798,14 +415,12 @@ function BigWigsCommonAuras:BigWigs_RecvSync(sync, rest, nick)
 			TargetByName(extra, true)
 		end, nick)
 
-
 	elseif self.db.profile.lifegivinggem and sync == "BWCALG" then
 		self:TriggerEvent("BigWigs_Message", nick .. L["msg_lifegivingGem"], "Urgent", false, nil, false)
 		self:TriggerEvent("BigWigs_StartBar", self, nick .. L["bar_lifegivingGem"], timer.lifegivingGem, icon.lifegivingGem, true, color.lifegivingGem)
 		self:SetCandyBarOnClick("BigWigsBar " .. nick .. L["bar_lifegivingGem"], function(name, button, extra)
 			TargetByName(extra, true)
 		end, nick)
-
 
 	elseif self.db.profile.challengingshout and sync == "BWCACS" then
 		self:TriggerEvent("BigWigs_Message", nick .. L["msg_challengingShout"], "Urgent", false, nil, false)
@@ -814,7 +429,6 @@ function BigWigsCommonAuras:BigWigs_RecvSync(sync, rest, nick)
 			TargetByName(extra, true)
 		end, nick)
 
-
 	elseif self.db.profile.challengingroar and sync == "BWCACR" then
 		self:TriggerEvent("BigWigs_Message", nick .. L["msg_challengingRoar"], "Urgent", false, nil, false)
 		self:TriggerEvent("BigWigs_StartBar", self, nick .. L["bar_challengingRoar"], timer.challenging, icon.challengingRoar, true, color.challengingRoar)
@@ -822,65 +436,22 @@ function BigWigsCommonAuras:BigWigs_RecvSync(sync, rest, nick)
 			TargetByName(extra, true)
 		end, nick)
 
-
 	elseif self.db.profile.spiritlink and sync == "BWCASL" and rest then
-		-- self:TriggerEvent("BigWigs_Message", L["msg_spiritLink"] .. rest, "Important", false, nil, false) -- noise
 		self:TriggerEvent("BigWigs_Sound", "Info")
-		self:TriggerEvent("BigWigs_StartBar", self, rest .. L["bar_spiritLink"], timer.spiritLink, icon.spiritLink, true, color.spiritLink)
+		self:TriggerEvent("BigWigs_Message", rest .. L["msg_spiritLink"] .. "(" .. nick .. ")", "Positive", false, nil, false)
+		self:TriggerEvent("BigWigs_StartBar", self, rest..L["bar_spiritLink"], timer.spiritLink, icon.spiritLink, true, color.spiritLink)
 		self:SetCandyBarOnClick("BigWigsBar " .. rest .. L["bar_spiritLink"], function(name, button, extra)
 			TargetByName(extra, true)
 		end, rest)
 
 	elseif self.db.profile.di and sync == "BWCADI" then
-		self:TriggerEvent("BigWigs_Message", L["msg_divineIntervention"] .. nick, "Urgent", false, nil, false)
-		self:TriggerEvent("BigWigs_StartBar", self, nick .. L["bar_divineIntervention"], timer.di, icon.di, true, color.di)
-		self:SetCandyBarOnClick("BigWigsBar " .. nick .. L["bar_divineIntervention"], function(name, button, extra)
+		self:TriggerEvent("BigWigs_Message", rest..L["msg_divineIntervention"] .. "(" .. nick .. ")", "Positive", false, nil, false)
+		self:TriggerEvent("BigWigs_StartBar", self, rest .. L["bar_divineIntervention"], timer.di, icon.di, true, color.di)
+		self:SetCandyBarOnClick("BigWigsBar " .. rest .. L["bar_divineIntervention"], function(name, button, extra)
 			TargetByName(extra, true)
-		end, nick)
-
-	elseif self.db.profile.portal and sync == "BWCAP" and rest then
-		rest = BS:HasTranslation(rest) and BS:GetTranslation(rest) or rest
-		local _, _, zone = string.find(rest, L["portal_regexp"])
-		if zone then
-			if zone == "Orgrimmar" or zone == "Thunder Bluff" or zone == "Undercity" or zone == "Stonard" then
-				portalColor = "Red"
-				portalText = "--HORDE-- portal to "
-			elseif zone == "Stormwind" or zone == "Ironforge" or zone == "Darnassus" or zone == "Theramore" then
-				portalColor = "Blue"
-				portalText = "--ALLIANCE-- portal to "
-			elseif zone == "Karazhan" or zone then
-				portalColor = "Green"
-				portalText = "--NEUTRAL-- portal to "
-			end
-			self:TriggerEvent("BigWigs_Message", portalText .. zone, "Attention", false, nil, false)
-			if zone == "Stonard" then
-				self:TriggerEvent("BigWigs_StartBar", self, rest, timer.portal, L["iconPrefix"] .. "Spell_Arcane_PortalStonard", true, portalColor)
-			elseif zone == "Theramore" then
-				self:TriggerEvent("BigWigs_StartBar", self, rest, timer.portal, L["iconPrefix"] .. "Spell_Arcane_PortalTheramore", true, portalColor)
-			elseif zone == "Karazhan" then
-				self:TriggerEvent("BigWigs_StartBar", self, rest, timer.portal, L["iconPrefix"] .. "Spell_Arcane_PortalUndercity", true, portalColor)
-			else
-				self:TriggerEvent("BigWigs_StartBar", self, rest, timer.portal, BS:GetSpellIcon(rest), true, portalColor)
-			end
-		end
-
-
-	elseif self.db.profile.wormhole and sync == "BWCAWH" and rest then
-		if rest == "Orgrimmar" then
-			whColor = "Red"
-			whText = "--HORDE-- wormhole to Orgrimmar"
-		elseif rest == "Stormwind" then
-			whColor = "Blue"
-			whText = "--ALLIANCE-- wormhole to Stormwind"
-		end
-		self:TriggerEvent("BigWigs_Message", whText, "Attention", false, nil, false)
-		self:TriggerEvent("BigWigs_StartBar", self, rest .. L["bar_wormhole"], timer.wormhole, icon.wormhole, true, whColor)
-		self:TriggerEvent("BigWigs_Sound", "Info")
-		self:TriggerEvent("BigWigs_ShowWarningSign", icon.wormhole, 2)
-
+		end, rest)
 
 	elseif self.db.profile.orange and sync == "BWCAOR" then
-		local zone = GetRealZoneText()
 		if rest and rest == GetRealZoneText() then
 			self:TriggerEvent("BigWigs_Message", L["msg_orange"], "Positive", false, nil, false)
 			self:TriggerEvent("BigWigs_StartBar", self, L["bar_orange"], timer.orange, icon.orange, true, color.orange)
@@ -888,33 +459,27 @@ function BigWigsCommonAuras:BigWigs_RecvSync(sync, rest, nick)
 			self:TriggerEvent("BigWigs_ShowWarningSign", icon.orange, 5)
 		end
 
-	elseif self.db.profile.orange and sync == "BWCAWL" then
+	elseif self.db.profile.soulwell and sync == "BWCAWL" then
 		self:TriggerEvent("BigWigs_Message", L["msg_soulwell"], "Positive", false, nil, false)
 		self:TriggerEvent("BigWigs_StartBar", self, L["bar_soulwell"], timer.soulwell, icon.soulwell, true, color.soulwell)
 		self:TriggerEvent("BigWigs_Sound", "Info")
 		self:TriggerEvent("BigWigs_ShowWarningSign", icon.soulwell, 5)
-
-	elseif self.db.profile.aq40insignia and sync == "BWCAAQ40INSIGNIA" then
-		-- check rep
-		local exalted = self:ExaltedForFaction(L["broodFactionName"]) and self:ExaltedForFaction(L["cenarionFactionName"])
-
-		if not exalted and self.db.profile.aq40insignia then
-			local msg = L["bar_aq40insignia"]
-			if rest then
-				msg = msg .. " from " .. rest
-			end
-			self:TriggerEvent("BigWigs_StartBar", self, msg, timer.aq40insignia, icon.aq40insignia, true, color.aq40insignia)
-			self:TriggerEvent("BigWigs_Sound", "Info")
-		end
-	elseif self.db.profile.aq40artifact and sync == "BWCAAQ40ARTIFACT" then
-		local exalted = self:ExaltedForFaction(L["broodFactionName"])
-		if not exalted and self.db.profile.aq40artifact then
-			local msg = L["bar_aq40artifact"]
-			if rest then
-				msg = msg .. " from " .. rest
-			end
-			self:TriggerEvent("BigWigs_StartBar", self, msg, timer.aq40artifact, icon.aq40artifact, true, color.aq40artifact)
-			self:TriggerEvent("BigWigs_Sound", "Info")
-		end
 	end
+end
+
+SLASH_SLTEST1 = "/sltest"
+SlashCmdList["SLTEST"] = function()
+    local M = BigWigsCommonAuras
+    if not M or not M.db or not M.db.profile then
+        DEFAULT_CHAT_FRAME:AddMessage("|cffff0000[SLTest] 模块未启用|r")
+        return
+    end
+    M.db.profile.spiritlink = true
+    -- 模拟：萨满玩家 对你施放了灵魂链接BWCAFW BWCASL
+    M:BigWigs_RecvSync("BWCAFW", UnitName("player"), "牧师")
+    M:BigWigs_RecvSync("BWCASL", UnitName("player"), "萨满")
+    M:BigWigs_RecvSync("BWCALS", UnitName("player"), UnitName("player"))
+    M:BigWigs_RecvSync("BWCACS", UnitName("player"), UnitName("player"))
+    M:BigWigs_RecvSync("BWCACR", UnitName("player"), UnitName("player"))
+    M:BigWigs_RecvSync("BWCADI", UnitName("player"), "骑士")
 end
