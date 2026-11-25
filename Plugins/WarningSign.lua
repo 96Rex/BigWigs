@@ -193,6 +193,7 @@ BigWigsWarningSign.consoleOptions = {
 function BigWigsWarningSign:OnEnable()
 	self.db.profile.isVisible = false
 
+	self:SetupFrames()
 	self:RegisterEvent("BigWigs_ShowWarningSign")
 	self:RegisterEvent("BigWigs_HideWarningSign")
 	self:RegisterEvent("PLAYER_DEAD")
