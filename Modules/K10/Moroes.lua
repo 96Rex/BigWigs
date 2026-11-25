@@ -101,7 +101,7 @@ L:RegisterTranslations("zhCN", function() return {
     trigger_smokeBombYou = "你受到了烟雾弹效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_smokeBombOther = "(.+)受到了烟雾弹效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
     trigger_smokeBombFade = "烟雾弹效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_smokeBomb = "烟雾弹",
+    bar_smokeBomb = "烟雾弹:范围沉默",
 
     trigger_reflect = "莫罗斯获得了反射的效果",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
     trigger_reflectFade = "反射效果从莫罗斯身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER
@@ -111,15 +111,15 @@ L:RegisterTranslations("zhCN", function() return {
     trigger_shuffleKickYou = "你受到了随机踢效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_shuffleKick = "(.+)受到了随机踢效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
     trigger_shuffleKickFade = "随机踢效果从(.+)身上消失了",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_shuffleKick = "(随机踢)",
+    bar_shuffleKick = "(昏迷4秒)",
 
     trigger_curse = "受到了莫罗斯诅咒效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-    msg_curse = "莫罗斯的诅咒",
+    msg_curse = "莫罗斯诅咒:施法减速60%",
     
     trigger_dustYou = "你受到了闪光尘效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_dust = "(.+)受到了闪光尘效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
     trigger_dustFade = "闪光尘效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-    bar_dust = "闪光尘",
+    bar_dust = "(昏迷10秒)",
 	bar_dust_cd = "小心昏迷(自由药水)",
     
     trigger_yellSmt = "Most impressive, it would appear your skills do match your bravery.",-- CHAT_MSG_MONSTER_YELL
@@ -373,44 +373,43 @@ function module:Test()
 			print("Test: 战斗开始")
 			self:TriggerEvent("CHAT_MSG_MONSTER_YELL", "So it was you I smelled! Such a foul taint.")
 		end },
-		--恐怖之力需要检测目标和目标的目标 需要手动去注释发送端
-		{ time = 2, func = function()
+		{ time = 5, func = function()
 			print("Test: 烟雾弹")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了烟雾弹效果的影响")
 		end },
-		{ time = 7, func = function()
+		{ time = 10, func = function()
 			print("Test: 烟雾弹(消失)")
 			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "烟雾弹效果从你身上消失")
 		end },
-		{ time = 3, func = function()
+		{ time = 11, func = function()
 			print("Test: 随机踢")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了随机踢效果的影响")
 		end },
-		{ time = 8, func = function()
+		{ time = 15, func = function()
 			print("Test: 随机踢(消失)")
 			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_SELF", "你受到了随机踢效果的影响")
 		end },
-		{ time = 9, func = function()
+		{ time = 16, func = function()
 			print("Test: 闪光尘")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了闪光尘效果的影响")
 		end },
-		{ time = 10, func = function()
+		{ time = 20, func = function()
 			print("Test: 闪光尘(消失)")
 			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "闪光尘效果从你身上消失")
 		end },
-		{ time = 5, func = function()
-			print("Test: 受到了莫罗斯诅咒效果的影响")
+		{ time = 21, func = function()
+			print("Test: 莫罗斯诅咒")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了莫罗斯诅咒效果的影响")
 		end },
-		{ time = 6, func = function()
+		{ time = 25, func = function()
 			print("Test: 反射")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS", "莫罗斯获得了反射的效果")
 		end },
-		{ time = 10, func = function()
+		{ time = 30, func = function()
 			print("Test: 反射(消失)")
 			self:TriggerEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "反射效果从莫罗斯身上消失")
 		end },
-		{ time = 12, func = function()
+		{ time = 31, func = function()
 			print("Test: 战斗结束")
 			module:Disengage()
 		end },

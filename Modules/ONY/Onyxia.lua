@@ -2,7 +2,6 @@
 ----------------------------------
 --      Module Declaration      --
 ----------------------------------
-
 local module, L = BigWigs:ModuleDeclaration("Onyxia", "Onyxia's Lair")
 
 module.revision = 20004 -- To be overridden by the module!
@@ -13,86 +12,6 @@ module.zonename = {
 	AceLibrary("Babble-Zone-2.2")["Onyxia's Lair"],
 }
 
----------------------------------
---      Module specific Locals --
----------------------------------
-
-
-L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
-    cmd = "Onyxia",
-    engage_trigger = "必须离开巢穴去觅食",
-
-    deepbreath_cmd = "deepbreath",
-    deepbreath_name = "深呼吸警报",
-    deepbreath_desc = "奥妮克希亚开始施放深呼吸时进行警告",
-
-    flamebreath_cmd = "flamebreath",
-    flamebreath_name = "烈焰吐息警报",
-    flamebreath_desc = "奥妮克希亚开始施放烈焰吐息时进行警告",
-
-    wingbuffet_cmd = "wingbuffet",
-    wingbuffet_name = "龙翼打击警报",
-    wingbuffet_desc = "龙翼打击出现时进行警告",
-
-    fireball_cmd = "fireball",
-    fireball_name = "火球术警报",
-    fireball_desc = "火球术出现时进行警告",
-
-    phase_cmd = "phase",
-    phase_name = "阶段警报",
-    phase_desc = "阶段改变时进行警告",
-
-    onyfear_cmd = "onyfear",
-    onyfear_name = "低沉咆哮警报",
-    onyfear_desc = "第三阶段低沉咆哮时进行警告",
-
-    deepbreath_trigger = "深吸了一口气",
-    flamebreath_trigger = "奥妮克希亚开始施放火息术。",
-    wingbuffet_trigger = "奥妮克希亚开始施放龙翼攻击。",
-    fireball_trigger = "奥妮克希亚开始施放火球术。",
-    phase2_trigger = "从上面把你们",
-    phase3_trigger = "看来你还需要再上一课",
-    fear_trigger = "奥妮克希亚开始施放低沉咆哮。",
-    fear_over_trigger = "低沉咆哮" ,
-
-    warn1 = "深呼吸即将到来！",
-    phase1text = "第一阶段",
-    phase2text = "第二阶段",
-    phase3text = "第三阶段",
-    feartext = "即将恐惧！",
-    fear_cast = "低沉咆哮",
-    fear_next = "下一次低沉咆哮",
-    deepbreath_cast = "深呼吸",
-    flamebreath_cast = "烈焰吐息",
-    wingbuffet_cast = "龙翼打击",
-	fireball_cast = "火球目标 %s",
-} end )
-local timer = {
-	firstFear = 5,
-	fear = 15,
-	fearCast = 1.5,
-	wingbuffet = 1,
-}
-local icon = {
-	wingbuffet = "INV_Misc_MonsterScales_14",
-	fear = "Spell_Shadow_Possession",
-	deepbreath = "Spell_Fire_SelfDestruct",
-	deepbreath_sign = "Spell_Fire_Lavaspawn",
-	fireball = "Spell_Fire_FlameBolt",
-}
-local syncName = {
-	deepbreath = "OnyDeepBreath"..module.revision,
-	phase2 = "OnyPhaseTwo"..module.revision,
-	phase3 = "OnyPhaseThree"..module.revision,
-	flamebreath = "OnyFlameBreath"..module.revision,
-	fireball = "OnyFireball"..module.revision,
-	fear = "OnyBellowingRoar"..module.revision,
-}
-
-local transitioned = false
-local phase = 0
 
 ----------------------------
 --      Localization      --
@@ -148,105 +67,79 @@ L:RegisterTranslations("enUS", function() return {
 	fireball_cast = "Fireball on %s",
 } end )
 
-L:RegisterTranslations("esES", function() return {
-	--cmd = "Onyxia",
-	engage_trigger = "must leave my lair to feed",
+L:RegisterTranslations("zhCN", function() return {
+    cmd = "奥妮克希亚",
+    engage_trigger = "必须离开巢穴去觅食",
 
-	--deepbreath_cmd = "deepbreath",
-	deepbreath_name = "Respiración",
-	deepbreath_desc = "Avisa cuando Onyxia comience a lanzar Respiración.",
+    deepbreath_cmd = "吐息",
+    deepbreath_name = "吐息",
+    deepbreath_desc = "4秒内每0.3秒造成1274点火焰伤害.",
 
-	--flamebreath_cmd = "flamebreath",
-	flamebreath_name = "Aliento de llamarada",
-	flamebreath_desc = "Avisa cuando Onyxia comience a lanzar Aliento de llamarada.",
+    flamebreath_cmd = "火息术",
+    flamebreath_name = "火息术",
+    flamebreath_desc = "对施法者面前一个锥形区域中的敌人造成3063至3938点火焰伤害.",
 
-	--wingbuffet_cmd = "wingbuffet",
-	wingbuffet_name = "Festín de alas",
-	wingbuffet_desc = "Avisa para Festín de alas.",
+    wingbuffet_cmd = "wingbuffet",
+    wingbuffet_name = "龙翼攻击",
+    wingbuffet_desc = "对施法者面前一个锥形区域中的敌人造成563至938点伤害,并击退它们.",
 
-	--fireball_cmd = "fireball",
-	fireball_name = "Bola de Fuego",
-	fireball_desc = "Avisa para Bola de Fuego.",
+    fireball_cmd = "fireball",
+    fireball_name = "火球术",
+    fireball_desc = "对指定区域内的所有敌人造成801至1200点火焰伤害.",
 
-	--phase_cmd = "phase",
-	phase_name = "Fase",
-	phase_desc = "Avisa para cambio de fase.",
+    phase_cmd = "phase",
+    phase_name = "阶段切换",
+    phase_desc = "进入战斗为第一阶段,66%血量升空进入第二阶段,40%血量落地进入第三阶段.",
 
-	--onyfear_cmd = "onyfear",
-	onyfear_name = "Miedo",
-	onyfear_desc = "Avisa para Clamor bramante en fase 3.",
+    onyfear_cmd = "onyfear",
+    onyfear_name = "低沉咆哮",
+    onyfear_desc = "使周围100码范围内的敌人因恐惧而逃跑.",
 
-	deepbreath_trigger = "takes in a deep breath",
-	flamebreath_trigger = "Onyxia comienza a lanzar Aliento de llamarada.",
-	wingbuffet_trigger = "Onyxia comienza a lanzar Festín de alas.",
-	fireball_trigger = "Onyxia comienza a lanzar Bola de Fuego.",
-	phase2_trigger = "de encima",
-	phase3_trigger = "It seems you'll need another lesson",
-	fear_trigger = "Onyxia comienza a lanzar Clamor bramante.",
-	fear_over_trigger = "Clamor bramante",
+    deepbreath_trigger = "深吸了一口气",
+    flamebreath_trigger = "奥妮克希亚开始施放火息术。",
+    wingbuffet_trigger = "奥妮克希亚开始施放龙翼攻击。",
+    fireball_trigger = "奥妮克希亚开始施放火球术。",
+    phase2_trigger = "从上面把你们",
+    phase3_trigger = "看来你们还需要再上一课",
+    fear_trigger = "奥妮克希亚开始施放低沉咆哮。",
+    fear_over_trigger = "低沉咆哮效果从(.+)身上消失。" ,
 
-	warn1 = "¡Respiración entrante!",
-	phase1text = "Fase 1",
-	phase2text = "Fase 2",
-	phase3text = "Fase 3",
-	feartext = "¡Miedo pronto!",
-	fear_cast = "Miedo",
-	fear_next = "Próximo Miedo",
-	deepbreath_cast = "Respiración",
-	flamebreath_cast = "Aliento de llamarada",
-	wingbuffet_cast = "Festín de alas",
-	fireball_cast = "Bola de Fuego a %s",
+    warn1 = "奥妮克希亚5秒后吐息",
+    phase1text = "第一阶段",
+    phase2text = "第二阶段",
+    phase3text = "第三阶段",
+    feartext = "即将恐惧",
+    fear_cast = "低沉咆哮",
+    fear_next = "下一次低沉咆哮",
+    deepbreath_cast = "吐息",
+    flamebreath_cast = "火息术",
+    wingbuffet_cast = "龙翼攻击",
+	fireball_cast = "火球术(%s)",
 } end )
+local timer = {
+	firstFear = 5,
+	fear = 15,
+	fearCast = 1.5,
+	wingbuffet = 1,
+}
+local icon = {
+	wingbuffet = "INV_Misc_MonsterScales_14",
+	fear = "Spell_Shadow_Possession",
+	deepbreath = "Spell_Fire_SelfDestruct",
+	deepbreath_sign = "Spell_Fire_Lavaspawn",
+	fireball = "Spell_Fire_FlameBolt",
+}
+local syncName = {
+	deepbreath = "OnyDeepBreath"..module.revision,
+	phase2 = "OnyPhaseTwo"..module.revision,
+	phase3 = "OnyPhaseThree"..module.revision,
+	flamebreath = "OnyFlameBreath"..module.revision,
+	fireball = "OnyFireball"..module.revision,
+	fear = "OnyBellowingRoar"..module.revision,
+}
 
-L:RegisterTranslations("deDE", function() return {
-	cmd = "Onyxia",
-	engage_trigger = "must leave my lair to feed",
-
-	deepbreath_cmd = "deepbreath",
-	deepbreath_name = "Tiefer Atem",
-	deepbreath_desc = "Warnen, wenn Onyxia beginnt Tiefer Atem zu casten.",
-
-	flamebreath_cmd = "flamebreath",
-	flamebreath_name = "Flammenatem",
-	flamebreath_desc = "Warnen, wenn Onyxia beginnt Flammenatem zu casten.",
-
-	wingbuffet_cmd = "wingbuffet",
-	wingbuffet_name = "Fl\195\188gelsto\195\159",
-	wingbuffet_desc = "Alarm f\195\188r Fl\195\188gelsto\195\159.",
-
-	fireball_cmd = "fireball",
-	fireball_name = "Feuerball",
-	fireball_desc = "Alarm f\195\188r Feuerball.",
-
-	phase_cmd = "phase",
-	phase_name = "Phasen-Benachrichtigung",
-	phase_desc = "Verk\195\188ndet den Phasenwechsel des Bosses.",
-
-	onyfear_cmd = "onyfear",
-	onyfear_name = "Furcht",
-	onyfear_desc = "Warne vor Dr\195\182hnendes Gebr\195\188ll in Phase 3.",
-
-	deepbreath_trigger = "holt tief Luft",
-	flamebreath_trigger = "Onyxia beginnt Flammenatem zu wirken.",
-	wingbuffet_trigger = "Onyxia beginnt Fl\195\188gelsto\195\159 zu wirken.",
-	fireball_trigger = "Onyxia beginnt Feuerball zu wirken.",
-	fear_trigger = "Onyxia beginnt Dr\195\182hnendes Gebr\195\188ll zu wirken.",
-	fear_over_trigger = "Dr\195\182hnendes Gebr\195\188ll",
-	phase2_trigger = "from above",
-	phase3_trigger = "Es scheint, als wenn Ihr eine weitere Lektion braucht",
-
-	warn1 = "Tiefer Atem kommen!",
-	phase1text = "Phase 1",
-	phase2text = "Phase 2",
-	phase3text = "Phase 3",
-	feartext = "Furcht bald!",
-	fear_cast = "Furcht",
-	fear_next = "Nächste Furcht",
-	deepbreath_cast = "Tiefer Atem",
-	flamebreath_cast = "Flammenatem",
-	wingbuffet_cast = "Fl\195\188gelsto\195\159",
-	fireball_cast = "Feuerball on %s",
-} end )
+local transitioned = false
+local phase = 0
 
 local fireballTarget = nil
 local iconNumber = 8
@@ -297,13 +190,13 @@ end
 ------------------------------
 --      Event Handlers      --
 ------------------------------
-
+--深呼吸
 function module:CHAT_MSG_RAID_BOSS_EMOTE(msg)
 	if string.find(msg, L["deepbreath_trigger"]) then
 		self:Sync(syncName.deepbreath)
 	end
 end
-
+--阶段切换
 function module:CHAT_MSG_MONSTER_YELL(msg)
 	if (string.find(msg, L["phase2_trigger"])) then
 		self:Sync(syncName.phase2)
@@ -311,7 +204,7 @@ function module:CHAT_MSG_MONSTER_YELL(msg)
 		self:Sync(syncName.phase3)
 	end
 end
-
+--血量判断
 function module:UNIT_HEALTH(arg1) --temporary workaround until Phase2 yell gets fixed
 	if UnitName(arg1) == module.translatedName then
 		local health = UnitHealth(arg1)
@@ -322,7 +215,7 @@ function module:UNIT_HEALTH(arg1) --temporary workaround until Phase2 yell gets 
 		end
 end
 end
-
+--BOSS4个技能判断
 function module:CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE(msg)
 	if msg == L["fear_trigger"] then
 		self:Sync(syncName.fear)
@@ -334,7 +227,7 @@ function module:CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE(msg)
 		self:Sync(syncName.fireball)
 	end
 end
-
+--恐惧消失
 function module:CHAT_MSG_SPELL_AURA_GONE_SELF(msg)
 	if string.find(msg, L["fear_over_trigger"]) then
 		self:RemoveWarningSign(icon.fear)

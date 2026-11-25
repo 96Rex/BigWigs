@@ -36,18 +36,18 @@ L:RegisterTranslations("enUS", function() return {
 L:RegisterTranslations("zhCN", function() return {
     cmd = "格里齐基尔",
 
-    rainoffire_cmd = "火焰之雨",
-    rainoffire_name = "火焰之雨",
-    rainoffire_desc = "火焰之雨出现时进行警告",
+    rainoffire_cmd = "劣魔火雨",
+    rainoffire_name = "劣魔火雨",
+    rainoffire_desc = "在20秒内对目标区域内的所有敌人造成3233点火焰伤害.",
 
     flamewave_cmd = "烈焰波",
     flamewave_name = "烈焰波",
-    flamewave_desc = "烈焰波出现时进行警告",
+    flamewave_desc = "点燃施法者周围的区域,对其造成200火焰伤害;每3秒对附近所有敌人造成1200火焰伤害,持续9 秒.",
 
     trigger_rainOfFireYou = "你受到(%d+)点火焰伤害（格里齐基尔的劣魔火雨）",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     msg_rainOfFireYou = "离开火焰之雨区域！",
 
-    trigger_flamewave = "格里齐基尔受到了烈焰波效果的影响",--CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE
+    trigger_flamewave = "格里齐基尔获得了烈焰波的效果",--CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE
     trigger_flamewaveFade = "烈焰波效果从格里齐基尔身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER
     bar_flamewave = "烈焰波",
     msg_flamewave = "近战远离",
@@ -152,7 +152,7 @@ function module:Test()
 		end },
 		{ time = 5, func = function()
 			print("Test: 烈焰波")
-			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE", "格里齐基尔受到了烈焰波效果的影响")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE", "格里齐基尔获得了烈焰波的效果")
 		end },
 		{ time = 8, func = function()
 			print("Test: 烈焰波(结束)")

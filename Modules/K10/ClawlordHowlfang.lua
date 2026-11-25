@@ -60,7 +60,7 @@ L:RegisterTranslations("zhCN", function() return {
 
     trigger_terrifyingPresenceSelf = "你受到了恐怖之力效果的影响（(%d+)）",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_terrifyingPresence = "(.+)受到了恐怖之力效果的影响（(%d+)）",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
-    bar_terrifyingPresence = "%(恐怖之力)",
+    bar_terrifyingPresence = "(护甲降低%d%%)",
     
     trigger_curse = "受到了魔剑诅咒效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
 	msg_curse = "魔剑诅咒",
@@ -124,12 +124,14 @@ end
 function module:Event(msg)
 	if string.find(msg, L["trigger_terrifyingPresenceSelf"]) then
 		local _,_, tpQty, _ = string.find(msg, L["trigger_terrifyingPresenceSelf"])
-		if UnitName("target") ~= nil and UnitName("targettarget") ~= nil then
-			if UnitName("target") == L["name_clawlordhowlfang"] and UnitName("targettarget") == UnitName("Player") then
-				local tpPlayerAndQty = UnitName("Player") .. " " .. tpQty
-				self:Sync(syncName.terrifyingPresence2 .. " " .. tpPlayerAndQty)
-			end
-		end
+		-- if UnitName("target") ~= nil and UnitName("targettarget") ~= nil then
+			-- if UnitName("target") == L["name_clawlordhowlfang"] and UnitName("targettarget") == UnitName("Player") then
+				-- local tpPlayerAndQty = UnitName("Player") .. " " .. tpQty
+				-- self:Sync(syncName.terrifyingPresence2 .. " " .. tpPlayerAndQty)
+			-- end
+		-- end
+		local tpPlayerAndQty = UnitName("Player") .. " " .. tpQty
+		self:Sync(syncName.terrifyingPresence2 .. " " .. tpPlayerAndQty)
 	elseif string.find(msg, L["trigger_curse"]) then
 		self:Sync(syncName.curse)
 	end
@@ -155,10 +157,10 @@ function module:TerrifyingPresence(rest)
 	local currentReduction = tpQty * 5
 	
 	for i = 5, 245, 5 do
-		self:RemoveBar(tpPlayer.." "..i..L["bar_terrifyingPresence"])
+		self:RemoveBar(tpPlayer..string.format(L["bar_terrifyingPresence"],i))
 	end
 	
-self:Bar(tpPlayer.." "..currentReduction..L["bar_terrifyingPresence"], timer.terrifyingPresence, icon.terrifyingPresence, true, color.terrifyingPresence)
+self:Bar(tpPlayer..string.format(L["bar_terrifyingPresence"],currentReduction), timer.terrifyingPresence, icon.terrifyingPresence, true, color.terrifyingPresence)
 end
 --魔剑诅咒
 function module:Curse()
@@ -187,18 +189,22 @@ function module:Test()
 		{ time = 1, func = function()
 			print("Test: 恐怖之力(受到)")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了恐怖之力效果的影响（1）")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "东海受到了恐怖之力效果的影响（1）")
 		end },
 		{ time = 2, func = function()
 			print("Test: 恐怖之力(受到)")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了恐怖之力效果的影响（2）")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "东海受到了恐怖之力效果的影响（2）")
 		end },
 		{ time = 3, func = function()
 			print("Test: 恐怖之力(受到)")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了恐怖之力效果的影响（3）")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "东海受到了恐怖之力效果的影响（3）")
 		end },
 		{ time = 4, func = function()
 			print("Test: 恐怖之力(受到)")
 			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "你受到了恐怖之力效果的影响（4）")
+			self:TriggerEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "东海受到了恐怖之力效果的影响（4）")
 		end },
 		{ time = 8, func = function()
 			print("Test: 魔剑诅咒(受到)")

@@ -1,7 +1,6 @@
-
 local module, L = BigWigs:ModuleDeclaration("Dark Reaver of Karazhan", "Deadwind Pass")
 
-module.revision = 30051
+module.revision = 30052
 module.enabletrigger = module.translatedName
 module.toggleoptions = {"forlornspirit", "lurkingshadow", -1, "enrage", -1, "deterrence", "nimblereflexes", -1, "unbalancingstrike", "piercearmor", "bosskill"}
 module.zonename = {
@@ -19,143 +18,131 @@ L:RegisterTranslations("enUS", function() return {
 	lurkingshadow_cmd = "lurkingshadow",
 	lurkingshadow_name = "Lurking Shadow adds Alert",
 	lurkingshadow_desc = "Warn for Lurking Shadow adds",
-	
+
 	enrage_cmd = "enrage",
 	enrage_name = "Enrage Alert",
 	enrage_desc = "Warns for Enrage",
-	
+
 	deterrence_cmd = "deterrence",
 	deterrence_name = "Deterrence Alert",
 	deterrence_desc = "Warns for Deterrence",
-	
+
 	nimblereflexes_cmd = "nimblereflexes",
 	nimblereflexes_name = "Nimble Reflexes Alert",
 	nimblereflexes_desc = "Warns for Nimble Reflexes",
-	
+
 	unbalancingstrike_cmd = "unbalancingstrike",
 	unbalancingstrike_name = "Unbalancing Strike Alert",
 	unbalancingstrike_desc = "Warns for Unbalancing Strike",
-	
+
 	piercearmor_cmd = "piercearmor",
 	piercearmor_name = "Pierce Armor Alert",
 	piercearmor_desc = "Warns for Pierce Armor",
-	
-	
-		--4 adds, yells every 20secs, spawns 2sec * count later (1st = 2sec, 2nd = 4sec, 3rd = 6sec, 4th = 8sec... later)
+
+	trigger_engage = "You desecrate the Master's lands with your filthy footsteps!",--CHAT_MSG_MONSTER_YELL
+
 	trigger_forlornSpiritSpawn = "Spirits, rise, and drive back this rabble!",--CHAT_MSG_MONSTER_YELL
 	trigger_forlornSpiritSpawn2 = "Rise, spirits. Defend the Master's lands!",--CHAT_MSG_MONSTER_YELL
-	bar_forlornSpiritSpawnCd = "4 Forlorn Spirit",
-	msg_forlornSpiritSpawn = "4 Forlorn Spirit Spawned!",
-	
-		--shaman (no caps)
-		--spawns a Lurking Shadow, can be killed by only THAT class
+	bar_forlornSpiritSpawnCd = "Forlorn Spirit CD",
+	bar_forlornSpiritSpawnSoon = "Calling Forlorn Spirit",
+	msg_forlornSpiritSpawn = "Forlorn Spirit Spawned!",
+
 	trigger_lurkingShadowSpawn = "A (.+) shadow appears next to (.+)...",--CHAT_MSG_MONSTER_EMOTE
 	bar_lurkingShadowSpawn = "Lurking Shadow",
-	-- SHAMAN! --  Lurking Shadow!
+
 	msg_lurkingShadowSpawn = " Lurking Shadow!",
-	
+
 	trigger_enrage = "Dark Reaver of Karazhan gains Furious Anger.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
-	
-		--25% dodge and parry, 10sec
+
 	trigger_deterrence = "Dark Reaver of Karazhan gains Deterrence.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
 	trigger_deterrenceFade = "Deterrence fades from Dark Reaver of Karazhan.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
 	bar_deterrence = "Deterrence 25% Dodge/Parry",
-	
-		--75% parry, 8sec
+
 	trigger_nimbleReflexes = "Dark Reaver of Karazhan gains Nimble Reflexes.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
 	trigger_nimbleReflexesFade = "Nimble Reflexes fades from Dark Reaver of Karazhan.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
 	bar_nimbleReflexes = "Reflexes 75% Parry",
-	
-		--6sec
+
 	trigger_unbalancingStrike = "(.+) is afflicted by Unbalancing Strike.",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
 	trigger_unbalancingStrikeYou = "You are afflicted by Unbalancing Strike.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
 	trigger_unbalancingStrikeFade = "Unbalancing Strike fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
 	bar_unbalancingStrike = " Unbalancing",
-	
-		-- -50% or -75% armor, 20sec
+
 	trigger_pierceArmor = "(.+) is afflicted by Pierce Armor.",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
 	trigger_pierceArmorYou = "You are afflicted by Pierce Armor.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
 	trigger_pierceArmorFade = "Pierce Armor fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER
 	bar_pierceArmor = " Pierce Armor",
 
-	trigger_engage = "You desecrate the Master's lands with your filthy footsteps!",--CHAT_MSG_MONSTER_YELL
+    you = "you",
 } end )
 
 
 L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
-    cmd = "DarkReaverOfKarazhan",
+    cmd = "卡拉赞黑暗掠夺者",
 
-    forlornspirit_cmd = "forlornspirit",
-    forlornspirit_name = "弃灵警报",
+    forlornspirit_cmd = "弃灵",
+    forlornspirit_name = "弃灵",
     forlornspirit_desc = "弃灵增援时进行警告",
 
-    lurkingshadow_cmd = "lurkingshadow",
-    lurkingshadow_name = "潜伏暗影警报",
-    lurkingshadow_desc = "潜伏暗影增援时进行警告",
-    
-    enrage_cmd = "enrage",
-    enrage_name = "激怒警报",
-    enrage_desc = "激怒出现时进行警告",
-    
-    deterrence_cmd = "deterrence",
-    deterrence_name = "威慑警报",
+    lurkingshadow_cmd = "潜伏暗影",
+    lurkingshadow_name = "潜伏暗影",
+    lurkingshadow_desc = "生成一个潜伏之影,只能指定职业造成伤害.",
+
+    enrage_cmd = "狂暴怒火",
+    enrage_name = "狂暴怒火",
+    enrage_desc = "对敌人造成的物理伤害提高15点.攻击速度提高4%.",
+
+    deterrence_cmd = "威慑",
+    deterrence_name = "威慑",
     deterrence_desc = "威慑出现时进行警告",
-    
-    nimblereflexes_cmd = "nimblereflexes",
-    nimblereflexes_name = "迅捷反射警报",
-    nimblereflexes_desc = "迅捷反射出现时进行警告",
-    
-    unbalancingstrike_cmd = "unbalancingstrike",
-    unbalancingstrike_name = "重压打击警报",
-    unbalancingstrike_desc = "重压打击出现时进行警告",
-    
-    piercearmor_cmd = "piercearmor",
-    piercearmor_name = "破甲警报",
-    piercearmor_desc = "破甲出现时进行警告",
-    
-    
-        --4 adds, yells every 20secs, spawns 2sec * count later (1st = 2sec, 2nd = 4sec, 3rd = 6sec, 4th = 8sec... later)
+
+    nimblereflexes_cmd = "迅捷反射",
+    nimblereflexes_name = "迅捷反射",
+    nimblereflexes_desc = "使施法者的招架几率提高50%/60%/70%,持续8秒.",
+
+    unbalancingstrike_cmd = "重压打击",
+    unbalancingstrike_name = "重压打击",
+    unbalancingstrike_desc = "对敌人造成350%的武器伤害,并使其失去平衡,防御值降低100点,持续6秒.",
+
+    piercearmor_cmd = "刺穿护甲",
+    piercearmor_name = "刺穿护甲",
+    piercearmor_desc = "使敌人的护甲降低50%/75%,持续20秒.",
+
+	--YELL触发不要进行trigger汉化
+    trigger_engage = "You desecrate the Master's lands with your filthy footsteps!",--CHAT_MSG_MONSTER_YELL
+
+    --YELL触发不要进行trigger汉化
     trigger_forlornSpiritSpawn = "Spirits, rise, and drive back this rabble!",--CHAT_MSG_MONSTER_YELL
     trigger_forlornSpiritSpawn2 = "Rise, spirits. Defend the Master's lands!",--CHAT_MSG_MONSTER_YELL
-    bar_forlornSpiritSpawnCd = "4个弃灵",
-    msg_forlornSpiritSpawn = "4个弃灵已出现！",
+    bar_forlornSpiritSpawnCd = "弃灵冷却",
+	bar_forlornSpiritSpawnSoon = "召唤弃灵",
+    msg_forlornSpiritSpawn = "弃灵出现",
 
-        --shaman (no caps)
-        --spawns a Lurking Shadow, can be killed by only THAT class
+    --EMOTE触发不要进行trigger汉化
     trigger_lurkingShadowSpawn = "A (.+) shadow appears next to (.+)...",--CHAT_MSG_MONSTER_EMOTE
     bar_lurkingShadowSpawn = "潜伏暗影",
-        -- SHAMAN! --  Lurking Shadow!
-    msg_lurkingShadowSpawn = " 潜伏暗影！",
-    
-    trigger_enrage = "Dark Reaver of Karazhan gains Furious Anger.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
+    msg_lurkingShadowSpawn = " 被暗影指名",
 
-        --25% dodge and parry, 10sec
-    trigger_deterrence = "Dark Reaver of Karazhan gains Deterrence.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
-    trigger_deterrenceFade = "Deterrence fades from Dark Reaver of Karazhan.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_deterrence = "威慑 25% 闪避/招架",
-    
-        --75% parry, 8sec
-    trigger_nimbleReflexes = "Dark Reaver of Karazhan gains Nimble Reflexes.",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
-    trigger_nimbleReflexesFade = "Nimble Reflexes fades from Dark Reaver of Karazhan.",--CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_nimbleReflexes = "迅捷反射 75% 招架",
+    trigger_enrage = "卡拉赞黑暗掠夺者获得了狂暴怒火的效果。",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
 
-        --6sec
-    trigger_unbalancingStrike = "(.+) is afflicted by Unbalancing Strike.",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-    trigger_unbalancingStrikeYou = "You are afflicted by Unbalancing Strike.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-    trigger_unbalancingStrikeFade = "Unbalancing Strike fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_unbalancingStrike = " 重压打击",
-    
-        -- -50% or -75% armor, 20sec
-    trigger_pierceArmor = "(.+) is afflicted by Pierce Armor.",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-    trigger_pierceArmorYou = "You are afflicted by Pierce Armor.",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-    trigger_pierceArmorFade = "Pierce Armor fades from (.+).",--CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_pierceArmor = " 破甲",
+    trigger_deterrence = "卡拉赞黑暗掠夺者获得了威慑的效果。",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
+    trigger_deterrenceFade = "威慑效果从卡拉赞黑暗掠夺者身上消失。",--CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_deterrence = "威慑(闪避/招架+25%)",
 
-    trigger_engage = "You desecrate the Master's lands with your filthy footsteps!",--CHAT_MSG_MONSTER_YELL
-    clickme = " >点击我！<",
-    you = "you",
+    trigger_nimbleReflexes = "卡拉赞黑暗掠夺者获得了迅捷反射的效果。",--CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
+    trigger_nimbleReflexesFade = "迅捷反射效果从卡拉赞黑暗掠夺者身上消失。",--CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_nimbleReflexes = "迅捷反射(招架+75%)",
+
+    trigger_unbalancingStrike = "(.+)受到了重压打击效果的影响。",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
+    trigger_unbalancingStrikeYou = "你受到了重压打击效果的影响。",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_unbalancingStrikeFade = "重压打击效果从(.+)身上消失了。",--CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_unbalancingStrike = "(重压打击)",
+
+    trigger_pierceArmor = "(.+)受到了刺穿护甲效果的影响。",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
+    trigger_pierceArmorYou = "你受到了刺穿护甲效果的影响。",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+    trigger_pierceArmorFade = "刺穿护甲效果从(.+)身上消失了。",--CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_pierceArmor = "(护甲降低75%)",
+
+    you = "你",
 } end )
 local timer = {
 	--forlornSpiritSpawnCd = 22,
@@ -167,6 +154,7 @@ local timer = {
 }
 local icon = {
 	forlornSpiritSpawnCd = "spell_shadow_burningspirit",
+	forlornSpiritSpawnSoon = "spell_shadow_burningspirit",
 	lurkingShadowSpawn = "ability_creature_poison_05",
 	enrage = "Spell_Shadow_UnholyFrenzy",
 	deterrence = "ability_whirlwind",
@@ -176,6 +164,7 @@ local icon = {
 }
 local color = {
 	forlornSpiritSpawnCd = "Black",
+	forlornSpiritSpawnSoon = "Red",
 	lurkingShadowSpawn = "White",
 	deterrence = "Orange",
 	nimbleReflexes = "Green",
@@ -233,7 +222,8 @@ end
 
 function module:OnEngage()
 	if self.db.profile.forlornspirit then
-		self:Bar(L["bar_forlornSpiritSpawnCd"], 22, icon.forlornSpiritSpawnCd, true, color.forlornSpiritSpawnCd)
+		forlornCount = 0
+		self:Bar(L["bar_forlornSpiritSpawnCd"], 20, icon.forlornSpiritSpawnCd, true, color.forlornSpiritSpawnCd)
 	end
 end
 
@@ -261,20 +251,7 @@ function module:Event(msg)
 	elseif msg == L["trigger_forlornSpiritSpawn"] or msg == L["trigger_forlornSpiritSpawn2"] then
 		self:Sync(syncName.forlornSpiritSpawn)
 	end
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	if msg == L["trigger_enrage"] then
 		self:Sync(syncName.enrage)
 	
@@ -287,33 +264,25 @@ function module:Event(msg)
 		self:Sync(syncName.nimbleReflexes)
 	elseif string.find(msg, L["trigger_nimbleReflexesFade"]) then
 		self:Sync(syncName.nimbleReflexesFade)
-	
-	
-	
+		
 	elseif string.find(msg, L["trigger_unbalancingStrike"]) then
 		local _,_, unbalTarget, _ = string.find(msg, L["trigger_unbalancingStrike"])
 		self:Sync(syncName.unbalancingStrike .. " " .. unbalTarget)
-		
 	elseif string.find(msg, L["trigger_unbalancingStrikeYou"]) then
 		self:Sync(syncName.unbalancingStrike .. " " .. UnitName("Player"))
-		
 	elseif string.find(msg, L["trigger_unbalancingStrikeFade"]) then
 		local _,_, unbalFadeTarget, _ = string.find(msg, L["trigger_unbalancingStrikeFade"])
-		if unbalFadeTarget == "you" then unbalFadeTarget = UnitName("Player") end
+		if unbalFadeTarget == L["you"] then unbalFadeTarget = UnitName("Player") end
 		self:Sync(syncName.unbalancingStrikeFade .. " " .. unbalFadeTarget)
-		
-		
-		
+
 	elseif string.find(msg, L["trigger_pierceArmor"]) then
 		local _,_, pierceTarget, _ = string.find(msg, L["trigger_pierceArmor"])
 		self:Sync(syncName.pierceArmor .. " " .. pierceTarget)
-	
 	elseif string.find(msg, L["trigger_pierceArmorYou"]) then
 		self:Sync(syncName.pierceArmor .. " " .. UnitName("Player"))
-		
 	elseif string.find(msg, L["trigger_pierceArmorFade"]) then
 		local _,_, pierceFadeTarget, _ = string.find(msg, L["trigger_pierceArmorFade"])
-		if pierceFadeTarget == "you" then pierceFadeTarget = UnitName("Player") end
+		if pierceFadeTarget == L["you"] then pierceFadeTarget = UnitName("Player") end
 		self:Sync(syncName.pierceArmorFade .. " " .. pierceFadeTarget)
 	end
 end
@@ -347,20 +316,18 @@ end
 
 
 function module:ForlornSpiritSpawn()
-	self:RemoveBar(L["bar_forlornSpiritSpawnCd"])
-	
 	forlornCount = forlornCount + 1
-	--on yell, 2 * forlornCount
-	self:Bar(L["bar_forlornSpiritSpawnCd"], 2 * forlornCount, icon.forlornSpiritSpawnCd, true, color.forlornSpiritSpawnCd)
+	if forlornCount > 10 then forlornCount = 1 end
+	self:RemoveBar(L["bar_forlornSpiritSpawnCd"])
+	self:Bar(L["bar_forlornSpiritSpawnSoon"], 2 * forlornCount, icon.forlornSpiritSpawnSoon, true, color.forlornSpiritSpawnSoon)
 	
-	--2s delay & 22sec total, 4-24, 6-26, 8-28
-	self:DelayedBar(2 * forlornCount, L["bar_forlornSpiritSpawnCd"], 20, icon.forlornSpiritSpawnCd, true, color.forlornSpiritSpawnCd)
+	self:DelayedBar(2 * forlornCount, L["bar_forlornSpiritSpawnCd"], 20 - (2 * forlornCount), icon.forlornSpiritSpawnCd, true, color.forlornSpiritSpawnCd)
 	self:DelayedMessage(2 * forlornCount, L["msg_forlornSpiritSpawn"], "Positive", false, nil, false)
 end
 
 function module:LurkingShadowSpawn(rest)
-	self:Bar(rest.." "..L["bar_lurkingShadowSpawn"].." >Click Me!<", timer.lurkingShadowSpawn, icon.lurkingShadowSpawn, true, color.lurkingShadowSpawn)
-	self:SetCandyBarOnClick("BigWigsBar "..rest.." "..L["bar_lurkingShadowSpawn"].." >Click Me!<", function(name, button, extra) TargetByName(extra, true) end, "Lurking Shadow")
+	self:Bar(rest.." "..L["bar_lurkingShadowSpawn"], timer.lurkingShadowSpawn, icon.lurkingShadowSpawn, true, color.lurkingShadowSpawn)
+	self:SetCandyBarOnClick("BigWigsBar "..rest.." "..L["bar_lurkingShadowSpawn"], function(name, button, extra) TargetByName(extra, true) end, "Lurking Shadow")
 	
 	self:Message(rest..L["msg_lurkingShadowSpawn"], "Attention", false, nil, false)
 	
@@ -405,3 +372,75 @@ end
 function module:PierceArmorFade(rest)
 	self:RemoveBar(rest..L["bar_pierceArmor"])
 end
+
+function module:Test()
+	BigWigs:ToggleActive(true)
+	self:Engage()
+	local events = {
+		{ time = 20,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 40,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 60,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 80,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 100,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 120,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 140,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 160,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 180,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 200,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 220,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 240,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 260,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 280,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+		{ time = 300,  func = function()
+			print("大喊")
+			self:TriggerEvent("CHAT_MSG_MONSTER_YELL","Spirits, rise, and drive back this rabble!")
+		end },
+	}
+	for i, event in ipairs(events) do
+		self:ScheduleEvent("RexTest" .. i, event.func, event.time)
+	end
+	self:Message(module.translatedName .. " 模拟测试开始", "Positive")
+end
+--/run BigWigs:GetModule("卡拉赞黑暗掠夺者"):Test()

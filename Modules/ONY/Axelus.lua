@@ -10,12 +10,10 @@ end
 module.revision = 30144
 module.enabletrigger = { module.translatedName, "Broodcommander Axelus", "Axelus" }
 module.toggleoptions = { "chains", "chainsmark", "chainsyou", "chainssay", "wipewarning", "warder", "tankdot", "bosskill" }
-
 module.zonename = {
 	AceLibrary("AceLocale-2.2"):new("BigWigs")["Onyxia's Lair"],
 	AceLibrary("Babble-Zone-2.2")["Onyxia's Lair"],
 }
-
 -- module defaults
 module.defaultDB = {
 	chains = true,
@@ -31,7 +29,7 @@ module.defaultDB = {
 -- localization
 L:RegisterTranslations("enUS", function()
 	return {
-		cmd = "Axelus",
+		cmd = "Broodcommander Axelus",
 
 		chains_cmd = "chains",
 		chains_name = "Chains Alert",
@@ -105,6 +103,84 @@ L:RegisterTranslations("enUS", function()
 		warn_tankDotYou = "TANK DOT - HEALS / DEFENSIVES!",
 	}
 end)
+L:RegisterTranslations("zhCN", function()
+	return {
+		cmd = "巢穴指挥官阿克塞勒斯",
+
+		chains_cmd = "chains",
+		chains_name = "灼热锁链",
+		chains_desc = "使目标的移动速度降低30%,并使其每2秒受到600点火焰伤害.",
+
+		chainsmark_cmd = "chainsmark",
+		chainsmark_name = "自动标记",
+		chainsmark_desc = "自动对受到灼热锁链的2个目标放置团队标记.",
+
+		chainsyou_cmd = "chainsyou",
+		chainsyou_name = "灼热锁链(对你)",
+		chainsyou_desc = "当你受到灼热锁链时显示图标并播放声音.",
+
+		chainssay_cmd = "chainssay",
+		chainssay_name = "自动喊话",
+		chainssay_desc = "当你受到灼热锁链时在当前频道说出.",
+
+		wipewarning_cmd = "wipewarning",
+		wipewarning_name = "Melted Chains Wipe Warning",
+		wipewarning_desc = "Warns when Melted Chains (wipe mechanic) is cast or triggered",
+
+		warder_cmd = "warder",
+		warder_name = "奥妮克希亚守卫",
+		warder_desc = "显示奥妮克希亚守卫的刷新计时条.",
+
+		tankdot_cmd = "tankdot",
+		tankdot_name = "投掷利刃",
+		tankdot_desc = "向目标投掷利刃,造成3500点伤害并将其击退,使其受到治疗效果降低25%,持续5秒.",
+
+		-- Triggers (Voice lines & Combat log)
+		trigger_engage = "绝不能去打扰她！",
+		trigger_bossDeath = "主母，他们",
+
+		trigger_chainsCast = "begins to cast Chains",
+		trigger_chainsCast2 = "begins to cast Searing Chains",
+		trigger_chainsCast3 = "begins to cast Casting Chains",
+		trigger_searingChainsYou = "你受到了灼热锁链效果的影响。",
+		trigger_searingChainsOther = "(.+)受到了灼热锁链效果的影响。",
+		trigger_searingChainsFadeYou = "灼热锁链效果从你身上消失了。",
+		trigger_searingChainsFadeOther = "灼热锁链效果从(.+)身上消失。",
+
+		trigger_meltedChains = "Melted Chains",
+		trigger_warderSpawn = "Onyxian Warder",
+
+		trigger_tankDotYou = "You are afflicted by Searing Wound",
+		trigger_tankDotOther = "(.+) is afflicted by Searing Wound",
+		trigger_tankDotFadeYou = "Searing Wound fades from you",
+		trigger_tankDotFadeOther = "Searing Wound fades from (.+)",
+
+		-- Messages & Bars
+		bar_chainsCast = "灼热锁链",
+		msg_chainsCast = "注意观察灼热锁链",
+		bar_chainsCd = "下一次灼热锁链",
+		msg_chainsSoon = "即将施放灼热锁链",
+
+		msg_chainsYou = "你受到灼热锁链,向BOSS靠近！",
+		warn_chainsYou = "灼热锁链",
+		say_chains = "我受到灼热锁链,向BOSS靠近！",
+		msg_chainsOther = "锁链在%s(骷髅)和%s(叉子)身上!",
+		msg_chainsSingle = "锁链在%s(%s)身上!",
+
+		msg_meltedChains = "灼热锁链 秒杀警告",
+		warn_meltedChains = "灼热锁链",
+
+		bar_warderSpawn = "下一次刷新守卫",
+		msg_warderSoon = "奥妮克希亚守卫即将刷新",
+		msg_warderSpawn = "奥妮克希亚守卫已经刷新",
+
+		bar_tankDot = "%s(投掷利刃)",
+		msg_tankDot = "%s 受到 减疗效果",
+		warn_tankDotYou = "加大治疗量",
+	}
+end)
+
+
 
 -- timer, icon, and color variables (calibrated from Chronicle combat logs)
 local timer = {
@@ -208,7 +284,7 @@ function module:OnEnable()
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "AfflictionEvent")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "AfflictionEvent")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE", "AfflictionEvent")
-
+	
 	self:RegisterEvent("CHAT_MSG_SPELL_AURA_GONE_SELF", "AuraGoneEvent")
 	self:RegisterEvent("CHAT_MSG_SPELL_AURA_GONE_PARTY", "AuraGoneEvent")
 	self:RegisterEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER", "AuraGoneEvent")
@@ -416,7 +492,7 @@ function module:ChainsCast()
 	if self.db.profile.chains then
 		self:RemoveBar(L["bar_chainsCd"])
 		self:Bar(L["bar_chainsCast"], timer.chainsCast, icon.chainsCast, true, color.chainsCast)
-		self:Message(L["msg_chainsCast"], "Urgent", false, nil, false)
+		-- self:Message(L["msg_chainsCast"], "Urgent", false, nil, false)
 
 		-- Start recurring 14.5s cooldown for next Chains (measured start-to-start in logs)
 		self:Bar(L["bar_chainsCd"], timer.chainsCd, icon.chainsCd, true, color.chainsCd)
@@ -441,10 +517,10 @@ function module:ChainsHit(player)
 	if not activeChainsTargets[player] then
 		-- Assign Skull (8) to first player, Cross (7) to second player
 		local mark = 8
-		local markName = "Skull"
+		local markName = "骷髅"
 		if activeChainsMarks[8] then
 			mark = 7
-			markName = "Cross"
+			markName = "叉子"
 		end
 
 		activeChainsTargets[player] = mark
@@ -467,7 +543,7 @@ function module:ChainsHit(player)
 	-- Personal Alert: Screen warning sign + alarm sound + /say bubble
 	if player == UnitName("player") then
 		if self.db.profile.chainsyou then
-			self:Message(L["msg_chainsYou"], "Personal", true, "Alarm")
+			-- self:Message(L["msg_chainsYou"], "Personal", true, "Alarm")
 			self:WarningSign(icon.chains, 5, true, L["warn_chainsYou"])
 			self:Sound("Alarm")
 		end
@@ -562,7 +638,7 @@ end
 function module:MeltedChains()
 	if not self.db.profile.wipewarning then return end
 
-	self:Message(L["msg_meltedChains"], "Important", false, nil, false)
+	-- self:Message(L["msg_meltedChains"], "Important", false, nil, false)
 	self:WarningSign(icon.meltedChains, 4, true, L["warn_meltedChains"])
 	self:Sound("Beware")
 end
@@ -688,7 +764,7 @@ function module:Test()
 		self:ScheduleEvent("AxelusTest" .. i, event.func, event.time)
 	end
 
-	self:Message(module.translatedName .. " simulation test started (35s sequence)", "Positive")
+	self:Message(module.translatedName .. " 模拟测试开始", "Positive")
 	return true
 end
 -- /run BigWigs:GetModule("Axelus"):Test()

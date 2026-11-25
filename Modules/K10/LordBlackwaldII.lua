@@ -61,11 +61,11 @@ L:RegisterTranslations("zhCN", function() return {
     trigger_boonYou = "你受到了布莱克沃尔德的恩赐效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_boonOther = "(.+)受到了布莱克沃尔德的恩赐效果的影响",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
     trigger_boonFade = "布莱克沃尔德的恩赐效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_boon = "(布莱克沃尔德的恩赐)",
+    bar_boon = "(四维降低)",
 
     trigger_empoweredSoulYou = "你受到了赋予灵魂力量效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
     trigger_empoweredSoulOther = "(.+)受到了赋予灵魂力量效果的影响",--CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-    bar_empoweredSoul = "(赋予灵魂力量)",
+    bar_empoweredSoul = "(攻速提高)",
 
     trigger_yellSummon = "I call upon the Scythe of Elune, grant me your power!",--CHAT_MSG_MONSTER_YELL
     bar_summon = "召唤狼人",

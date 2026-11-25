@@ -64,7 +64,7 @@ L:RegisterTranslations("zhCN", function() return {
 	trigger_leechingBiteYou = "你受到了水蛭叮咬效果的影响",--CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
 	trigger_leechingBiteOther = "(.+)受到了水蛭叮咬效果的影响",--CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE // CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE
 	trigger_leechingBiteFade = "水蛭叮咬效果从(.+)身上消失",--CHAT_MSG_SPELL_AURA_GONE_OTHER // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_SELF
-	bar_leechingBite = "(水蛭叮咬)",
+	bar_leechingBite = "(减疗25%)",
 
 	trigger_eggSpawn = "My minions shall consume you!",--CHAT_MSG_MONSTER_YELL
 	bar_eggHatch = "蛛卵孵化",
@@ -182,6 +182,7 @@ end
 
 function module:LeechingBite(rest)
 	self:Bar(rest..L["bar_leechingBite"], timer.leechingBite, icon.leechingBite, true, color.leechingBite)
+	self:SetCandyBarOnClick("BigWigsBar "..rest..L["bar_leechingBite"], function(name, button, extra) TargetByName(extra, true) end, rest)
 end
 
 function module:LeechingBiteFade(rest)

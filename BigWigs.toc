@@ -78,149 +78,149 @@ Plugins\Pulltimer.lua
 Plugins\CombatAnnouncement.lua
 Plugins\ResistCheck.lua
 
-## Raids\ZG\Arlokk.lua
-## Raids\ZG\Jeklik.lua
-## Raids\ZG\Marli.lua
-## Raids\ZG\Venoxis.lua
-## Raids\ZG\Hakkar.lua
-## Raids\ZG\Mandokir.lua
-## Raids\ZG\Jindo.lua
-## Raids\ZG\Thekal.lua
-## Raids\ZG\Grilek.lua
-## Raids\ZG\Renataki.lua
-## Raids\ZG\Hazzarah.lua
-## Raids\ZG\Wushoolay.lua
-## Raids\ZG\Gahzranka.lua
-## Raids\ZG\GurubashiBerserker.lua
-## Raids\ZG\GurubashiBatRider.lua
-## Raids\ZG\MadServant.lua
+## Modules\ZG\Arlokk.lua
+## Modules\ZG\Jeklik.lua
+## Modules\ZG\Marli.lua
+## Modules\ZG\Venoxis.lua
+## Modules\ZG\Hakkar.lua
+## Modules\ZG\Mandokir.lua
+## Modules\ZG\Jindo.lua
+## Modules\ZG\Thekal.lua
+## Modules\ZG\Grilek.lua
+## Modules\ZG\Renataki.lua
+## Modules\ZG\Hazzarah.lua
+## Modules\ZG\Wushoolay.lua
+## Modules\ZG\Gahzranka.lua
+## Modules\ZG\GurubashiBerserker.lua
+## Modules\ZG\GurubashiBatRider.lua
+## Modules\ZG\MadServant.lua
 
-## Raids\AQ20\Ayamiss.lua
-## Raids\AQ20\Buru.lua
-## Raids\AQ20\GeneralRajaxx.lua
-## Raids\AQ20\Guardians.lua
-## Raids\AQ20\Ossirian.lua
-## Raids\AQ20\Moam.lua
-## Raids\AQ20\Kurinaxx.lua
-## Raids\AQ20\FleshHunter.lua
-## Raids\AQ20\HiveZaraSoldier.lua
+## Modules\AQ20\Ayamiss.lua
+## Modules\AQ20\Buru.lua
+## Modules\AQ20\GeneralRajaxx.lua
+## Modules\AQ20\Guardians.lua
+## Modules\AQ20\Ossirian.lua
+## Modules\AQ20\Moam.lua
+## Modules\AQ20\Kurinaxx.lua
+## Modules\AQ20\FleshHunter.lua
+## Modules\AQ20\HiveZaraSoldier.lua
 
-## Raids\AQ40\Skeram.lua
-## Raids\AQ40\BugFamily.lua
-## Raids\AQ40\Sartura.lua
-## Raids\AQ40\Fankriss.lua
-## Raids\AQ40\Huhuran.lua
-## Raids\AQ40\Ouro.lua
-## Raids\AQ40\Defenders.lua
-## Raids\AQ40\Twins.lua
-## Raids\AQ40\Cthun.lua
-## Raids\AQ40\Viscidus.lua
-## Raids\AQ40\Warder.lua
-## Raids\AQ40\Champion.lua
-## Raids\AQ40\Mindslayer.lua
-## Raids\AQ40\Sentinels.lua
-## Raids\AQ40\Brainwasher.lua
+## Modules\AQ40\Skeram.lua
+## Modules\AQ40\BugFamily.lua
+## Modules\AQ40\Sartura.lua
+## Modules\AQ40\Fankriss.lua
+## Modules\AQ40\Huhuran.lua
+## Modules\AQ40\Ouro.lua
+## Modules\AQ40\Defenders.lua
+## Modules\AQ40\Twins.lua
+## Modules\AQ40\Cthun.lua
+## Modules\AQ40\Viscidus.lua
+## Modules\AQ40\Warder.lua
+## Modules\AQ40\Champion.lua
+## Modules\AQ40\Mindslayer.lua
+## Modules\AQ40\Sentinels.lua
+## Modules\AQ40\Brainwasher.lua
 
-## Raids\BWL\Chromaggus.lua
-## Raids\BWL\Ebonroc.lua
-## Raids\BWL\Ezzel.lua
-## Raids\BWL\Firemaw.lua
-## Raids\BWL\Flamegor.lua
-## Raids\BWL\Nefarian.lua
-## Raids\BWL\Vaelastrasz.lua
-## Raids\BWL\Broodlord.lua
-## Raids\BWL\Razorgore.lua
-## Raids\BWL\Wyrmguards.lua
-## Raids\BWL\Alchemists.lua
+## Modules\BWL\Chromaggus.lua
+## Modules\BWL\Ebonroc.lua
+## Modules\BWL\Ezzel.lua
+## Modules\BWL\Firemaw.lua
+## Modules\BWL\Flamegor.lua
+## Modules\BWL\Nefarian.lua
+## Modules\BWL\Vaelastrasz.lua
+## Modules\BWL\Broodlord.lua
+## Modules\BWL\Razorgore.lua
+## Modules\BWL\Wyrmguards.lua
+## Modules\BWL\Alchemists.lua
 
-## Raids\MC\Lucifron.lua
-## Raids\MC\BaronGeddon.lua
-## Raids\MC\Magmadar.lua
-## Raids\MC\Majordomo.lua
-## Raids\MC\Ragnaros.lua
-## Raids\MC\Shazzrah.lua
-## Raids\MC\Garr.lua
-## Raids\MC\Sulfuron.lua
-## Raids\MC\Golemagg.lua
-## Raids\MC\Incindis.lua
-## Raids\MC\Thaurissan.lua
-## Raids\MC\TwinGolems.lua
-## Raids\MC\AncientCoreHound.lua
-## Raids\MC\FlameImp.lua
-## Raids\MC\Surger.lua
-## Raids\MC\CoreHound.lua
+## Modules\MC\Lucifron.lua
+## Modules\MC\BaronGeddon.lua
+## Modules\MC\Magmadar.lua
+## Modules\MC\Majordomo.lua
+## Modules\MC\Ragnaros.lua
+## Modules\MC\Shazzrah.lua
+## Modules\MC\Garr.lua
+## Modules\MC\Sulfuron.lua
+## Modules\MC\Golemagg.lua
+## Modules\MC\Incindis.lua
+## Modules\MC\Thaurissan.lua
+## Modules\MC\TwinGolems.lua
+## Modules\MC\AncientCoreHound.lua
+## Modules\MC\FlameImp.lua
+## Modules\MC\Surger.lua
+## Modules\MC\CoreHound.lua
 
-## Raids\Other\Azuregos.lua
-## Raids\Other\Emeriss.lua
-## Raids\Other\Lethon.lua
-## Raids\Other\Taerar.lua
-## Raids\Other\Ysondre.lua
-## Raids\Other\Kazzak.lua
-## Raids\Other\DarkReaverOfKarazhan.lua
-## Raids\Other\NerubianOverseer.lua
-## Raids\Other\TwilightCorrupter.lua
-## Raids\Other\Ostarius.lua
-## Raids\Other\DrWeavil.lua
-## Raids\Other\Atiesh.lua
-## Raids\Other\Concavius.lua
+## Modules\WorldBoss\Azuregos.lua
+## Modules\WorldBoss\Emeriss.lua
+## Modules\WorldBoss\Lethon.lua
+## Modules\WorldBoss\Taerar.lua
+## Modules\WorldBoss\Ysondre.lua
+Modules\WorldBoss\Kazzak.lua
+Modules\WorldBoss\DarkReaverOfKarazhan.lua
+## Modules\WorldBoss\NerubianOverseer.lua
+## Modules\WorldBoss\TwilightCorrupter.lua
+## Modules\WorldBoss\Ostarius.lua
+## Modules\WorldBoss\DrWeavil.lua
+## Modules\WorldBoss\Atiesh.lua
+## Modules\WorldBoss\Concavius.lua
 
-Raids\Onyxia\Onyxia.lua
-Raids\Onyxia\Axelus.lua
+Modules\ONY\Onyxia.lua
+Modules\ONY\Axelus.lua
 
-## Raids\Naxxramas\Gargoyle.lua
-## Raids\Naxxramas\Anubrekhan.lua
-## Raids\Naxxramas\Gluth.lua
-## Raids\Naxxramas\Razuvious.lua
-## Raids\Naxxramas\Noth.lua
-## Raids\Naxxramas\Faerlina.lua
-## Raids\Naxxramas\Maexxna.lua
-## Raids\Naxxramas\Patchwerk.lua
-## Raids\Naxxramas\Grobbulus.lua
-## Raids\Naxxramas\Thaddius.lua
-## Raids\Naxxramas\Heigan.lua
-## Raids\Naxxramas\Gothik.lua
-## Raids\Naxxramas\Loatheb.lua
-## Raids\Naxxramas\Horsemen.lua
-## Raids\Naxxramas\Sapphiron.lua
-## Raids\Naxxramas\Kelthuzad.lua
-## Raids\Naxxramas\DeathknightCaptain.lua
-## Raids\Naxxramas\LivingMonstrosity.lua
-## Raids\Naxxramas\SpiderTrash.lua
-## Raids\Naxxramas\ConstructTrash.lua
-## Raids\Naxxramas\DeathknightCavalier.lua
+## Modules\Naxxramas\Gargoyle.lua
+## Modules\Naxxramas\Anubrekhan.lua
+## Modules\Naxxramas\Gluth.lua
+## Modules\Naxxramas\Razuvious.lua
+## Modules\Naxxramas\Noth.lua
+## Modules\Naxxramas\Faerlina.lua
+## Modules\Naxxramas\Maexxna.lua
+## Modules\Naxxramas\Patchwerk.lua
+## Modules\Naxxramas\Grobbulus.lua
+## Modules\Naxxramas\Thaddius.lua
+## Modules\Naxxramas\Heigan.lua
+## Modules\Naxxramas\Gothik.lua
+## Modules\Naxxramas\Loatheb.lua
+## Modules\Naxxramas\Horsemen.lua
+## Modules\Naxxramas\Sapphiron.lua
+## Modules\Naxxramas\Kelthuzad.lua
+## Modules\Naxxramas\DeathknightCaptain.lua
+## Modules\Naxxramas\LivingMonstrosity.lua
+## Modules\Naxxramas\SpiderTrash.lua
+## Modules\Naxxramas\ConstructTrash.lua
+## Modules\Naxxramas\DeathknightCavalier.lua
 
-## Raids\EmeraldSanctum\Erennius.lua
-## Raids\EmeraldSanctum\Solnius.lua
-## Raids\EmeraldSanctum\SanctumDragonkin.lua
-## Raids\EmeraldSanctum\SanctumDreamer.lua
-## Raids\EmeraldSanctum\SanctumSupressor.lua
-## Raids\EmeraldSanctum\SanctumWyrmkin.lua
-## Raids\EmeraldSanctum\SanctumWyrm.lua
+## Modules\EmeraldSanctum\Erennius.lua
+## Modules\EmeraldSanctum\Solnius.lua
+## Modules\EmeraldSanctum\SanctumDragonkin.lua
+## Modules\EmeraldSanctum\SanctumDreamer.lua
+## Modules\EmeraldSanctum\SanctumSupressor.lua
+## Modules\EmeraldSanctum\SanctumWyrmkin.lua
+## Modules\EmeraldSanctum\SanctumWyrm.lua
 
-## Raids\TMH\Karrsh.lua
-## Raids\TMH\Kronn.lua
-## Raids\TMH\Loktanag.lua
-## Raids\TMH\Partath.lua
-## Raids\TMH\Ormanos.lua
-## Raids\TMH\Rotgrowl.lua
-## Raids\TMH\Ursol.lua
-## Raids\TMH\Perotharn.lua
-## Raids\TMH\Selenaxx.lua
-## Raids\TMH\TimbermawTrash.lua
+## Modules\TMH\Karrsh.lua
+## Modules\TMH\Kronn.lua
+## Modules\TMH\Loktanag.lua
+## Modules\TMH\Partath.lua
+## Modules\TMH\Ormanos.lua
+## Modules\TMH\Rotgrowl.lua
+## Modules\TMH\Ursol.lua
+## Modules\TMH\Perotharn.lua
+## Modules\TMH\Selenaxx.lua
+## Modules\TMH\TimbermawTrash.lua
 
-Raids\K10\LordBlackwaldII.lua
-Raids\K10\BroodQueenAraxxna.lua
-Raids\K10\Grizikil.lua
-Raids\K10\ClawlordHowlfang.lua
-Raids\K10\Moroes.lua
+Modules\K10\LordBlackwaldII.lua
+Modules\K10\BroodQueenAraxxna.lua
+Modules\K10\Grizikil.lua
+Modules\K10\ClawlordHowlfang.lua
+Modules\K10\Moroes.lua
 
-## Raids\KarazhanUpper\KeeperGnarlmoon.lua
-## Raids\KarazhanUpper\Incantagos.lua
-## Raids\KarazhanUpper\Anomalus.lua
-## Raids\KarazhanUpper\EchoOfMedivh.lua
-## Raids\KarazhanUpper\ChessFight.lua
-## Raids\KarazhanUpper\SanvTasdal.lua
-## Raids\KarazhanUpper\Rupturan.lua
-## Raids\KarazhanUpper\Kruul.lua
-## Raids\KarazhanUpper\Mephistroth.lua
-## Raids\KarazhanUpper\KaraTrash.lua
+## Modules\KarazhanUpper\KeeperGnarlmoon.lua
+## Modules\KarazhanUpper\Incantagos.lua
+## Modules\KarazhanUpper\Anomalus.lua
+## Modules\KarazhanUpper\EchoOfMedivh.lua
+## Modules\KarazhanUpper\ChessFight.lua
+## Modules\KarazhanUpper\SanvTasdal.lua
+## Modules\KarazhanUpper\Rupturan.lua
+## Modules\KarazhanUpper\Kruul.lua
+## Modules\KarazhanUpper\Mephistroth.lua
+## Modules\KarazhanUpper\KaraTrash.lua

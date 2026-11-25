@@ -1,5 +1,5 @@
-
 local module, L = BigWigs:ModuleDeclaration("Lord Kazzak", "Blasted Lands")
+local _, class = class
 
 module.revision = 30067
 module.enabletrigger = module.translatedName 
@@ -70,78 +70,77 @@ L:RegisterTranslations("enUS", function() return {
 	trigger_deadYou = "You die.", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
 	trigger_deadOther = "(.+) dies.", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
 	msg_corruptSoul = " Healed Lord Kazzak by dying!",
+
+    you = "you",
 } end )
-
-
 L:RegisterTranslations("zhCN", function() return {
-	-- Wind汉化修复Turtle-WOW中文数据
-	-- Last update: 2024-06-22
-	cmd = "Kazzak",
+	cmd = "卡扎克",
 
-    berserk_cmd = "berserk",
-    berserk_name = "狂暴警报",
-    berserk_desc = "狂暴出现时进行警告。",
+    berserk_cmd = "狂暴",
+    berserk_name = "狂暴",
+    berserk_desc = "进入战斗后3分钟,卡扎克会进入狂暴状态.",
 
-    markofkazzak_cmd = "markofkazzak",
-    markofkazzak_name = "卡扎克印记警报",
-    markofkazzak_desc = "卡扎克印记（法力吸取减益）出现时进行警告。",
+    markofkazzak_cmd = "卡扎克的印记",
+    markofkazzak_name = "卡扎克的印记",
+    markofkazzak_desc = "每1秒吸取250点法力值.无法吸取法力值时会爆炸对15码范围内造成4000点暗影伤害.",
 
-    puticon_cmd = "puticon",
-    puticon_name = "标记卡扎克印记目标的团队图标",
-    puticon_desc = "在获得卡扎克印记的人身上放置团队图标。\n\n（需要助理或更高权限）",
+    puticon_cmd = "自动标记",
+    puticon_name = "自动标记",
+    puticon_desc = "对受到卡扎克的印记的单位自动放置团队标记",
 
-    twistedreflection_cmd = "twistedreflection",
-    twistedreflection_name = "扭曲反射警报",
-    twistedreflection_desc = "扭曲反射（每次击中治疗卡扎克25k生命值）出现时进行警告。",
+    twistedreflection_cmd = "扭曲反射",
+    twistedreflection_name = "扭曲反射",
+    twistedreflection_desc = "受到伤害时,为攻击者恢复25000点生命值.",
 
-    voidbolt_cmd = "voidbolt",
-    voidbolt_name = "虚空箭警报",
-    voidbolt_desc = "虚空箭出现时进行警告。",
+    voidbolt_cmd = "暗影箭雨",
+    voidbolt_name = "暗影箭雨",
+    voidbolt_desc = "向附近的敌人射出多支暗影箭,对它们造成637暗影伤害.",
 
     corruptsoul_cmd = "corruptsoul",
-    corruptsoul_name = "腐蚀灵魂警报",
-    corruptsoul_desc = "当卡扎克因随机死亡而得到治疗时进行警告。",
+    corruptsoul_name = "捕捉灵魂",
+    corruptsoul_desc = "附近有敌人死亡时,恢复70000点生命值.",
 
     lowmana_cmd = "lowmana",
     lowmana_name = "低法力警报",
     lowmana_desc = "当你的法力值过低时进行警告。",
 	
-	
+	--YELL触发,不要汉化
 	trigger_engage1 = "All mortals will perish!", --CHAT_MSG_MONSTER_YELL
 	trigger_engage2 = "The Legion will conquer all!", --CHAT_MSG_MONSTER_YELL
 	trigger_bossDead = "The Legion... will never... fall.", --CHAT_MSG_MONSTER_YELL
 	
-	trigger_berserk = "Lord Kazzak gains Berserk.", --CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS to be confirmed
+	trigger_berserk = "卡扎克获得了狂暴的效果。", --CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS
     bar_berserk = "狂暴",
-    msg_berserk60 = "1分钟后狂暴！",
-    msg_berserk10 = "10秒后狂暴！",
-    msg_berserk = "狂暴！",
+    msg_berserk60 = "1分钟后狂暴",
+    msg_berserk10 = "10秒后狂暴",
+    msg_berserk = "卡扎克已狂暴",
 	
-	trigger_markOfKazzakYou = "You are afflicted by Mark of Kazzak.", --CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-	trigger_markOfKazzakOther = "(.+) is afflicted by Mark of Kazzak.", --CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-	trigger_markOfKazzakFade = "Mark of Kazzak fades from (.+).", --CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_markOfKazzakCd = "卡扎克印记 CD",
-    bar_markOfKazzakDur = " 卡扎克印记",
-    msg_markOfKazzak = " 被卡扎克印记 - 驱散！",
-    msg_markOfKazzakYou = "你中了卡扎克印记 - 法力不能耗尽！",
-    msg_lowMana = "警告 - 你的法力很低 - 卡扎克印记可能致命！",
+	trigger_markOfKazzakYou = "你受到了卡扎克的印记效果的影响。", --CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+	trigger_markOfKazzakOther = "(.+)受到了卡扎克的印记效果的影响。", --CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
+	trigger_markOfKazzakFade = "卡扎克的印记效果从(.+)身上消失了。", --CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
+    bar_markOfKazzakCd = "卡扎克印记冷却",
+    bar_markOfKazzakDur = "卡扎克印记",
+    msg_markOfKazzak = " 受到 卡扎克的印记",
+    msg_markOfKazzakYou = "你受到卡扎克的印记,保持蓝量.",
+    msg_lowMana = "警告-法力过低",
 	
-	trigger_twistedReflectionYou = "You are afflicted by Twisted Reflection.", --CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
-	trigger_twistedReflectionOther = "(.+) is afflicted by Twisted Reflection.", --CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
-	trigger_twistedReflectionFade = "Twisted Reflection fades from (.+).", --CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
-    bar_twistedReflectionCd = "扭曲反射 CD",
-    bar_twistedReflectionDur = " 扭曲反射",
-    msg_twistedReflection = " 被扭曲反射 - 驱散！",
+	trigger_twistedReflectionYou = "你受到了扭曲反射效果的影响。", --CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
+	trigger_twistedReflectionFade = "卡扎克的印记效果从(.+)身上消失了。", --CHAT_MSG_SPELL_AURA_GONE_SELF // CHAT_MSG_SPELL_AURA_GONE_PARTY // CHAT_MSG_SPELL_AURA_GONE_OTHER
+	trigger_twistedReflectionOther = "(.+)受到了扭曲反射效果的影响。", --CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE // CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE
+    bar_twistedReflectionCd = "扭曲反射冷却",
+    bar_twistedReflectionDur = "扭曲反射",
+    msg_twistedReflection = " 受到 扭曲反射",
 	
-	trigger_voidBolt = "Lord Kazzak begins to cast Void Bolt.", --CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE
-    bar_voidBoltCd = "虚空箭 CD",
-    bar_voidBoltCast = "虚空箭！",
+	trigger_voidBolt = "卡扎克开始施放暗影箭雨。", --CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE
+    bar_voidBoltCd = "虚空箭冷却",
+    bar_voidBoltCast = "虚空箭",
 		
-	trigger_deadYou = "You die.", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
-	trigger_deadOther = "(.+) dies.", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
-    msg_corruptSoul = " 死亡治疗了魔王卡扎克！",
-    you = "you",
+	trigger_deadYou = "你死亡了。", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
+	trigger_deadOther = "(.+)死亡了。", --CHAT_MSG_COMBAT_FRIENDLY_DEATH
+    msg_corruptSoul = "的死亡治疗了卡扎克",
+    you = "你",
 } end )
+
 local timer = {
 	berserk = 180,
 	
@@ -243,7 +242,7 @@ function module:OnEngage()
 		self:Bar(L["bar_voidBoltCd"], timer.voidBoltCd, icon.voidBolt, true, color.voidBoltCd)
 	end
 	
-	if self.db.profile.lowmana and not (UnitClass("Player") == "Warrior" or UnitClass("Player") == "Rogue") then
+	if self.db.profile.lowmana and not (class == "WARRIOR" or class == "ROGUE") then
 		self:ScheduleRepeatingEvent("CheckMana", self.CheckMana, 2, self)
 	end
 end
@@ -292,7 +291,7 @@ function module:Event(msg)
 		
 	elseif string.find(msg, L["trigger_markOfKazzakFade"]) then
 		local _,_,markOfKazzakFadePlayer,_ = string.find(msg, L["trigger_markOfKazzakFade"])
-		if markOfKazzakFadePlayer == "you" then markOfKazzakFadePlayer = UnitName("Player") end
+		if markOfKazzakFadePlayer == L["you"] then markOfKazzakFadePlayer = UnitName("Player") end
 		self:Sync(syncName.markOfKazzakFade.." "..markOfKazzakFadePlayer)
 	
 	
@@ -305,7 +304,7 @@ function module:Event(msg)
 		
 	elseif string.find(msg, L["trigger_twistedReflectionFade"]) then
 		local _,_,twistedReflectionFadePlayer,_ = string.find(msg, L["trigger_twistedReflectionFade"])
-		if twistedReflectionFadePlayer == "you" then twistedReflectionFadePlayer = UnitName("Player") end
+		if twistedReflectionFadePlayer == L["you"] then twistedReflectionFadePlayer = UnitName("Player") end
 		self:Sync(syncName.twistedReflectionFade.." "..twistedReflectionFadePlayer)
 		
 		
@@ -352,13 +351,13 @@ function module:MarkOfKazzak(rest)
 	self:Bar(rest..L["bar_markOfKazzakDur"], timer.markOfKazzakDur, icon.markOfKazzak, true, color.markOfKazzakDur)
 	self:Bar(L["bar_markOfKazzakCd"], timer.markOfKazzakCd, icon.markOfKazzak, true, color.markOfKazzakCd)
 	
-	if rest == UnitName("Player") and not (UnitClass("Player") == "Warrior" or UnitClass("Player") == "Rogue") then
+	if rest == UnitName("Player") and not (class == "WARRIOR" or class == "ROGUE") then
 		self:Message(L["msg_markOfKazzakYou"], "Personal", false, nil, false)
 		self:Sound("Beware")
 		self:WarningSign(icon.markOfKazzak, timer.markOfKazzakDur)
 	end
 	
-	if UnitClass("Player") == "Mage" or UnitClass("Player") == "Druid" then
+	if class == "MAGE" or class == "DRUID" then
 		self:Message(rest..L["msg_markOfKazzak"], "Urgent", false, nil, false)
 		self:Sound("Info")
 		self:WarningSign(icon.markOfKazzak, timer.markOfKazzakDur)
@@ -380,7 +379,7 @@ function module:MarkOfKazzakFade(rest)
 		self:RemoveWarningSign(icon.markOfKazzak)
 	end
 	
-	if UnitClass("Player") == "Mage" or UnitClass("Player") == "Druid" then
+	if class == "MAGE" or class == "DRUID" then
 		self:RemoveWarningSign(icon.markOfKazzak)
 	end
 	
@@ -397,7 +396,7 @@ function module:TwistedReflection(rest)
 	self:Bar(rest..L["bar_twistedReflectionDur"], timer.twistedReflectionDur, icon.twistedReflection, true, color.twistedReflectionDur)
 	self:Bar(L["bar_twistedReflectionCd"], timer.twistedReflectionCd, icon.twistedReflection, true, color.twistedReflectionCd)
 	
-	if UnitClass("Player") == "Priest" or UnitClass("Player") == "Paladin" then
+	if class == "PRIEST" or class == "PALADIN" then
 		self:Message(rest..L["msg_twistedReflection"], "Urgent", false, nil, false)
 		self:Sound("Info")
 		self:WarningSign(icon.twistedReflection, timer.twistedReflectionDur)
@@ -415,7 +414,7 @@ end
 function module:TwistedReflectionFade(rest)
 	self:RemoveBar(rest..L["bar_twistedReflectionDur"])
 	
-	if UnitClass("Player") == "Priest" or UnitClass("Player") == "Paladin" then
+	if class == "PRIEST" or class == "PALADIN" then
 		self:RemoveWarningSign(icon.twistedReflection)
 	end
 	
